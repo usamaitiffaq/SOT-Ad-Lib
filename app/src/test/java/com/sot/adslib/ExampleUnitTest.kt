@@ -1,4 +1,4 @@
-package com.manual.mediation.library.sotadlib
+package com.sot.adslib
 
 import org.junit.Test
 

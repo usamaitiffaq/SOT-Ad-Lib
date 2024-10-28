@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'com.pashto.english.sot_ads_library'
+    namespace 'com.sot.adslib'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.pashto.english.sot_ads_library"
+        applicationId "com.sot.adslib"
         minSdk 23
         targetSdk 34
         versionCode 1

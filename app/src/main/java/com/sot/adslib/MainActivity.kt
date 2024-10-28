@@ -1,4 +1,4 @@
-package com.pashto.english.sot_ads_library
+package com.sot.adslib
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
