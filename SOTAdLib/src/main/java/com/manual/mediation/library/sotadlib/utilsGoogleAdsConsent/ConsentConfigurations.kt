@@ -104,6 +104,8 @@ class ConsentConfigurations private constructor(
                     })
                 }
             })
+        } else {
+            initializeMobileAds.invoke()
         }
         slowInternetHandler.removeCallbacksAndMessages(null)
     }
