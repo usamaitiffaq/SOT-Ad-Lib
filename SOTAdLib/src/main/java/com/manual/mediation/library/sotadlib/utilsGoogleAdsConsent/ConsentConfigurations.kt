@@ -73,7 +73,7 @@ class ConsentConfigurations private constructor(
             initializeMobileAds.invoke()
             return
         }
-
+        Log.i("ConsentMessage","initializeMobileAdsSdk(): rem")
         if (NetworkCheck.isNetworkAvailable(activityContext)) {
             activityContext.getSharedPreferences("ConsentMessage", MODE_PRIVATE).edit().putBoolean("FirstTime", true).apply()
             MobileAds.initialize(activityContext)
