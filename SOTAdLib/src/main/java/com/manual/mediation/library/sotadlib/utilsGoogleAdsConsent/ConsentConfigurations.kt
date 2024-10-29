@@ -43,11 +43,11 @@ class ConsentConfigurations private constructor(
                                          },
             errorMakingRequest = {
                 Log.i("ConsentMessage","ConsentConfigurations: ")
-                if (!activityContext.getSharedPreferences("ConsentMessage", MODE_PRIVATE).getBoolean("FirstTime", false)) {
+//                if (!activityContext.getSharedPreferences("ConsentMessage", MODE_PRIVATE).getBoolean("FirstTime", false)) {
                     initializeMobileAdsSdk(initializeMobileAds = {
                         onConsentGathered.invoke()
                     })
-                }
+//                }
             },
             onConsentGatheringCompleteListener = { error ->
                 if (googleMobileAdsConsentManager.canRequestAds) {
@@ -56,12 +56,12 @@ class ConsentConfigurations private constructor(
                     })
                 } else {
                     if (error != null) {
-                        Log.i("ConsentMessage","ConsentConfigurations: "+error.message)
-                        if (!activityContext.getSharedPreferences("ConsentMessage", MODE_PRIVATE).getBoolean("FirstTime", false)) {
+                        Log.i("ConsentMessage","ConsentConfigurations: error:: "+error.message)
+//                        if (!activityContext.getSharedPreferences("ConsentMessage", MODE_PRIVATE).getBoolean("FirstTime", false)) {
                             initializeMobileAdsSdk(initializeMobileAds = {
                                 onConsentGathered.invoke()
                             })
-                        }
+//                        }
                     }
                 }
             })
