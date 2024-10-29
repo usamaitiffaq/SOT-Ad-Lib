@@ -69,6 +69,8 @@ class ConsentConfigurations private constructor(
 
     private fun initializeMobileAdsSdk(initializeMobileAds: () -> Unit) {
         if (isMobileAdsInitializeCalled.getAndSet(true)) {
+            Log.i("ConsentMessage","initializeMobileAdsSdk()")
+            initializeMobileAds.invoke()
             return
         }
 
