@@ -1,6 +1,7 @@
 package com.manual.mediation.library.sotadlib.activities
 
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.View
 import androidx.appcompat.widget.AppCompatImageView
@@ -91,8 +92,10 @@ class LanguageScreenDup: AppCompatBaseActivity() {
             populateView = true,
             nativeAdLayout = findViewById(R.id.nativeAdContainerAd),
             onAdFailed = {
-                findViewById<CardView>(R.id.nativeAdContainerAd).visibility = View.GONE
-                Log.i("SOT_ADS_TAG","LanguageScreenDup: Meta: onAdFailed()")
+                Handler().postDelayed({
+                    findViewById<CardView>(R.id.nativeAdContainerAd).visibility = View.GONE
+                    Log.i("SOT_ADS_TAG","LanguageScreenDup: Meta: onAdFailed()")
+                },300)
             },
             onAdLoaded = {
                 Log.i("SOT_ADS_TAG","LanguageScreenDup: Meta: onAdLoaded()")
@@ -110,8 +113,10 @@ class LanguageScreenDup: AppCompatBaseActivity() {
             populateView = true,
             adContainer = findViewById(R.id.nativeAdContainerAd),
             onAdFailed = {
-                findViewById<CardView>(R.id.nativeAdContainerAd).visibility = View.GONE
-                Log.i("SOT_ADS_TAG","LanguageScreenDup: Admob onAdFailed()")
+                Handler().postDelayed({
+                    findViewById<CardView>(R.id.nativeAdContainerAd).visibility = View.GONE
+                    Log.i("SOT_ADS_TAG","LanguageScreenDup: Admob onAdFailed()")
+                },300)
             },
             onAdLoaded = {
                 Log.i("SOT_ADS_TAG","LanguageScreenDup: Admob onAdLoaded()")

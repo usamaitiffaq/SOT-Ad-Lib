@@ -3,6 +3,7 @@ package com.manual.mediation.library.sotadlib.activities
 import android.app.ActivityOptions
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.View
 import androidx.cardview.widget.CardView
@@ -118,8 +119,10 @@ class LanguageScreenOne : AppCompatBaseActivity(), LanguageInterface {
             populateView = true,
             nativeAdLayout = findViewById(R.id.nativeAdContainerAd),
             onAdFailed = {
-                findViewById<CardView>(R.id.nativeAdContainerAd).visibility = View.GONE
-                Log.i("LanguageScreenOne", "Language: onAdFailed()")
+                Handler().postDelayed({
+                    findViewById<CardView>(R.id.nativeAdContainerAd).visibility = View.GONE
+                    Log.i("LanguageScreenOne", "Language: onAdFailed()")
+                },300)
             },
             onAdLoaded = {
                 Log.i("LanguageScreenOne", "Language: onAdLoaded()")
@@ -137,8 +140,10 @@ class LanguageScreenOne : AppCompatBaseActivity(), LanguageInterface {
             populateView = true,
             adContainer = findViewById(R.id.nativeAdContainerAd),
             onAdFailed = {
-                findViewById<CardView>(R.id.nativeAdContainerAd).visibility = View.GONE
-                Log.i("LanguageScreenOne", "Language: onAdFailed()")
+                Handler().postDelayed({
+                    findViewById<CardView>(R.id.nativeAdContainerAd).visibility = View.GONE
+                    Log.i("LanguageScreenOne", "Language: onAdFailed()")
+                },300)
             },
             onAdLoaded = {
                 Log.i("LanguageScreenOne", "Language: onAdLoaded()")

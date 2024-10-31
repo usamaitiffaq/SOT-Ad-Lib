@@ -1,6 +1,7 @@
 package com.manual.mediation.library.sotadlib.activities
 
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -129,8 +130,10 @@ class WTOneFragment(val item: WalkThroughItem) : Fragment() {
             populateView = true,
             nativeAdLayout = binding.nativeAdContainerAd,
             onAdFailed = {
-                binding.nativeAdContainerAd.visibility = View.GONE
-                Log.i("SOT_ADS_TAG", "WALKTHROUGH_1: Meta: onAdFailed()")
+                Handler().postDelayed({
+                    binding.nativeAdContainerAd.visibility = View.GONE
+                    Log.i("SOT_ADS_TAG", "WALKTHROUGH_1: Meta: onAdFailed()")
+                },300)
             },
             onAdLoaded = {
                 binding.nativeAdContainerAd.visibility = View.VISIBLE
@@ -149,8 +152,10 @@ class WTOneFragment(val item: WalkThroughItem) : Fragment() {
             populateView = true,
             adContainer = binding.nativeAdContainerAd,
             onAdFailed = {
-                binding.nativeAdContainerAd.visibility = View.GONE
-                Log.i("SOT_ADS_TAG", "WALKTHROUGH_1: Admob: onAdFailed()")
+                Handler().postDelayed({
+                    binding.nativeAdContainerAd.visibility = View.GONE
+                    Log.i("SOT_ADS_TAG", "WALKTHROUGH_1: Admob: onAdFailed()")
+                },300)
             },
             onAdLoaded = {
                 binding.nativeAdContainerAd.visibility = View.VISIBLE
