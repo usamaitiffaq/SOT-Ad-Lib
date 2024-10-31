@@ -39,6 +39,12 @@ object AdmobNativeAdManager {
         onAdLoaded: (() -> Unit)? = null
     ) {
 
+        if (!NetworkCheck.isNetworkAvailable(mContext)) {
+            Log.e("SOT_ADS_TAG", "Network is not available, unable to load ad.")
+            onAdFailed?.invoke()
+            return
+        }
+
         if (adLoadingState[adName] == true && nativeAdCache[adName] != null) {
             Log.i("SOT_ADS_TAG", "Admob: Native : $adName : showCachedAd()")
             showCachedAd(adName, isMedia, adContainer, isMediumAd)

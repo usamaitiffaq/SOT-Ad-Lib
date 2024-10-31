@@ -86,10 +86,6 @@ class WTOneFragment(val item: WalkThroughItem) : Fragment() {
         }
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onResume() {
         super.onResume()
         if (NetworkCheck.isNetworkAvailable(context)) {
