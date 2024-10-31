@@ -15,6 +15,7 @@ import com.manual.mediation.library.sotadlib.callingClasses.LanguageScreensConfi
 import com.manual.mediation.library.sotadlib.callingClasses.SOTAdsConfigurations
 import com.manual.mediation.library.sotadlib.callingClasses.SOTAdsManager
 import com.manual.mediation.library.sotadlib.metaAdClasses.MetaNativeAdManager
+import com.manual.mediation.library.sotadlib.utils.NetworkCheck
 import com.manual.mediation.library.sotadlib.utils.hideSystemUI
 
 class LanguageScreenDup: AppCompatBaseActivity() {
@@ -70,13 +71,17 @@ class LanguageScreenDup: AppCompatBaseActivity() {
 
     override fun onResume() {
         super.onResume()
-        if (sotAdsConfigurations?.getRemoteConfigData()?.getValue("NATIVE_LANGUAGE_2") == true) {
-            when {
-                sotAdsConfigurations?.getRemoteConfigData()?.getValue("NATIVE_LANGUAGE_2_MED") == "ADMOB" -> {
-                    showAdmobLanguageScreenOneNatives()
-                }
-                sotAdsConfigurations?.getRemoteConfigData()?.getValue("NATIVE_LANGUAGE_2_MED") == "META" -> {
-                    showMetaLanguageScreenOneNatives()
+        if (NetworkCheck.isNetworkAvailable(this)) {
+            if (sotAdsConfigurations?.getRemoteConfigData()?.getValue("NATIVE_LANGUAGE_2") == true) {
+                when {
+                    sotAdsConfigurations?.getRemoteConfigData()?.getValue("NATIVE_LANGUAGE_2_MED") == "ADMOB" -> {
+                        findViewById<CardView>(R.id.nativeAdContainerAd).visibility = View.VISIBLE
+                        showAdmobLanguageScreenOneNatives()
+                    }
+                    sotAdsConfigurations?.getRemoteConfigData()?.getValue("NATIVE_LANGUAGE_2_MED") == "META" -> {
+                        findViewById<CardView>(R.id.nativeAdContainerAd).visibility = View.VISIBLE
+                        showMetaLanguageScreenOneNatives()
+                    }
                 }
             }
         }
