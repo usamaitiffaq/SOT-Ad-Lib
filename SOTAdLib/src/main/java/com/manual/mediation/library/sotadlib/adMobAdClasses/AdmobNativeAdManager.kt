@@ -40,9 +40,18 @@ object AdmobNativeAdManager {
     ) {
 
         if (!NetworkCheck.isNetworkAvailable(mContext)) {
+            if (mContext != null) {
+                adContainer?.visibility = View.GONE
+                Log.e("SOT_ADS_TAG", "View is gone")
+            }
             Log.e("SOT_ADS_TAG", "Network is not available, unable to load ad.")
             onAdFailed?.invoke()
             return
+        } else {
+            if (mContext != null) {
+                adContainer?.visibility = View.VISIBLE
+                Log.e("SOT_ADS_TAG", "View is VISIBLE")
+            }
         }
 
         if (adLoadingState[adName] == true && nativeAdCache[adName] != null) {
