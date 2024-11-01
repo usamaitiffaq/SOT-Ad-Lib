@@ -98,8 +98,7 @@ class LanguageScreenOne : AppCompatBaseActivity(), LanguageInterface {
 
     override fun onResume() {
         super.onResume()
-        if (NetworkCheck.isNetworkAvailable(this)) {
-            if (sotAdsConfigurations?.getRemoteConfigData()?.getValue("NATIVE_LANGUAGE_1") == true) {
+//            if (sotAdsConfigurations?.getRemoteConfigData()?.getValue("NATIVE_LANGUAGE_1") == true) {
                 when {
                     sotAdsConfigurations?.getRemoteConfigData()?.getValue("NATIVE_LANGUAGE_1_MED") == "ADMOB" -> {
                         findViewById<CardView>(R.id.nativeAdContainerAd).visibility = View.VISIBLE
@@ -110,8 +109,7 @@ class LanguageScreenOne : AppCompatBaseActivity(), LanguageInterface {
                         showMetaLanguageScreenOneNatives()
                     }
                 }
-            }
-        }
+//            }
     }
 
     private fun showMetaLanguageScreenOneNatives() {
@@ -121,13 +119,12 @@ class LanguageScreenOne : AppCompatBaseActivity(), LanguageInterface {
             adName = "NATIVE_LANGUAGE_1",
             isMedia = true,
             isMediumAd = true,
+            remoteConfig = sotAdsConfigurations?.getRemoteConfigData()?.getValue("NATIVE_LANGUAGE_1").toString().toBoolean(),
             populateView = true,
             nativeAdLayout = findViewById(R.id.nativeAdContainerAd),
             onAdFailed = {
-                Handler().postDelayed({
-                    findViewById<CardView>(R.id.nativeAdContainerAd).visibility = View.GONE
-                    Log.i("LanguageScreenOne", "Language: onAdFailed()")
-                },300)
+                findViewById<CardView>(R.id.nativeAdContainerAd).visibility = View.GONE
+                Log.i("LanguageScreenOne", "Language: onAdFailed()")
             },
             onAdLoaded = {
                 Log.i("LanguageScreenOne", "Language: onAdLoaded()")
@@ -142,6 +139,7 @@ class LanguageScreenOne : AppCompatBaseActivity(), LanguageInterface {
             adName = "NATIVE_LANGUAGE_1",
             isMedia = true,
             isMediumAd = true,
+            remoteConfig = sotAdsConfigurations?.getRemoteConfigData()?.getValue("NATIVE_LANGUAGE_1").toString().toBoolean(),
             populateView = true,
             adContainer = findViewById(R.id.nativeAdContainerAd),
             onAdFailed = {

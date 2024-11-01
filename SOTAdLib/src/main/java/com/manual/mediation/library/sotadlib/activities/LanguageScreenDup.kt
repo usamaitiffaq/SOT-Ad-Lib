@@ -71,8 +71,8 @@ class LanguageScreenDup: AppCompatBaseActivity() {
 
     override fun onResume() {
         super.onResume()
-        if (NetworkCheck.isNetworkAvailable(this)) {
-            if (sotAdsConfigurations?.getRemoteConfigData()?.getValue("NATIVE_LANGUAGE_2") == true) {
+//        if (NetworkCheck.isNetworkAvailable(this)) {
+//            if (sotAdsConfigurations?.getRemoteConfigData()?.getValue("NATIVE_LANGUAGE_2") == true) {
                 when {
                     sotAdsConfigurations?.getRemoteConfigData()?.getValue("NATIVE_LANGUAGE_2_MED") == "ADMOB" -> {
                         findViewById<CardView>(R.id.nativeAdContainerAd).visibility = View.VISIBLE
@@ -83,8 +83,8 @@ class LanguageScreenDup: AppCompatBaseActivity() {
                         showMetaLanguageScreenOneNatives()
                     }
                 }
-            }
-        }
+//            }
+//        }
     }
 
     private fun showMetaLanguageScreenOneNatives() {
@@ -94,6 +94,7 @@ class LanguageScreenDup: AppCompatBaseActivity() {
             adName = "NATIVE_LANGUAGE_2",
             isMedia = true,
             isMediumAd = true,
+            remoteConfig = sotAdsConfigurations?.getRemoteConfigData()?.getValue("NATIVE_LANGUAGE_2").toString().toBoolean(),
             populateView = true,
             nativeAdLayout = findViewById(R.id.nativeAdContainerAd),
             onAdFailed = {
@@ -115,6 +116,7 @@ class LanguageScreenDup: AppCompatBaseActivity() {
             adName = "NATIVE_LANGUAGE_2",
             isMedia = true,
             isMediumAd = true,
+            remoteConfig = sotAdsConfigurations?.getRemoteConfigData()?.getValue("NATIVE_LANGUAGE_2").toString().toBoolean(),
             populateView = true,
             adContainer = findViewById(R.id.nativeAdContainerAd),
             onAdFailed = {

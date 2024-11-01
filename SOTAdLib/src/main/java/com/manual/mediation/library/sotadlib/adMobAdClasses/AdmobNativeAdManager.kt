@@ -33,25 +33,28 @@ object AdmobNativeAdManager {
         adName: String = "",
         isMedia: Boolean,
         isMediumAd: Boolean = false,
+        remoteConfig: Boolean = true,
         populateView: Boolean = false,
         adContainer: CardView? = null,
         onAdFailed: (() -> Unit)? = null,
-        onAdLoaded: (() -> Unit)? = null
-    ) {
+        onAdLoaded: (() -> Unit)? = null) {
 
-        if (!NetworkCheck.isNetworkAvailable(mContext)) {
-            if (mContext != null) {
-                adContainer?.visibility = View.GONE
-                Log.e("SOT_ADS_TAG", "View is gone")
+        if (populateView) {
+            if (!NetworkCheck.isNetworkAvailable(mContext) || !remoteConfig) {
+                if (mContext != null) {
+                    adContainer?.visibility = View.GONE
+                    Log.e("SOT_ADS_TAG","Native : Admob : View is gone")
+                    onAdFailed?.invoke()
+                }
+                return
+            } else {
+                if (mContext != null) {
+                    adContainer?.visibility = View.VISIBLE
+                    Log.e("SOT_ADS_TAG","Native : Admob : View is VISIBLE")
+                }
             }
-            Log.e("SOT_ADS_TAG", "Network is not available, unable to load ad.")
-            onAdFailed?.invoke()
-            return
         } else {
-            if (mContext != null) {
-                adContainer?.visibility = View.VISIBLE
-                Log.e("SOT_ADS_TAG", "View is VISIBLE")
-            }
+            Log.e("SOT_ADS_TAG","Native : Admob : populateView")
         }
 
         if (adLoadingState[adName] == true && nativeAdCache[adName] != null) {

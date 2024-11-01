@@ -43,7 +43,7 @@ class WelcomeScreenDup: AppCompatBaseActivity() {
 
     override fun onResume() {
         super.onResume()
-        if (sotAdsConfigurations?.getRemoteConfigData()?.getValue("NATIVE_SURVEY_2") == true) {
+//        if (sotAdsConfigurations?.getRemoteConfigData()?.getValue("NATIVE_SURVEY_2") == true) {
             when {
                 sotAdsConfigurations?.getRemoteConfigData()?.getValue("NATIVE_SURVEY_2_MED") == "ADMOB" -> {
                     showAdmobLanguageScreenOneNatives()
@@ -52,7 +52,7 @@ class WelcomeScreenDup: AppCompatBaseActivity() {
                     showMetaLanguageScreenOneNatives()
                 }
             }
-        }
+//        }
     }
 
     private fun showMetaLanguageScreenOneNatives() {
@@ -63,6 +63,7 @@ class WelcomeScreenDup: AppCompatBaseActivity() {
                 adName = "NATIVE_SURVEY_2",
                 isMedia = true,
                 isMediumAd = true,
+                remoteConfig = sotAdsConfigurations?.getRemoteConfigData()?.getValue("NATIVE_SURVEY_2").toString().toBoolean(),
                 populateView = true,
                 nativeAdLayout = myView?.findViewById(R.id.nativeAdContainerAd),
                 onAdFailed = {
@@ -84,6 +85,7 @@ class WelcomeScreenDup: AppCompatBaseActivity() {
                 adName = "NATIVE_SURVEY_2",
                 isMedia = true,
                 isMediumAd = true,
+                remoteConfig = sotAdsConfigurations?.getRemoteConfigData()?.getValue("NATIVE_SURVEY_2").toString().toBoolean(),
                 populateView = true,
                 adContainer = myView?.findViewById(R.id.nativeAdContainerAd),
                 onAdFailed = {

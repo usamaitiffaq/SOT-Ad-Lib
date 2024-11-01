@@ -127,6 +127,7 @@ class WTOneFragment(val item: WalkThroughItem) : Fragment() {
             adName = "WALKTHROUGH_1",
             isMedia = true,
             isMediumAd = true,
+            remoteConfig = sotAdsConfigurations?.getRemoteConfigData()?.getValue("NATIVE_WALKTHROUGH_1").toString().toBoolean(),
             populateView = true,
             nativeAdLayout = binding.nativeAdContainerAd,
             onAdFailed = {
@@ -149,6 +150,7 @@ class WTOneFragment(val item: WalkThroughItem) : Fragment() {
             adName = "WALKTHROUGH_1",
             isMedia = true,
             isMediumAd = true,
+            remoteConfig = sotAdsConfigurations?.getRemoteConfigData()?.getValue("NATIVE_WALKTHROUGH_1").toString().toBoolean(),
             populateView = true,
             adContainer = binding.nativeAdContainerAd,
             onAdFailed = {

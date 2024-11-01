@@ -99,7 +99,7 @@ class WTThreeFragment(val item: WalkThroughItem) : Fragment() {
             binding.cl2.visibility = View.GONE
         }
 
-        if (sotAdsConfigurations?.getRemoteConfigData()?.getValue("NATIVE_WALKTHROUGH_3") == true) {
+//        if (sotAdsConfigurations?.getRemoteConfigData()?.getValue("NATIVE_WALKTHROUGH_3") == true) {
             when {
                 sotAdsConfigurations?.getRemoteConfigData()?.getValue("NATIVE_WALKTHROUGH_3_MED") == "ADMOB" -> {
                     binding.nativeAdContainerAd.visibility = View.VISIBLE
@@ -110,7 +110,7 @@ class WTThreeFragment(val item: WalkThroughItem) : Fragment() {
                     showMetaWTThreeNatives()
                 }
             }
-        }
+//        }
     }
 
     override fun onStop() {
@@ -125,6 +125,7 @@ class WTThreeFragment(val item: WalkThroughItem) : Fragment() {
             adName = "WALKTHROUGH_3",
             isMedia = true,
             isMediumAd = true,
+            remoteConfig = sotAdsConfigurations?.getRemoteConfigData()?.getValue("NATIVE_WALKTHROUGH_3").toString().toBoolean(),
             populateView = true,
             nativeAdLayout = binding.nativeAdContainerAd,
             onAdFailed = {
@@ -147,6 +148,7 @@ class WTThreeFragment(val item: WalkThroughItem) : Fragment() {
             adName = "WALKTHROUGH_3",
             isMedia = true,
             isMediumAd = true,
+            remoteConfig = sotAdsConfigurations?.getRemoteConfigData()?.getValue("NATIVE_WALKTHROUGH_3").toString().toBoolean(),
             populateView = true,
             adContainer = binding.nativeAdContainerAd,
             onAdFailed = {

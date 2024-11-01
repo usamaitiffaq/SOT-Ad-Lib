@@ -30,11 +30,30 @@ object MetaNativeAdManager {
         adName: String = "",
         isMedia: Boolean,
         isMediumAd: Boolean = false,
+        remoteConfig: Boolean = true,
         populateView: Boolean = false,
         nativeAdLayout: CardView? = null,
         onAdFailed: (() -> Unit)? = null,
-        onAdLoaded: (() -> Unit)? = null
-    ) {
+        onAdLoaded: (() -> Unit)? = null) {
+
+        if (populateView) {
+            if (!NetworkCheck.isNetworkAvailable(mContext) || !remoteConfig) {
+                if (mContext != null) {
+                    nativeAdLayout?.visibility = View.GONE
+                    Log.e("SOT_ADS_TAG","Native : Meta : View is gone")
+                }
+                onAdFailed?.invoke()
+                return
+            } else {
+                if (mContext != null) {
+                    nativeAdLayout?.visibility = View.VISIBLE
+                    Log.e("SOT_ADS_TAG","Native : Meta : View is VISIBLE")
+                }
+            }
+        } else {
+            Log.e("SOT_ADS_TAG","Native : Meta : populateView")
+        }
+
         if (adLoadingState[adName] == true && nativeFbAdCache[adName] != null) {
             Log.i("SOT_ADS_TAG", "Meta: Native : $adName : showCachedAd()")
             showCachedAd(adName, isMedia, nativeAdLayout, isMediumAd)
