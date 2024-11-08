@@ -143,10 +143,8 @@ class LanguageScreenOne : AppCompatBaseActivity(), LanguageInterface {
             populateView = true,
             adContainer = findViewById(R.id.nativeAdContainerAd),
             onAdFailed = {
-                Handler().postDelayed({
-                    findViewById<CardView>(R.id.nativeAdContainerAd).visibility = View.GONE
-                    Log.i("LanguageScreenOne", "Language: onAdFailed()")
-                },300)
+                findViewById<CardView>(R.id.nativeAdContainerAd).visibility = View.GONE
+                Log.i("LanguageScreenOne", "Language: onAdFailed()")
             },
             onAdLoaded = {
                 Log.i("LanguageScreenOne", "Language: onAdLoaded()")

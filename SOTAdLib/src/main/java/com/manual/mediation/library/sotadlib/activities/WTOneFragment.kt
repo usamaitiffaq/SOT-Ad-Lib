@@ -131,10 +131,8 @@ class WTOneFragment(val item: WalkThroughItem) : Fragment() {
             populateView = true,
             nativeAdLayout = binding.nativeAdContainerAd,
             onAdFailed = {
-                Handler().postDelayed({
-                    binding.nativeAdContainerAd.visibility = View.GONE
-                    Log.i("SOT_ADS_TAG", "WALKTHROUGH_1: Meta: onAdFailed()")
-                },300)
+                binding.nativeAdContainerAd.visibility = View.GONE
+                Log.i("SOT_ADS_TAG", "WALKTHROUGH_1: Meta: onAdFailed()")
             },
             onAdLoaded = {
                 binding.nativeAdContainerAd.visibility = View.VISIBLE
@@ -154,10 +152,8 @@ class WTOneFragment(val item: WalkThroughItem) : Fragment() {
             populateView = true,
             adContainer = binding.nativeAdContainerAd,
             onAdFailed = {
-                Handler().postDelayed({
-                    binding.nativeAdContainerAd.visibility = View.GONE
-                    Log.i("SOT_ADS_TAG", "WALKTHROUGH_1: Admob: onAdFailed()")
-                },300)
+                binding.nativeAdContainerAd.visibility = View.GONE
+                Log.i("SOT_ADS_TAG", "WALKTHROUGH_1: Admob: onAdFailed()")
             },
             onAdLoaded = {
                 binding.nativeAdContainerAd.visibility = View.VISIBLE

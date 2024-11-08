@@ -98,10 +98,8 @@ class LanguageScreenDup: AppCompatBaseActivity() {
             populateView = true,
             nativeAdLayout = findViewById(R.id.nativeAdContainerAd),
             onAdFailed = {
-                Handler().postDelayed({
-                    findViewById<CardView>(R.id.nativeAdContainerAd).visibility = View.GONE
-                    Log.i("SOT_ADS_TAG","LanguageScreenDup: Meta: onAdFailed()")
-                },300)
+                findViewById<CardView>(R.id.nativeAdContainerAd).visibility = View.GONE
+                Log.i("SOT_ADS_TAG","LanguageScreenDup: Meta: onAdFailed()")
             },
             onAdLoaded = {
                 Log.i("SOT_ADS_TAG","LanguageScreenDup: Meta: onAdLoaded()")
@@ -120,10 +118,8 @@ class LanguageScreenDup: AppCompatBaseActivity() {
             populateView = true,
             adContainer = findViewById(R.id.nativeAdContainerAd),
             onAdFailed = {
-                Handler().postDelayed({
-                    findViewById<CardView>(R.id.nativeAdContainerAd).visibility = View.GONE
-                    Log.i("SOT_ADS_TAG","LanguageScreenDup: Admob onAdFailed()")
-                },300)
+                findViewById<CardView>(R.id.nativeAdContainerAd).visibility = View.GONE
+                Log.i("SOT_ADS_TAG","LanguageScreenDup: Admob onAdFailed()")
             },
             onAdLoaded = {
                 Log.i("SOT_ADS_TAG","LanguageScreenDup: Admob onAdLoaded()")
