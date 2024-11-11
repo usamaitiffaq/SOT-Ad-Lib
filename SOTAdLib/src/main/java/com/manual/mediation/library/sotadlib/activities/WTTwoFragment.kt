@@ -68,14 +68,11 @@ class WTTwoFragment(val item: WalkThroughItem) : Fragment() {
             viewPager?.currentItem = 2
         }
 
-        if (sotAdsConfigurations?.getRemoteConfigData()?.getValue("NATIVE_WALKTHROUGH_3") == true) {
-            when {
-                sotAdsConfigurations?.getRemoteConfigData()?.getValue("NATIVE_WALKTHROUGH_3_MED") == "ADMOB" -> {
-                    loadAdmobWTThreeNatives()
-                }
-                sotAdsConfigurations?.getRemoteConfigData()?.getValue("NATIVE_WALKTHROUGH_3_MED") == "META" -> {
-                    loadMetaWTThreeNatives()
-                }
+        val nativeSurvey2Enabled = sotAdsConfigurations?.getRemoteConfigData()?.get("NATIVE_WALKTHROUGH_3") as? Boolean ?: false
+        if (nativeSurvey2Enabled) {
+            when (sotAdsConfigurations?.getRemoteConfigData()?.get("NATIVE_WALKTHROUGH_3_MED")) {
+                "ADMOB" -> loadAdmobWTThreeNatives()
+                "META" -> loadMetaWTThreeNatives()
             }
         }
     }
@@ -94,24 +91,28 @@ class WTTwoFragment(val item: WalkThroughItem) : Fragment() {
     }
 
     private fun loadMetaWTThreeNatives() {
-        MetaNativeAdManager.requestAd(
-            mContext = requireActivity(),
-            adId = sotAdsConfigurations?.firstOpenFlowAdIds!!.getValue("META_NATIVE_WALKTHROUGH_3"),
-            adName = "WALKTHROUGH_3",
-            isMedia = true,
-            isMediumAd = true,
-            populateView = false
-        )
+        sotAdsConfigurations?.firstOpenFlowAdIds?.getValue("META_NATIVE_WALKTHROUGH_3")?.let { adId ->
+            MetaNativeAdManager.requestAd(
+                mContext = requireActivity(),
+                adId = adId,
+                adName = "WALKTHROUGH_3",
+                isMedia = true,
+                isMediumAd = true,
+                populateView = false
+            )
+        } ?: Log.i("WTTwoFragment","META_NATIVE_WALKTHROUGH_3 ad ID is missing.")
     }
 
     private fun loadAdmobWTThreeNatives() {
-        AdmobNativeAdManager.requestAd(
-            mContext = requireActivity(),
-            adId = sotAdsConfigurations?.firstOpenFlowAdIds!!.getValue("ADMOB_NATIVE_WALKTHROUGH_3"),
-            adName = "WALKTHROUGH_3",
-            isMedia = true,
-            isMediumAd = true,
-            populateView = false
-        )
+        sotAdsConfigurations?.firstOpenFlowAdIds?.getValue("ADMOB_NATIVE_WALKTHROUGH_3")?.let { adId ->
+            AdmobNativeAdManager.requestAd(
+                mContext = requireActivity(),
+                adId = adId,
+                adName = "WALKTHROUGH_3",
+                isMedia = true,
+                isMediumAd = true,
+                populateView = false
+            )
+        } ?: Log.i("WTTwoFragment","ADMOB_NATIVE_WALKTHROUGH_3 ad ID is missing.")
     }
 }

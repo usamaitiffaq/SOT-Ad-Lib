@@ -36,22 +36,25 @@ object MetaNativeAdManager {
         onAdFailed: (() -> Unit)? = null,
         onAdLoaded: (() -> Unit)? = null) {
 
+        if (mContext == null) {
+            Log.i("SOT_ADS_TAG", "Context or network unavailable; cannot load ad.")
+            nativeAdLayout?.visibility = View.GONE
+            onAdFailed?.invoke()
+            return
+        }
+
         if (populateView) {
             if (!NetworkCheck.isNetworkAvailable(mContext) || !remoteConfig) {
-                if (mContext != null) {
-                    nativeAdLayout?.visibility = View.GONE
-                    Log.e("SOT_ADS_TAG","Native : Meta : View is gone")
-                }
+                nativeAdLayout?.visibility = View.GONE
+                Log.i("SOT_ADS_TAG","Native : Meta : View is gone")
                 onAdFailed?.invoke()
                 return
             } else {
-                if (mContext != null) {
-                    nativeAdLayout?.visibility = View.VISIBLE
-                    Log.e("SOT_ADS_TAG","Native : Meta : View is VISIBLE")
-                }
+                nativeAdLayout?.visibility = View.VISIBLE
+                Log.i("SOT_ADS_TAG","Native : Meta : View is VISIBLE")
             }
         } else {
-            Log.e("SOT_ADS_TAG","Native : Meta : populateView")
+            Log.i("SOT_ADS_TAG","Native : Meta : populateView")
         }
 
         if (adLoadingState[adName] == true && nativeFbAdCache[adName] != null) {
@@ -64,24 +67,24 @@ object MetaNativeAdManager {
 
         val adView: NativeAdLayout = if (isMedia) {
             if (isMediumAd) {
-                mContext?.layoutInflater?.inflate(
+                mContext.layoutInflater.inflate(
                     R.layout.meta_native_mediaview_large,
                     null
                 ) as NativeAdLayout
             } else {
-                mContext?.layoutInflater?.inflate(
+                mContext.layoutInflater.inflate(
                     R.layout.meta_native_mediaview_medium,
                     null
                 ) as NativeAdLayout
             }
         } else {
             if (isMediumAd) {
-                mContext?.layoutInflater?.inflate(
+                mContext.layoutInflater.inflate(
                     R.layout.meta_native_simple_large,
                     null
                 ) as NativeAdLayout
             } else {
-                mContext?.layoutInflater?.inflate(
+                mContext.layoutInflater.inflate(
                     R.layout.meta_native_simple_small,
                     null
                 ) as NativeAdLayout

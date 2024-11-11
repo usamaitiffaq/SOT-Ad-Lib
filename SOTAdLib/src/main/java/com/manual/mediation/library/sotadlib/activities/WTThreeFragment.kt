@@ -99,18 +99,21 @@ class WTThreeFragment(val item: WalkThroughItem) : Fragment() {
             binding.cl2.visibility = View.GONE
         }
 
-//        if (sotAdsConfigurations?.getRemoteConfigData()?.getValue("NATIVE_WALKTHROUGH_3") == true) {
-            when {
-                sotAdsConfigurations?.getRemoteConfigData()?.getValue("NATIVE_WALKTHROUGH_3_MED") == "ADMOB" -> {
+        val nativeSurvey2Enabled = sotAdsConfigurations?.getRemoteConfigData()?.get("NATIVE_WALKTHROUGH_3") as? Boolean ?: false
+        if (nativeSurvey2Enabled) {
+            when (sotAdsConfigurations?.getRemoteConfigData()?.get("NATIVE_WALKTHROUGH_3_MED")) {
+                "ADMOB" -> {
                     binding.nativeAdContainerAd.visibility = View.VISIBLE
                     showAdmobWTThreeNatives()
                 }
-                sotAdsConfigurations?.getRemoteConfigData()?.getValue("NATIVE_WALKTHROUGH_3_MED") == "META" -> {
+                "META" -> {
                     binding.nativeAdContainerAd.visibility = View.VISIBLE
                     showMetaWTThreeNatives()
                 }
             }
-//        }
+        } else {
+            binding.nativeAdContainerAd.visibility = View.GONE
+        }
     }
 
     override fun onStop() {
@@ -119,44 +122,48 @@ class WTThreeFragment(val item: WalkThroughItem) : Fragment() {
     }
 
     private fun showMetaWTThreeNatives() {
-        MetaNativeAdManager.requestAd(
-            mContext = requireActivity(),
-            adId = sotAdsConfigurations?.firstOpenFlowAdIds!!.getValue("META_NATIVE_WALKTHROUGH_3"),
-            adName = "WALKTHROUGH_3",
-            isMedia = true,
-            isMediumAd = true,
-            remoteConfig = sotAdsConfigurations?.getRemoteConfigData()?.getValue("NATIVE_WALKTHROUGH_3").toString().toBoolean(),
-            populateView = true,
-            nativeAdLayout = binding.nativeAdContainerAd,
-            onAdFailed = {
-                binding.nativeAdContainerAd.visibility = View.GONE
-                Log.i("SOT_ADS_TAG", "WALKTHROUGH_3: Meta: onAdFailed()")
-            },
-            onAdLoaded = {
-                binding.nativeAdContainerAd.visibility = View.VISIBLE
-                Log.i("SOT_ADS_TAG", "WALKTHROUGH_3: Meta: onAdLoaded()")
-            }
-        )
+        sotAdsConfigurations?.firstOpenFlowAdIds?.getValue("NATIVE_WALKTHROUGH_3")?.let { adId ->
+            MetaNativeAdManager.requestAd(
+                mContext = requireActivity(),
+                adId = adId,
+                adName = "WALKTHROUGH_3",
+                isMedia = true,
+                isMediumAd = true,
+                remoteConfig = sotAdsConfigurations?.getRemoteConfigData()?.getValue("NATIVE_WALKTHROUGH_3").toString().toBoolean(),
+                populateView = true,
+                nativeAdLayout = binding.nativeAdContainerAd,
+                onAdFailed = {
+                    binding.nativeAdContainerAd.visibility = View.GONE
+                    Log.i("SOT_ADS_TAG", "WALKTHROUGH_3: Meta: onAdFailed()")
+                },
+                onAdLoaded = {
+                    binding.nativeAdContainerAd.visibility = View.VISIBLE
+                    Log.i("SOT_ADS_TAG", "WALKTHROUGH_3: Meta: onAdLoaded()")
+                }
+            )
+        }
     }
 
     private fun showAdmobWTThreeNatives() {
-        AdmobNativeAdManager.requestAd(
-            mContext = requireActivity(),
-            adId = sotAdsConfigurations?.firstOpenFlowAdIds!!.getValue("ADMOB_NATIVE_WALKTHROUGH_3"),
-            adName = "WALKTHROUGH_3",
-            isMedia = true,
-            isMediumAd = true,
-            remoteConfig = sotAdsConfigurations?.getRemoteConfigData()?.getValue("NATIVE_WALKTHROUGH_3").toString().toBoolean(),
-            populateView = true,
-            adContainer = binding.nativeAdContainerAd,
-            onAdFailed = {
-                binding.nativeAdContainerAd.visibility = View.GONE
-                Log.i("SOT_ADS_TAG", "WALKTHROUGH_3: Admob: onAdFailed()")
-            },
-            onAdLoaded = {
-                binding.nativeAdContainerAd.visibility = View.VISIBLE
-                Log.i("SOT_ADS_TAG", "WALKTHROUGH_3: Admob: onAdLoaded()")
-            }
-        )
+        sotAdsConfigurations?.firstOpenFlowAdIds?.getValue("ADMOB_NATIVE_WALKTHROUGH_3")?.let { adId ->
+            AdmobNativeAdManager.requestAd(
+                mContext = requireActivity(),
+                adId = adId,
+                adName = "WALKTHROUGH_3",
+                isMedia = true,
+                isMediumAd = true,
+                remoteConfig = sotAdsConfigurations?.getRemoteConfigData()?.getValue("NATIVE_WALKTHROUGH_3").toString().toBoolean(),
+                populateView = true,
+                adContainer = binding.nativeAdContainerAd,
+                onAdFailed = {
+                    binding.nativeAdContainerAd.visibility = View.GONE
+                    Log.i("SOT_ADS_TAG", "WALKTHROUGH_3: Admob: onAdFailed()")
+                },
+                onAdLoaded = {
+                    binding.nativeAdContainerAd.visibility = View.VISIBLE
+                    Log.i("SOT_ADS_TAG", "WALKTHROUGH_3: Admob: onAdLoaded()")
+                }
+            )
+        }
     }
 }

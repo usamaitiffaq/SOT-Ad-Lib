@@ -39,22 +39,24 @@ object AdmobNativeAdManager {
         onAdFailed: (() -> Unit)? = null,
         onAdLoaded: (() -> Unit)? = null) {
 
+        if (mContext == null) {
+            Log.i("SOT_ADS_TAG", "Context is null; cannot load ad.")
+            onAdFailed?.invoke()
+            return
+        }
+
         if (populateView) {
             if (!NetworkCheck.isNetworkAvailable(mContext) || !remoteConfig) {
-                if (mContext != null) {
-                    adContainer?.visibility = View.GONE
-                    Log.e("SOT_ADS_TAG","Native : Admob : View is gone")
-                    onAdFailed?.invoke()
-                }
+                adContainer?.visibility = View.GONE
+                Log.i("SOT_ADS_TAG","Native : Admob : View is gone")
+                onAdFailed?.invoke()
                 return
             } else {
-                if (mContext != null) {
-                    adContainer?.visibility = View.VISIBLE
-                    Log.e("SOT_ADS_TAG","Native : Admob : View is VISIBLE")
-                }
+                adContainer?.visibility = View.VISIBLE
+                Log.i("SOT_ADS_TAG","Native : Admob : View is VISIBLE")
             }
         } else {
-            Log.e("SOT_ADS_TAG","Native : Admob : populateView")
+            Log.i("SOT_ADS_TAG","Native : Admob : populateView")
         }
 
         if (adLoadingState[adName] == true && nativeAdCache[adName] != null) {
@@ -65,31 +67,15 @@ object AdmobNativeAdManager {
 
         adLoadingState[adName] = true
 
-        val adView: NativeAdView = if (isMedia) {
-            if (isMediumAd) {
-                mContext?.layoutInflater?.inflate(
-                    R.layout.admob_native_mediaview_large,
-                    null
-                ) as NativeAdView
-            } else {
-                mContext?.layoutInflater?.inflate(
-                    R.layout.admob_native_mediaview_medium,
-                    null
-                ) as NativeAdView
-            }
-        } else {
-            if (isMediumAd) {
-                mContext?.layoutInflater?.inflate(
-                    R.layout.admob_native_simple_large,
-                    null
-                ) as NativeAdView
-            } else {
-                mContext?.layoutInflater?.inflate(
-                    R.layout.admob_native_simple_small,
-                    null
-                ) as NativeAdView
-            }
-        }
+        val adView = mContext.layoutInflater.inflate(
+            when {
+                isMedia && isMediumAd -> R.layout.admob_native_mediaview_large
+                isMedia -> R.layout.admob_native_mediaview_medium
+                isMediumAd -> R.layout.admob_native_simple_large
+                else -> R.layout.admob_native_simple_small
+            },
+            null
+        ) as? NativeAdView ?: return
 
         if (NetworkCheck.isNetworkAvailable(mContext)) {
             val adLoader = AdLoader.Builder(mContext, adId)
@@ -97,7 +83,7 @@ object AdmobNativeAdManager {
                     nativeAdCache[adName] = nativeAd
                     adLoadingState[adName] = true
                     if (populateView) {
-                        adContainer.let {
+                        adContainer?.let { container ->
                             if (isMedia) {
                                 Log.i("SOT_ADS_TAG", "Admob: Native : $adName : populateWithMediaViewAdmob()")
                                 populateWithMediaViewAdmob(isMediumAd, nativeAd, adView)
@@ -105,8 +91,8 @@ object AdmobNativeAdManager {
                                 Log.i("SOT_ADS_TAG", "Admob: Native : $adName : populateSimpleNativeAdmob()")
                                 populateSimpleNativeAdmob(isMediumAd, nativeAd, adView)
                             }
-                            adContainer?.removeAllViews()
-                            adContainer?.addView(adView)
+                            container.removeAllViews()
+                            container.addView(adView)
                         }
                     } else {
                         mContext.let {
@@ -167,56 +153,41 @@ object AdmobNativeAdManager {
         }
     }
 
-    fun showCachedAd(
-        adName: String,
-        isMedia: Boolean,
-        adContainer: CardView?,
-        isMediumAd: Boolean
-    ) {
-        val cachedAd = nativeAdCache[adName]
-        if (cachedAd != null) {
-            val adView: NativeAdView = if (isMedia) {
-                if (isMediumAd) {
-                    LayoutInflater.from(adContainer?.context)
-                        .inflate(R.layout.admob_native_mediaview_large, null) as NativeAdView
+    fun showCachedAd(adName: String, isMedia: Boolean, adContainer: CardView?, isMediumAd: Boolean) {
+        adContainer?.context?.let { context ->
+            nativeAdCache[adName]?.let { cachedAd ->
+                val adView = LayoutInflater.from(context).inflate(
+                    when {
+                        isMedia && isMediumAd -> R.layout.admob_native_mediaview_large
+                        isMedia -> R.layout.admob_native_mediaview_medium
+                        isMediumAd -> R.layout.admob_native_simple_large
+                        else -> R.layout.admob_native_simple_small
+                    },
+                    null
+                ) as? NativeAdView ?: return
+
+                if (isMedia) {
+                    populateWithMediaViewAdmob(isMediumAd, cachedAd, adView)
                 } else {
-                    LayoutInflater.from(adContainer?.context)
-                        .inflate(R.layout.admob_native_mediaview_medium, null) as NativeAdView
+                    populateSimpleNativeAdmob(isMediumAd, cachedAd, adView)
                 }
-            } else {
-                if (isMediumAd) {
-                    LayoutInflater.from(adContainer?.context)
-                        .inflate(R.layout.admob_native_simple_large, null) as NativeAdView
-                } else {
-                    LayoutInflater.from(adContainer?.context)
-                        .inflate(R.layout.admob_native_simple_small, null) as NativeAdView
-                }
+
+                adContainer.removeAllViews()
+                adContainer.addView(adView)
+            } ?: run {
+                Log.i("SOT_ADS_TAG", "Ad is not available in cache for adName: $adName")
             }
-            if (isMedia) {
-                Log.i("SOT_ADS_TAG", "Admob: Native : $adName : populateWithMediaViewAdmob()")
-                populateWithMediaViewAdmob(isMediumAd, cachedAd, adView)
-            } else {
-                Log.i("SOT_ADS_TAG", "Admob: Native : $adName : populateSimpleNativeAdmob()")
-                populateSimpleNativeAdmob(isMediumAd, cachedAd, adView)
-            }
-            adContainer?.removeAllViews()
-            adContainer?.addView(adView)
-        }
+        } ?: Log.i("SOT_ADS_TAG", "Ad container or context is null; cannot load ad.")
     }
 
-    private fun populateWithMediaViewAdmob(
-        isMediumAd: Boolean,
-        nativeAd: NativeAd,
-        adView: NativeAdView
-    ) {
+    private fun populateWithMediaViewAdmob(isMediumAd: Boolean, nativeAd: NativeAd, adView: NativeAdView) {
         adView.headlineView = adView.findViewById(R.id.adHeadline)
         adView.bodyView = adView.findViewById(R.id.adBody)
         adView.callToActionView = adView.findViewById(R.id.adCallToAction)
         adView.iconView = adView.findViewById(R.id.adAppIcon)
         adView.mediaView = adView.findViewById<View>(R.id.adMedia) as MediaView
         (adView.headlineView as TextView).text = nativeAd.headline
-        (adView.findViewById<View>(R.id.adMedia) as MediaView).setOnHierarchyChangeListener(object :
-            ViewGroup.OnHierarchyChangeListener {
+        (adView.findViewById<View>(R.id.adMedia) as MediaView).setOnHierarchyChangeListener(object : ViewGroup.OnHierarchyChangeListener {
             override fun onChildViewAdded(parent: View, child: View) {
                 if (child is ImageView) {
                     child.scaleType = ImageView.ScaleType.FIT_XY
@@ -268,11 +239,7 @@ object AdmobNativeAdManager {
         }
     }
 
-    private fun populateSimpleNativeAdmob(
-        isMediumAd: Boolean,
-        nativeAd: NativeAd,
-        adView: NativeAdView
-    ) {
+    private fun populateSimpleNativeAdmob(isMediumAd: Boolean, nativeAd: NativeAd, adView: NativeAdView) {
         adView.headlineView = adView.findViewById(R.id.adHeadline)
         adView.bodyView = adView.findViewById(R.id.adBody)
         adView.callToActionView = adView.findViewById(R.id.adCallToAction)
