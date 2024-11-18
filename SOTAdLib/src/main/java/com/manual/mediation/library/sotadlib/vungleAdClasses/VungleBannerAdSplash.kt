@@ -14,7 +14,7 @@ import com.vungle.ads.BaseAd
 import com.vungle.ads.BannerAdListener
 import com.vungle.ads.VungleError
 
-class VungleBannerAd(
+class VungleBannerAdSplash(
     activity: Activity? = null,
     private val placementId: String,
     private val bannerContainer: FrameLayout,
