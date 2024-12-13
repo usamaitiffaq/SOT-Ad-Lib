@@ -1,7 +1,9 @@
 package com.manual.mediation.library.sotadlib.adMobAdClasses
 
 import android.app.Activity
+import android.util.DisplayMetrics
 import android.util.Log
+import android.view.Display
 import android.view.View
 import android.widget.FrameLayout
 import android.widget.Toast
@@ -42,7 +44,7 @@ class AdMobBannerAdSplash(
 
         adView = AdView(currentActivity!!.baseContext).apply {
             adUnitId = placementID
-            setAdSize(AdSize.BANNER)
+            setAdSize(getAdSizeTest())
             adListener = object : AdListener() {
                 override fun onAdLoaded() {
                     Log.i("SOT_ADS_TAG", "AdMob: BannerAd : onAdLoaded()")
@@ -70,6 +72,16 @@ class AdMobBannerAdSplash(
         }
 
         adView?.loadAd(AdRequest.Builder().build())
+    }
+
+    private fun getAdSizeTest(): AdSize {
+        val display: Display = currentActivity!!.windowManager.getDefaultDisplay()
+        val outMetrics = DisplayMetrics()
+        display.getMetrics(outMetrics)
+        val widthPixels = outMetrics.widthPixels.toFloat()
+        val density = outMetrics.density
+        val adWidth = (widthPixels / density).toInt()
+        return AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(currentActivity!!, adWidth)
     }
 
     fun removeAd() {
