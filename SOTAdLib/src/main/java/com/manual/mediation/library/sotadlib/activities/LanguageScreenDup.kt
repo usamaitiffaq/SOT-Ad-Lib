@@ -3,6 +3,7 @@ package com.manual.mediation.library.sotadlib.activities
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -15,6 +16,7 @@ import com.manual.mediation.library.sotadlib.callingClasses.SOTAdsConfigurations
 import com.manual.mediation.library.sotadlib.callingClasses.SOTAdsManager
 import com.manual.mediation.library.sotadlib.metaAdClasses.MetaNativeAdManager
 import com.manual.mediation.library.sotadlib.utils.hideSystemUI
+import kotlin.system.exitProcess
 
 class LanguageScreenDup: AppCompatBaseActivity() {
 
@@ -56,8 +58,14 @@ class LanguageScreenDup: AppCompatBaseActivity() {
         }
 
         imvDone.setOnClickListener {
-            SOTAdsManager.showWelcomeScreen()
-            finish()
+            intent?.let {
+                if (it.getStringExtra("From").equals("AppSettings")) {
+                    finish()
+                } else {
+                    SOTAdsManager.showWelcomeScreen()
+                    finish()
+                }
+            }
         }
 
 
@@ -67,6 +75,17 @@ class LanguageScreenDup: AppCompatBaseActivity() {
                 "META" -> loadMetaSurveyNatives()
             }
         }
+
+        val callback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                intent?.let {
+                    if (it.getStringExtra("From").equals("AppSettings")) {
+                        finish()
+                    }
+                }
+            }
+        }
+        onBackPressedDispatcher.addCallback(this, callback)
     }
 
     override fun onResume() {

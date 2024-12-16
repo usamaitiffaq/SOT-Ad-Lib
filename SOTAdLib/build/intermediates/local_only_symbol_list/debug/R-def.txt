@@ -61,6 +61,7 @@ drawable portugal
 drawable portuguese
 drawable republic_of_macedonia
 drawable romania
+drawable round_corners_2dp
 drawable russia
 drawable samoa
 drawable scotland
@@ -160,8 +161,10 @@ layout activity_walk_through_config
 layout admob_native_media_view_shimmer
 layout admob_native_mediaview_large
 layout admob_native_mediaview_medium
+layout admob_native_medium_shimmer
 layout admob_native_simple_large
 layout admob_native_simple_small
+layout admob_native_small_shimmer
 layout banner_shimmer
 layout dialog_adloading
 layout fragment_w_t_one

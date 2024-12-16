@@ -59,6 +59,7 @@ int drawable portugal 0x0
 int drawable portuguese 0x0
 int drawable republic_of_macedonia 0x0
 int drawable romania 0x0
+int drawable round_corners_2dp 0x0
 int drawable russia 0x0
 int drawable samoa 0x0
 int drawable scotland 0x0
@@ -158,8 +159,10 @@ int layout activity_walk_through_config 0x0
 int layout admob_native_media_view_shimmer 0x0
 int layout admob_native_mediaview_large 0x0
 int layout admob_native_mediaview_medium 0x0
+int layout admob_native_medium_shimmer 0x0
 int layout admob_native_simple_large 0x0
 int layout admob_native_simple_small 0x0
+int layout admob_native_small_shimmer 0x0
 int layout banner_shimmer 0x0
 int layout dialog_adloading 0x0
 int layout fragment_w_t_one 0x0
