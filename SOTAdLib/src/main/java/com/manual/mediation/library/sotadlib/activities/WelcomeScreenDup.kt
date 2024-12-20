@@ -10,10 +10,11 @@ import com.manual.mediation.library.sotadlib.adMobAdClasses.AdmobNativeAdManager
 import com.manual.mediation.library.sotadlib.callingClasses.SOTAdsConfigurations
 import com.manual.mediation.library.sotadlib.callingClasses.SOTAdsManager
 import com.manual.mediation.library.sotadlib.callingClasses.WelcomeScreensConfiguration
+import com.manual.mediation.library.sotadlib.interfaces.WelcomeDupInterface
 import com.manual.mediation.library.sotadlib.metaAdClasses.MetaNativeAdManager
 import com.manual.mediation.library.sotadlib.utils.hideSystemUI
 
-class WelcomeScreenDup: AppCompatBaseActivity() {
+class WelcomeScreenDup: AppCompatBaseActivity(), WelcomeDupInterface {
 
     var myView: View? = null
     private var sotAdsConfigurations: SOTAdsConfigurations? = null
@@ -25,6 +26,7 @@ class WelcomeScreenDup: AppCompatBaseActivity() {
         sotAdsConfigurations = SOTAdsManager.getConfigurations()
 
         WelcomeScreensConfiguration.welcomeInstance?.let { config ->
+            config.setWelcomeDupInterface(this)
             myView = config.view
             myView?.parent?.let { parent ->
                 if (parent is ViewGroup) {
@@ -136,5 +138,9 @@ class WelcomeScreenDup: AppCompatBaseActivity() {
         } else {
             Log.e("SOT_ADS_TAG","Admob ad ID not found for WALKTHROUGH_1")
         }
+    }
+
+    override fun endWelcomeTwoScreen() {
+        finish()
     }
 }

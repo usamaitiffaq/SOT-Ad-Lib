@@ -69,11 +69,11 @@
             android:id="@+id/bubbleDup"
             android:layout_width="@dimen/_60sdp"
             android:layout_height="@dimen/_15sdp"
-            app:layout_constraintBottom_toBottomOf="@id/btnNext"
+            app:layout_constraintBottom_toBottomOf="@id/btnNextDup"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/btnNext" />
+            app:layout_constraintTop_toTopOf="@id/btnNextDup" />
 
         <TextView
             android:id="@+id/btnNextDup"

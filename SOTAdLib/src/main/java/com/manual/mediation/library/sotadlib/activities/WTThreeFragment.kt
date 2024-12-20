@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
@@ -21,7 +22,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class WTThreeFragment(val item: WalkThroughItem) : Fragment() {
+class WTThreeFragment(private val fragmentActivity: FragmentActivity, val item: WalkThroughItem) : Fragment() {
 
     lateinit var binding: FragmentWTThreeBinding
     private var sotAdsConfigurations: SOTAdsConfigurations? = null
@@ -72,11 +73,13 @@ class WTThreeFragment(val item: WalkThroughItem) : Fragment() {
         binding.btnNext.setOnClickListener {
             PrefHelper(requireContext()).putBoolean("StartScreens", value = true)
             SOTAdsManager.notifyFlowFinished()
+            fragmentActivity.finish()
         }
 
         binding.btnNextDup.setOnClickListener {
             PrefHelper(requireContext()).putBoolean("StartScreens", value = true)
             SOTAdsManager.notifyFlowFinished()
+            fragmentActivity.finish()
         }
     }
 

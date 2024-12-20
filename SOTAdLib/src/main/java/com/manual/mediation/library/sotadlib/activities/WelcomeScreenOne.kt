@@ -66,6 +66,7 @@ class WelcomeScreenOne : AppCompatBaseActivity(), WelcomeInterface {
         WelcomeScreensConfiguration.welcomeInstance?.setWelcomeInterface(null)
         startActivity(Intent(this, WelcomeScreenDup::class.java), ActivityOptions.makeCustomAnimation(this, 0, 0).toBundle())
         finish()
+        overridePendingTransition(0, 0)
     }
 
     private fun showMetaLanguageScreenOneNatives() {

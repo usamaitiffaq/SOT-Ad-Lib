@@ -102,6 +102,7 @@ class LanguageScreenOne : AppCompatBaseActivity(), LanguageInterface {
         Log.i("LanguageScreenOne", "Language: showLanguageTwoScreen()")
         startActivity(Intent(this, LanguageScreenDup::class.java), ActivityOptions.makeCustomAnimation(this, 0, 0).toBundle())
         finish()
+        overridePendingTransition(0, 0)
     }
 
     override fun onResume() {

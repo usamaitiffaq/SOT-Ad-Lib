@@ -12,7 +12,7 @@ class WalkThroughScreensConfiguration private constructor() {
     lateinit var walkThroughList: ArrayList<WalkThroughItem>
 
     fun walkThroughInitializationSetup() {
-        Log.i("WalkThroughScreensConfiguration", "WalkThrough: walkThroughInitializationSetup()")
+        Log.i("WalkThroughScreensConfiguration","WalkThrough: walkThroughInitializationSetup()")
         activityContext.startActivity(Intent(activityContext, WalkThroughConfigActivity::class.java))
         activityContext.finish()
     }

@@ -25,6 +25,7 @@ object SOTAdsManager {
     }
 
     fun completeWelcomeScreens() {
+        sotAdsConfigurations?.welcomeScreensConfiguration?.endWelcomeTwoScreen()
         sotAdsConfigurations?.startWalkThroughConfiguration()
     }
 

@@ -4,6 +4,10 @@ interface WelcomeInterface {
     fun showWelcomeTwoScreen()
 }
 
+interface WelcomeDupInterface {
+    fun endWelcomeTwoScreen()
+}
+
 interface LanguageInterface {
     fun showLanguageTwoScreen()
 }

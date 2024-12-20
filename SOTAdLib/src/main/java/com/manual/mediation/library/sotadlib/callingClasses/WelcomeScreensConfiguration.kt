@@ -6,6 +6,7 @@ import android.content.Intent
 import android.util.Log
 import android.view.View
 import com.manual.mediation.library.sotadlib.activities.WelcomeScreenOne
+import com.manual.mediation.library.sotadlib.interfaces.WelcomeDupInterface
 import com.manual.mediation.library.sotadlib.interfaces.WelcomeInterface
 
 class WelcomeScreensConfiguration private constructor() {
@@ -13,6 +14,7 @@ class WelcomeScreensConfiguration private constructor() {
     private lateinit var activityContext: Activity
     lateinit var view: View
     private var welcomeInterface: WelcomeInterface? = null
+    private var welcomeInterfaceDup: WelcomeDupInterface? = null
 
     companion object {
         @SuppressLint("StaticFieldLeak")
@@ -29,8 +31,16 @@ class WelcomeScreensConfiguration private constructor() {
         this.welcomeInterface = welcomeInterface
     }
 
+    fun setWelcomeDupInterface(welcomeInterfaceDup: WelcomeDupInterface?) {
+        this.welcomeInterfaceDup = welcomeInterfaceDup
+    }
+
     fun showWelcomeTwoScreen() {
         welcomeInterface?.showWelcomeTwoScreen()
+    }
+
+    fun endWelcomeTwoScreen() {
+        welcomeInterfaceDup?.endWelcomeTwoScreen()
     }
 
     class Builder {
