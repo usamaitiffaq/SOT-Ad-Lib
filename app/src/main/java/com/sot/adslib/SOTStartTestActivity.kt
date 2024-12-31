@@ -343,6 +343,9 @@ class SOTStartTestActivity : AppCompatBaseActivity() {
             WalkThroughItem(
                 heading = "Screen 1",
                 description = "This is screen one",
+                headingColor = com.manual.mediation.library.sotadlib.R.color.redLib,
+                descriptionColor = com.manual.mediation.library.sotadlib.R.color.yellowLib,
+                nextColor = com.manual.mediation.library.sotadlib.R.color.orangeLib,
                 drawable = AppCompatResources.getDrawable(
                     context,
                     com.manual.mediation.library.sotadlib.R.drawable.pakistan
@@ -355,6 +358,9 @@ class SOTStartTestActivity : AppCompatBaseActivity() {
             WalkThroughItem(
                 heading = "Screen 2",
                 description = "This is screen two",
+                headingColor = com.manual.mediation.library.sotadlib.R.color.redLib,
+                descriptionColor = com.manual.mediation.library.sotadlib.R.color.yellowLib,
+                nextColor = com.manual.mediation.library.sotadlib.R.color.orangeLib,
                 drawable = AppCompatResources.getDrawable(
                     context,
                     com.manual.mediation.library.sotadlib.R.drawable.pakistan
@@ -367,6 +373,9 @@ class SOTStartTestActivity : AppCompatBaseActivity() {
             WalkThroughItem(
                 heading = "Screen 3",
                 description = "This is screen three",
+                headingColor = com.manual.mediation.library.sotadlib.R.color.redLib,
+                descriptionColor = com.manual.mediation.library.sotadlib.R.color.yellowLib,
+                nextColor = com.manual.mediation.library.sotadlib.R.color.orangeLib,
                 drawable = AppCompatResources.getDrawable(
                     context,
                     com.manual.mediation.library.sotadlib.R.drawable.pakistan
@@ -391,7 +400,7 @@ class SOTStartTestActivity : AppCompatBaseActivity() {
     private fun saveAllValues() {
         val editor = getSharedPreferences("RemoteConfig", MODE_PRIVATE).edit()
         // SOT-Ads-Visibility-Config
-        editor.putString(RemoteConfigConstTest.RESUME_INTER_SPLASH, "OFF")
+        editor.putString(RemoteConfigConstTest.RESUME_INTER_SPLASH, "INTERSTITIAL")
         editor.putBoolean(RemoteConfigConstTest.BANNER_SPLASH, true)
         editor.putBoolean(RemoteConfigConstTest.RESUME_OVERALL, true)
         editor.putBoolean(RemoteConfigConstTest.NATIVE_LANGUAGE_1, true)
@@ -414,6 +423,8 @@ class SOTStartTestActivity : AppCompatBaseActivity() {
         editor.putString(RemoteConfigConstTest.NATIVE_WALKTHROUGH_FULLSCR_MED, "ADMOB")
         editor.putString(RemoteConfigConstTest.NATIVE_WALKTHROUGH_3_MED, "ADMOB")
 
+        editor.putString(RemoteConfigConstTest.TIMER_NATIVE_F_SRC, "5")
+
         editor.apply()
     }
 
@@ -422,43 +433,29 @@ class SOTStartTestActivity : AppCompatBaseActivity() {
         val prefs: SharedPreferences = getSharedPreferences("RemoteConfig", Context.MODE_PRIVATE)
 
         remoteConfigHashMap.apply {
-            this["RESUME_INTER_SPLASH"] =
-                "${prefs.getString(RemoteConfigConstTest.RESUME_INTER_SPLASH, "Empty")}"
+            this["RESUME_INTER_SPLASH"] = "${prefs.getString(RemoteConfigConstTest.RESUME_INTER_SPLASH, "Empty")}"
             this["BANNER_SPLASH"] = prefs.getBoolean(RemoteConfigConstTest.BANNER_SPLASH, false)
             this["RESUME_OVERALL"] = prefs.getBoolean(RemoteConfigConstTest.RESUME_OVERALL, false)
-            this["NATIVE_LANGUAGE_1"] =
-                prefs.getBoolean(RemoteConfigConstTest.NATIVE_LANGUAGE_1, false)
-            this["NATIVE_LANGUAGE_2"] =
-                prefs.getBoolean(RemoteConfigConstTest.NATIVE_LANGUAGE_2, false)
+            this["NATIVE_LANGUAGE_1"] = prefs.getBoolean(RemoteConfigConstTest.NATIVE_LANGUAGE_1, false)
+            this["NATIVE_LANGUAGE_2"] = prefs.getBoolean(RemoteConfigConstTest.NATIVE_LANGUAGE_2, false)
             this["NATIVE_SURVEY_1"] = prefs.getBoolean(RemoteConfigConstTest.NATIVE_SURVEY_1, false)
             this["NATIVE_SURVEY_2"] = prefs.getBoolean(RemoteConfigConstTest.NATIVE_SURVEY_2, false)
-            this["NATIVE_WALKTHROUGH_1"] =
-                prefs.getBoolean(RemoteConfigConstTest.NATIVE_WALKTHROUGH_1, false)
-            this["NATIVE_WALKTHROUGH_FULLSCR"] =
-                prefs.getBoolean(RemoteConfigConstTest.NATIVE_WALKTHROUGH_FULLSCR, false)
-            this["NATIVE_WALKTHROUGH_3"] =
-                prefs.getBoolean(RemoteConfigConstTest.NATIVE_WALKTHROUGH_3, false)
+            this["NATIVE_WALKTHROUGH_1"] = prefs.getBoolean(RemoteConfigConstTest.NATIVE_WALKTHROUGH_1, false)
+            this["NATIVE_WALKTHROUGH_FULLSCR"] = prefs.getBoolean(RemoteConfigConstTest.NATIVE_WALKTHROUGH_FULLSCR, false)
+            this["NATIVE_WALKTHROUGH_3"] = prefs.getBoolean(RemoteConfigConstTest.NATIVE_WALKTHROUGH_3, false)
 
-            this["RESUME_INTER_SPLASH_MED"] =
-                "${prefs.getString(RemoteConfigConstTest.RESUME_INTER_SPLASH_MED, "Empty")}"
-            this["RESUME_OVERALL_MED"] =
-                "${prefs.getString(RemoteConfigConstTest.RESUME_OVERALL_MED, "Empty")}"
-            this["BANNER_SPLASH_MED"] =
-                "${prefs.getString(RemoteConfigConstTest.BANNER_SPLASH_MED, "Empty")}"
-            this["NATIVE_LANGUAGE_1_MED"] =
-                "${prefs.getString(RemoteConfigConstTest.NATIVE_LANGUAGE_1_MED, "Empty")}"
-            this["NATIVE_LANGUAGE_2_MED"] =
-                "${prefs.getString(RemoteConfigConstTest.NATIVE_LANGUAGE_2_MED, "Empty")}"
-            this["NATIVE_SURVEY_1_MED"] =
-                "${prefs.getString(RemoteConfigConstTest.NATIVE_SURVEY_1_MED, "Empty")}"
-            this["NATIVE_SURVEY_2_MED"] =
-                "${prefs.getString(RemoteConfigConstTest.NATIVE_SURVEY_2_MED, "Empty")}"
-            this["NATIVE_WALKTHROUGH_1_MED"] =
-                "${prefs.getString(RemoteConfigConstTest.NATIVE_WALKTHROUGH_1_MED, "Empty")}"
-            this["NATIVE_WALKTHROUGH_FULLSCR_MED"] =
-                "${prefs.getString(RemoteConfigConstTest.NATIVE_WALKTHROUGH_FULLSCR_MED, "Empty")}"
-            this["NATIVE_WALKTHROUGH_3_MED"] =
-                "${prefs.getString(RemoteConfigConstTest.NATIVE_WALKTHROUGH_3_MED, "Empty")}"
+            this["RESUME_INTER_SPLASH_MED"] = "${prefs.getString(RemoteConfigConstTest.RESUME_INTER_SPLASH_MED, "Empty")}"
+            this["RESUME_OVERALL_MED"] = "${prefs.getString(RemoteConfigConstTest.RESUME_OVERALL_MED, "Empty")}"
+            this["BANNER_SPLASH_MED"] = "${prefs.getString(RemoteConfigConstTest.BANNER_SPLASH_MED, "Empty")}"
+            this["NATIVE_LANGUAGE_1_MED"] = "${prefs.getString(RemoteConfigConstTest.NATIVE_LANGUAGE_1_MED, "Empty")}"
+            this["NATIVE_LANGUAGE_2_MED"] = "${prefs.getString(RemoteConfigConstTest.NATIVE_LANGUAGE_2_MED, "Empty")}"
+            this["NATIVE_SURVEY_1_MED"] = "${prefs.getString(RemoteConfigConstTest.NATIVE_SURVEY_1_MED, "Empty")}"
+            this["NATIVE_SURVEY_2_MED"] = "${prefs.getString(RemoteConfigConstTest.NATIVE_SURVEY_2_MED, "Empty")}"
+            this["NATIVE_WALKTHROUGH_1_MED"] = "${prefs.getString(RemoteConfigConstTest.NATIVE_WALKTHROUGH_1_MED, "Empty")}"
+            this["NATIVE_WALKTHROUGH_FULLSCR_MED"] = "${prefs.getString(RemoteConfigConstTest.NATIVE_WALKTHROUGH_FULLSCR_MED, "Empty")}"
+            this["NATIVE_WALKTHROUGH_3_MED"] = "${prefs.getString(RemoteConfigConstTest.NATIVE_WALKTHROUGH_3_MED, "Empty")}"
+
+            this["TIMER_NATIVE_F_SRC"] = "${prefs.getString(RemoteConfigConstTest.TIMER_NATIVE_F_SRC, "Empty")}"
         }
         return remoteConfigHashMap
     }

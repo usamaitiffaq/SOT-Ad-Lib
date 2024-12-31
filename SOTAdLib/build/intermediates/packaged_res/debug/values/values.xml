@@ -20,6 +20,9 @@
     <color name="White">#FFFFFF</color>
     <color name="black">#000000</color>
     <color name="lightTransparent">#16000000</color>
+    <color name="orangeLib">#FF5722</color>
+    <color name="redLib">#FF0000</color>
+    <color name="yellowLib">#FFC107</color>
     <string name="ad_is_loading">Ad is Loading…</string>
     <string name="ad_label_install">Install</string>
     <string name="des_country_flag">Country Flag</string>
@@ -27,7 +30,7 @@
     <string name="label_ad">Ad</string>
     <string name="label_all_languages">All Languages</string>
     <string name="label_country_name">Country Name</string>
-    <string name="label_next">next</string>
+    <string name="label_next">Next</string>
     <string name="label_select_language">Select Language</string>
-    <string name="label_start">Start</string>
+    <string name="label_start">Lets Start</string>
 </resources>

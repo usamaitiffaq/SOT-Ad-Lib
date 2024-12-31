@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
@@ -57,6 +58,10 @@ class WTTwoFragment(val item: WalkThroughItem) : Fragment() {
             }
         }
 
+        binding.txtHeading.setTextColor(ContextCompat.getColor(requireActivity(), item.headingColor))
+        binding.txtDescription.setTextColor(ContextCompat.getColor(requireActivity(), item.descriptionColor))
+        binding.btnNext.setTextColor(ContextCompat.getColor(requireActivity(), item.nextColor))
+
         binding.txtHeading.text = item.heading
         binding.txtDescription.text = item.description
 
@@ -68,8 +73,8 @@ class WTTwoFragment(val item: WalkThroughItem) : Fragment() {
             viewPager?.currentItem = 2
         }
 
-        val nativeSurvey2Enabled = sotAdsConfigurations?.getRemoteConfigData()?.get("NATIVE_WALKTHROUGH_3") as? Boolean ?: false
-        if (nativeSurvey2Enabled) {
+        val nativeWalkThrough3Enabled = sotAdsConfigurations?.getRemoteConfigData()?.get("NATIVE_WALKTHROUGH_3") as? Boolean ?: false
+        if (nativeWalkThrough3Enabled) {
             when (sotAdsConfigurations?.getRemoteConfigData()?.get("NATIVE_WALKTHROUGH_3_MED")) {
                 "ADMOB" -> loadAdmobWTThreeNatives()
                 "META" -> loadMetaWTThreeNatives()

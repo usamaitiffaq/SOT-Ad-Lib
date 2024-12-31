@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
@@ -56,7 +57,7 @@ class WTThreeFragment(private val fragmentActivity: FragmentActivity, val item: 
                     .into(binding.bubble)
             }
         }
-        lifecycleScope.launch {
+        /*lifecycleScope.launch {
             withContext(Dispatchers.Main) {
                 Glide.with(requireActivity())
                     .asDrawable()
@@ -65,7 +66,10 @@ class WTThreeFragment(private val fragmentActivity: FragmentActivity, val item: 
                     .skipMemoryCache(true)
                     .into(binding.bubbleDup)
             }
-        }
+        }*/
+        binding.txtHeading.setTextColor(ContextCompat.getColor(requireActivity(), item.headingColor))
+        binding.txtDescription.setTextColor(ContextCompat.getColor(requireActivity(), item.descriptionColor))
+        binding.btnNext.setTextColor(ContextCompat.getColor(requireActivity(), item.nextColor))
 
         binding.txtHeading.text = item.heading
         binding.txtDescription.text = item.description
@@ -76,11 +80,11 @@ class WTThreeFragment(private val fragmentActivity: FragmentActivity, val item: 
             fragmentActivity.finish()
         }
 
-        binding.btnNextDup.setOnClickListener {
+        /*binding.btnNextDup.setOnClickListener {
             PrefHelper(requireContext()).putBoolean("StartScreens", value = true)
             SOTAdsManager.notifyFlowFinished()
             fragmentActivity.finish()
-        }
+        }*/
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -89,7 +93,11 @@ class WTThreeFragment(private val fragmentActivity: FragmentActivity, val item: 
 
     override fun onResume() {
         super.onResume()
-        if (NetworkCheck.isNetworkAvailable(context)) {
+        if (!NetworkCheck.isNetworkAvailable(context)) {
+            binding.glOne.setGuidelinePercent(0.8f)
+            binding.nativeAdContainerAd.visibility = View.GONE
+        }
+        /*if (NetworkCheck.isNetworkAvailable(context)) {
             binding.glOne.setGuidelinePercent(0.35f)
             binding.glTwo.setGuidelinePercent(0.5f)
             binding.cl2.visibility = View.VISIBLE
@@ -99,10 +107,10 @@ class WTThreeFragment(private val fragmentActivity: FragmentActivity, val item: 
             binding.glTwo.setGuidelinePercent(0.8f)
             binding.cl2Dup.visibility = View.VISIBLE
             binding.cl2.visibility = View.GONE
-        }
+        }*/
 
-        val nativeSurvey2Enabled = sotAdsConfigurations?.getRemoteConfigData()?.get("NATIVE_WALKTHROUGH_3") as? Boolean ?: false
-        if (nativeSurvey2Enabled) {
+        val nativeWalkThrough3Enabled = sotAdsConfigurations?.getRemoteConfigData()?.get("NATIVE_WALKTHROUGH_3") as? Boolean ?: false
+        if (nativeWalkThrough3Enabled) {
             when (sotAdsConfigurations?.getRemoteConfigData()?.get("NATIVE_WALKTHROUGH_3_MED")) {
                 "ADMOB" -> {
                     binding.nativeAdContainerAd.visibility = View.VISIBLE

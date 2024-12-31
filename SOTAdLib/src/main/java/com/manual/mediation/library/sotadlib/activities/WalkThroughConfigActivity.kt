@@ -9,7 +9,7 @@ import com.manual.mediation.library.sotadlib.callingClasses.SOTAdsConfigurations
 import com.manual.mediation.library.sotadlib.callingClasses.SOTAdsManager
 import com.manual.mediation.library.sotadlib.databinding.ActivityWalkThroughConfigBinding
 import com.manual.mediation.library.sotadlib.utils.NetworkCheck
-import com.manual.mediation.library.sotadlib.utils.hideSystemUI
+import com.manual.mediation.library.sotadlib.utils.hideSystemUIUpdated
 
 class WalkThroughConfigActivity : AppCompatBaseActivity() {
 
@@ -21,7 +21,7 @@ class WalkThroughConfigActivity : AppCompatBaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportActionBar?.hide()
-        hideSystemUI()
+//        hideSystemUIUpdated()
         binding = ActivityWalkThroughConfigBinding.inflate(layoutInflater)
         setContentView(binding.root)
         sotAdsConfigurations = SOTAdsManager.getConfigurations()
@@ -57,5 +57,10 @@ class WalkThroughConfigActivity : AppCompatBaseActivity() {
                 previousPosition = position
             }
         })
+    }
+
+    override fun onResume() {
+        super.onResume()
+        hideSystemUIUpdated()
     }
 }

@@ -5,12 +5,14 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.manual.mediation.library.sotadlib.R
+import com.manual.mediation.library.sotadlib.adMobAdClasses.AdmobNativeAdFullScreen
 import com.manual.mediation.library.sotadlib.adMobAdClasses.AdmobNativeAdManager
 import com.manual.mediation.library.sotadlib.callingClasses.SOTAdsConfigurations
 import com.manual.mediation.library.sotadlib.callingClasses.SOTAdsManager
@@ -27,18 +29,21 @@ class WTOneFragment(val item: WalkThroughItem) : Fragment() {
     lateinit var binding: FragmentWTOneBinding
     private var sotAdsConfigurations: SOTAdsConfigurations? = null
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        binding = FragmentWTOneBinding.inflate(inflater, container, false)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+        binding = FragmentWTOneBinding.inflate(inflater, container,false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         sotAdsConfigurations = SOTAdsManager.getConfigurations()
+
+        val nativeWalkThrough1Enabled = sotAdsConfigurations?.getRemoteConfigData()?.get("NATIVE_WALKTHROUGH_FULLSCR") as? Boolean ?: false
+        if (nativeWalkThrough1Enabled) {
+            when (sotAdsConfigurations?.getRemoteConfigData()?.get("NATIVE_WALKTHROUGH_FULLSCR_MED")) {
+                "ADMOB" -> loadAdmobWTOneNatives()
+            }
+        }
 
         lifecycleScope.launch {
             withContext(Dispatchers.Main) {
@@ -60,7 +65,7 @@ class WTOneFragment(val item: WalkThroughItem) : Fragment() {
                     .into(binding.bubble)
             }
         }
-        lifecycleScope.launch {
+        /*lifecycleScope.launch {
             withContext(Dispatchers.Main) {
                 Glide.with(requireActivity())
                     .asDrawable()
@@ -69,7 +74,11 @@ class WTOneFragment(val item: WalkThroughItem) : Fragment() {
                     .skipMemoryCache(true)
                     .into(binding.bubbleDup)
             }
-        }
+        }*/
+
+        binding.txtHeading.setTextColor(ContextCompat.getColor(requireActivity(), item.headingColor))
+        binding.txtDescription.setTextColor(ContextCompat.getColor(requireActivity(), item.descriptionColor))
+        binding.btnNext.setTextColor(ContextCompat.getColor(requireActivity(), item.nextColor))
 
         binding.txtHeading.text = item.heading
         binding.txtDescription.text = item.description
@@ -79,15 +88,33 @@ class WTOneFragment(val item: WalkThroughItem) : Fragment() {
             viewPager?.currentItem = 1
         }
 
-        binding.btnNextDup.setOnClickListener {
+        /*binding.btnNextDup.setOnClickListener {
             val viewPager = activity?.findViewById<ViewPager2>(R.id.viewPager)
             viewPager?.currentItem = 1
+        }*/
+    }
+
+    private fun loadAdmobWTOneNatives() {
+        val adId = sotAdsConfigurations?.firstOpenFlowAdIds?.getValue("ADMOB_NATIVE_WALKTHROUGH_FULLSCR")
+        if (adId != null) {
+            AdmobNativeAdFullScreen.requestAd(
+                mContext = requireActivity(),
+                adId = adId,
+                adName = "WALKTHROUGH_FULL_SCREEN",
+                populateView = false
+            )
+        } else {
+            Log.e("SOT_ADS_TAG","Admob ad ID not found for WALKTHROUGH_FULL_SCREEN")
         }
     }
 
     override fun onResume() {
         super.onResume()
-        if (NetworkCheck.isNetworkAvailable(context)) {
+        if (!NetworkCheck.isNetworkAvailable(context)) {
+            binding.glOne.setGuidelinePercent(0.8f)
+            binding.nativeAdContainerAd.visibility = View.GONE
+        }
+        /*if (NetworkCheck.isNetworkAvailable(context)) {
             binding.glOne.setGuidelinePercent(0.35f)
             binding.glTwo.setGuidelinePercent(0.5f)
             binding.cl2.visibility = View.VISIBLE
@@ -97,10 +124,10 @@ class WTOneFragment(val item: WalkThroughItem) : Fragment() {
             binding.glTwo.setGuidelinePercent(0.8f)
             binding.cl2Dup.visibility = View.VISIBLE
             binding.cl2.visibility = View.GONE
-        }
+        }*/
 
-        val nativeSurvey2Enabled = sotAdsConfigurations?.getRemoteConfigData()?.get("NATIVE_WALKTHROUGH_1") as? Boolean ?: false
-        if (nativeSurvey2Enabled) {
+        val nativeWalkThrough1Enabled = sotAdsConfigurations?.getRemoteConfigData()?.get("NATIVE_WALKTHROUGH_1") as? Boolean ?: false
+        if (nativeWalkThrough1Enabled) {
             when (sotAdsConfigurations?.getRemoteConfigData()?.get("NATIVE_WALKTHROUGH_1_MED")) {
                 "ADMOB" -> {
                     binding.nativeAdContainerAd.visibility = View.VISIBLE

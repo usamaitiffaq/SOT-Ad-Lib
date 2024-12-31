@@ -25,6 +25,7 @@ playServicesAds = "23.3.0"
 sdpAndroid = "1.1.1"
 sspAndroid = "1.1.1"
 userMessagingPlatform = "3.0.0"
+lottie = "6.5.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -46,6 +47,7 @@ play-services-ads = { module = "com.google.android.gms:play-services-ads", versi
 sdp-android = { module = "com.intuit.sdp:sdp-android", version.ref = "sdpAndroid" }
 ssp-android = { module = "com.intuit.ssp:ssp-android", version.ref = "sspAndroid" }
 user-messaging-platform = { module = "com.google.android.ump:user-messaging-platform", version.ref = "userMessagingPlatform" }
+lottie = { module = "com.airbnb.android:lottie", version.ref = "lottie" }
 
 
 [plugins]

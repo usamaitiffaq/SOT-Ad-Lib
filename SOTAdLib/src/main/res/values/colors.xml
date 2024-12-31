@@ -2,5 +2,8 @@
 <resources>
     <color name="black">#000000</color>
     <color name="White">#FFFFFF</color>
+    <color name="yellowLib">#FFC107</color>
+    <color name="redLib">#FF0000</color>
+    <color name="orangeLib">#FF5722</color>
     <color name="lightTransparent">#16000000</color>
 </resources>

@@ -12,7 +12,7 @@ import com.manual.mediation.library.sotadlib.callingClasses.SOTAdsManager
 import com.manual.mediation.library.sotadlib.callingClasses.WelcomeScreensConfiguration
 import com.manual.mediation.library.sotadlib.interfaces.WelcomeDupInterface
 import com.manual.mediation.library.sotadlib.metaAdClasses.MetaNativeAdManager
-import com.manual.mediation.library.sotadlib.utils.hideSystemUI
+import com.manual.mediation.library.sotadlib.utils.hideSystemUIUpdated
 
 class WelcomeScreenDup: AppCompatBaseActivity(), WelcomeDupInterface {
 
@@ -21,8 +21,9 @@ class WelcomeScreenDup: AppCompatBaseActivity(), WelcomeDupInterface {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        overridePendingTransition(0, 0)
         supportActionBar?.hide()
-        hideSystemUI()
+        hideSystemUIUpdated()
         sotAdsConfigurations = SOTAdsManager.getConfigurations()
 
         WelcomeScreensConfiguration.welcomeInstance?.let { config ->
@@ -36,8 +37,8 @@ class WelcomeScreenDup: AppCompatBaseActivity(), WelcomeDupInterface {
             setContentView(myView)
         }
 
-        val nativeSurvey2Enabled = sotAdsConfigurations?.getRemoteConfigData()?.get("NATIVE_WALKTHROUGH_1") as? Boolean ?: false
-        if (nativeSurvey2Enabled) {
+        val nativeWalkThrough1Enabled = sotAdsConfigurations?.getRemoteConfigData()?.get("NATIVE_WALKTHROUGH_1") as? Boolean ?: false
+        if (nativeWalkThrough1Enabled) {
             when (sotAdsConfigurations?.getRemoteConfigData()?.get("NATIVE_WALKTHROUGH_1_MED")) {
                 "ADMOB" -> loadAdmobWTOneNatives()
                 "META" -> loadMetaWTOneNatives()

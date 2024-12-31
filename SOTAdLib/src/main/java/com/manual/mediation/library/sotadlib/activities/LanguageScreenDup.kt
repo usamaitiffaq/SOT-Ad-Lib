@@ -15,8 +15,7 @@ import com.manual.mediation.library.sotadlib.callingClasses.LanguageScreensConfi
 import com.manual.mediation.library.sotadlib.callingClasses.SOTAdsConfigurations
 import com.manual.mediation.library.sotadlib.callingClasses.SOTAdsManager
 import com.manual.mediation.library.sotadlib.metaAdClasses.MetaNativeAdManager
-import com.manual.mediation.library.sotadlib.utils.hideSystemUI
-import kotlin.system.exitProcess
+import com.manual.mediation.library.sotadlib.utils.hideSystemUIUpdated
 
 class LanguageScreenDup: AppCompatBaseActivity() {
 
@@ -27,9 +26,10 @@ class LanguageScreenDup: AppCompatBaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        overridePendingTransition(0, 0)
         supportActionBar?.hide()
         sotAdsConfigurations = SOTAdsManager.getConfigurations()
-        hideSystemUI()
+        hideSystemUIUpdated()
         setContentView(R.layout.language_screen_dup)
         imvDone = findViewById(R.id.imvDone)
         recyclerView = findViewById(R.id.recyclerViewLanguage)

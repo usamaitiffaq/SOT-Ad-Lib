@@ -27,25 +27,13 @@ public final class FragmentWTOneBinding implements ViewBinding {
   public final TextView btnNext;
 
   @NonNull
-  public final TextView btnNextDup;
-
-  @NonNull
   public final ImageView bubble;
-
-  @NonNull
-  public final ImageView bubbleDup;
 
   @NonNull
   public final ConstraintLayout cl2;
 
   @NonNull
-  public final ConstraintLayout cl2Dup;
-
-  @NonNull
   public final Guideline glOne;
-
-  @NonNull
-  public final Guideline glTwo;
 
   @NonNull
   public final ImageView main;
@@ -63,20 +51,15 @@ public final class FragmentWTOneBinding implements ViewBinding {
   public final TextView txtHeading;
 
   private FragmentWTOneBinding(@NonNull ConstraintLayout rootView, @NonNull TextView btnNext,
-      @NonNull TextView btnNextDup, @NonNull ImageView bubble, @NonNull ImageView bubbleDup,
-      @NonNull ConstraintLayout cl2, @NonNull ConstraintLayout cl2Dup, @NonNull Guideline glOne,
-      @NonNull Guideline glTwo, @NonNull ImageView main, @NonNull CardView nativeAdContainerAd,
+      @NonNull ImageView bubble, @NonNull ConstraintLayout cl2, @NonNull Guideline glOne,
+      @NonNull ImageView main, @NonNull CardView nativeAdContainerAd,
       @NonNull ShimmerFrameLayout shimmerLayout, @NonNull TextView txtDescription,
       @NonNull TextView txtHeading) {
     this.rootView = rootView;
     this.btnNext = btnNext;
-    this.btnNextDup = btnNextDup;
     this.bubble = bubble;
-    this.bubbleDup = bubbleDup;
     this.cl2 = cl2;
-    this.cl2Dup = cl2Dup;
     this.glOne = glOne;
-    this.glTwo = glTwo;
     this.main = main;
     this.nativeAdContainerAd = nativeAdContainerAd;
     this.shimmerLayout = shimmerLayout;
@@ -117,21 +100,9 @@ public final class FragmentWTOneBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.btnNextDup;
-      TextView btnNextDup = ViewBindings.findChildViewById(rootView, id);
-      if (btnNextDup == null) {
-        break missingId;
-      }
-
       id = R.id.bubble;
       ImageView bubble = ViewBindings.findChildViewById(rootView, id);
       if (bubble == null) {
-        break missingId;
-      }
-
-      id = R.id.bubbleDup;
-      ImageView bubbleDup = ViewBindings.findChildViewById(rootView, id);
-      if (bubbleDup == null) {
         break missingId;
       }
 
@@ -141,21 +112,9 @@ public final class FragmentWTOneBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.cl2Dup;
-      ConstraintLayout cl2Dup = ViewBindings.findChildViewById(rootView, id);
-      if (cl2Dup == null) {
-        break missingId;
-      }
-
       id = R.id.glOne;
       Guideline glOne = ViewBindings.findChildViewById(rootView, id);
       if (glOne == null) {
-        break missingId;
-      }
-
-      id = R.id.glTwo;
-      Guideline glTwo = ViewBindings.findChildViewById(rootView, id);
-      if (glTwo == null) {
         break missingId;
       }
 
@@ -189,9 +148,8 @@ public final class FragmentWTOneBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentWTOneBinding((ConstraintLayout) rootView, btnNext, btnNextDup, bubble,
-          bubbleDup, cl2, cl2Dup, glOne, glTwo, main, nativeAdContainerAd, shimmerLayout,
-          txtDescription, txtHeading);
+      return new FragmentWTOneBinding((ConstraintLayout) rootView, btnNext, bubble, cl2, glOne,
+          main, nativeAdContainerAd, shimmerLayout, txtDescription, txtHeading);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

@@ -14,7 +14,7 @@ import com.manual.mediation.library.sotadlib.callingClasses.SOTAdsManager
 import com.manual.mediation.library.sotadlib.callingClasses.WelcomeScreensConfiguration
 import com.manual.mediation.library.sotadlib.interfaces.WelcomeInterface
 import com.manual.mediation.library.sotadlib.metaAdClasses.MetaNativeAdManager
-import com.manual.mediation.library.sotadlib.utils.hideSystemUI
+import com.manual.mediation.library.sotadlib.utils.hideSystemUIUpdated
 
 class WelcomeScreenOne : AppCompatBaseActivity(), WelcomeInterface {
 
@@ -23,8 +23,9 @@ class WelcomeScreenOne : AppCompatBaseActivity(), WelcomeInterface {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        overridePendingTransition(0, 0)
         supportActionBar?.hide()
-        hideSystemUI()
+        hideSystemUIUpdated()
         sotAdsConfigurations = SOTAdsManager.getConfigurations()
 
         WelcomeScreensConfiguration.welcomeInstance?.let { config ->

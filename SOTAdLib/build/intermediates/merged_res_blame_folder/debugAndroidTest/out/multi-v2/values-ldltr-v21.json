@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.manual.mediation.library.sotadlib.test.SOTAdLib-mergeDebugAndroidTestResources-59:/values-ldltr-v21/values-ldltr-v21.xml",
+            "outputFile": "com.manual.mediation.library.sotadlib.test.SOTAdLib-mergeDebugAndroidTestResources-60:/values-ldltr-v21/values-ldltr-v21.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Sr. Developer - SOT\\.gradle\\caches\\transforms-3\\95e7e5693fcb3d5646a17909215efad3\\transformed\\appcompat-1.7.0\\res\\values-ldltr-v21\\values-ldltr-v21.xml",
+                    "source": "C:\\Users\\Sr. Developer - SOT\\.gradle\\caches\\transforms-3\\dc5949f8e055e0bdcae241e9b5e6ada3\\transformed\\appcompat-1.7.0\\res\\values-ldltr-v21\\values-ldltr-v21.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

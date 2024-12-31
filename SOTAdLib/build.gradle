@@ -50,6 +50,7 @@ dependencies {
     implementation 'com.intuit.sdp:sdp-android:1.1.1'
 
     implementation libs.user.messaging.platform
+    implementation libs.lottie
 
     // Admob
     implementation libs.play.services.ads

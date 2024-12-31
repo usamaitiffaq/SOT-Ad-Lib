@@ -16,7 +16,7 @@ import com.manual.mediation.library.sotadlib.callingClasses.SOTAdsConfigurations
 import com.manual.mediation.library.sotadlib.callingClasses.SOTAdsManager
 import com.manual.mediation.library.sotadlib.interfaces.LanguageInterface
 import com.manual.mediation.library.sotadlib.metaAdClasses.MetaNativeAdManager
-import com.manual.mediation.library.sotadlib.utils.hideSystemUI
+import com.manual.mediation.library.sotadlib.utils.hideSystemUIUpdated
 
 class LanguageScreenOne : AppCompatBaseActivity(), LanguageInterface {
 
@@ -28,7 +28,7 @@ class LanguageScreenOne : AppCompatBaseActivity(), LanguageInterface {
         super.onCreate(savedInstanceState)
         sotAdsConfigurations = SOTAdsManager.getConfigurations()
         supportActionBar?.hide()
-        hideSystemUI()
+        hideSystemUIUpdated()
         setContentView(R.layout.language_screen_one)
         recyclerView = findViewById(R.id.recyclerViewLanguage)
         recyclerView.layoutManager = LinearLayoutManager(this)
@@ -56,8 +56,8 @@ class LanguageScreenOne : AppCompatBaseActivity(), LanguageInterface {
             }
         }
 
-        val nativeLanguage1Enabled = sotAdsConfigurations?.getRemoteConfigData()?.get("NATIVE_LANGUAGE_2") as? Boolean ?: false
-        if (nativeLanguage1Enabled) {
+        val nativeLanguage2Enabled = sotAdsConfigurations?.getRemoteConfigData()?.get("NATIVE_LANGUAGE_2") as? Boolean ?: false
+        if (nativeLanguage2Enabled) {
             when (sotAdsConfigurations?.getRemoteConfigData()?.get("NATIVE_LANGUAGE_2_MED")) {
                 "ADMOB" -> loadAdmobLanguageScreenDupNatives()
                 "META" -> loadMetaLanguageScreenDupNatives()

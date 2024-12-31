@@ -831,6 +831,28 @@ attr logo
 attr logoAdjustViewBounds
 attr logoDescription
 attr logoScaleType
+attr lottieAnimationViewStyle
+attr lottie_asyncUpdates
+attr lottie_autoPlay
+attr lottie_cacheComposition
+attr lottie_clipTextToBoundingBox
+attr lottie_clipToCompositionBounds
+attr lottie_colorFilter
+attr lottie_defaultFontFileExtension
+attr lottie_enableMergePathsForKitKatAndAbove
+attr lottie_fallbackRes
+attr lottie_fileName
+attr lottie_ignoreDisabledSystemAnimations
+attr lottie_imageAssetsFolder
+attr lottie_loop
+attr lottie_progress
+attr lottie_rawRes
+attr lottie_renderMode
+attr lottie_repeatCount
+attr lottie_repeatMode
+attr lottie_speed
+attr lottie_url
+attr lottie_useCompositionFrameRate
 attr marginHorizontal
 attr marginLeftSystemWindowInsets
 attr marginRightSystemWindowInsets
@@ -2179,6 +2201,7 @@ color mtrl_textinput_focused_box_stroke_color
 color mtrl_textinput_hovered_box_stroke_color
 color notification_action_color_filter
 color notification_icon_bg_color
+color orangeLib
 color primary_dark_material_dark
 color primary_dark_material_light
 color primary_material_dark
@@ -2187,6 +2210,7 @@ color primary_text_default_material_dark
 color primary_text_default_material_light
 color primary_text_disabled_material_dark
 color primary_text_disabled_material_light
+color redLib
 color ripple_material_dark
 color ripple_material_light
 color secondary_text_default_material_dark
@@ -2201,6 +2225,7 @@ color switch_thumb_normal_material_dark
 color switch_thumb_normal_material_light
 color tooltip_background_dark
 color tooltip_background_light
+color yellowLib
 dimen _100sdp
 dimen _100ssp
 dimen _101sdp
@@ -3920,6 +3945,7 @@ drawable ic_call_decline
 drawable ic_call_decline_low
 drawable ic_clear_black_24
 drawable ic_clock_black_24dp
+drawable ic_close
 drawable ic_done
 drawable ic_image_shimmer
 drawable ic_keyboard_black_24dp
@@ -4143,7 +4169,12 @@ id adChoicesContainer
 id adHeadline
 id adIconCard
 id adMedia
+id ad_app_iconShimmer
 id ad_attribute
+id ad_bodyShimmer
+id ad_call_to_actionShimmer
+id ad_headlineShimmer
+id ad_mediaShimmer
 id add
 id adjust_height
 id adjust_width
@@ -4164,6 +4195,7 @@ id auto
 id autoComplete
 id autoCompleteToEnd
 id autoCompleteToStart
+id automatic
 id bannerShimmerParent
 id barrier
 id baseline
@@ -4183,9 +4215,7 @@ id browser_actions_menu_item_text
 id browser_actions_menu_items
 id browser_actions_menu_view
 id btnNext
-id btnNextDup
 id bubble
-id bubbleDup
 id buttonPanel
 id cache_measures
 id callMeasure
@@ -4204,7 +4234,6 @@ id checked
 id chronometer
 id circle_center
 id cl2
-id cl2Dup
 id clear_text
 id clip_horizontal
 id clip_vertical
@@ -4228,6 +4257,7 @@ id currentState
 id custom
 id customPanel
 id cut
+id cvIconAppShimmer
 id dark
 id data_panel
 id date_picker_actions
@@ -4249,6 +4279,7 @@ id disableHome
 id disableIntraAutoTransition
 id disablePostScroll
 id disableScroll
+id disabled
 id disjoint
 id dragAnticlockwise
 id dragClockwise
@@ -4268,6 +4299,7 @@ id edit_query
 id edit_text_id
 id elastic
 id embed
+id enabled
 id end
 id endToStart
 id enterAlways
@@ -4309,7 +4341,6 @@ id glNativeAdmobSmall1
 id glNativeAdmobSmall2
 id glNativeAdmobSmall3
 id glOne
-id glTwo
 id glide_custom_view_target_tag
 id gone
 id graph
@@ -4323,6 +4354,8 @@ id guideline60
 id guideline65
 id guideline75
 id guideline90
+id handAnimActive
+id hardware
 id header_title
 id hide_ime_id
 id hideable
@@ -4347,6 +4380,7 @@ id invisible
 id inward
 id italic
 id item_touch_helper_previous_elevation
+id ivClose
 id ivCountryFlagLanguage
 id ivUnSelected
 id jumpToEnd
@@ -4361,10 +4395,15 @@ id light
 id line1
 id line3
 id linear
+id linearLayout3
+id linearLayout3Shimmer
 id listMode
 id list_item
+id ll4
+id ll4Shimmer
 id loadingAdNested
 id locale
+id lottie_layer_name
 id ltr
 id m3_side_sheet
 id main
@@ -4431,12 +4470,15 @@ id mtrl_view_tag_bottom_padding
 id multiply
 id nativeAdBody
 id nativeAdCallToAction
+id nativeAdContainer
 id nativeAdContainerAd
+id nativeAdContainerShimmer
 id nativeAdIcon
 id nativeAdMedia
 id nativeAdSocialContext
 id nativeAdSponsoredLabel
 id nativeAdTitle
+id nativeAdView
 id nativead
 id nav_controller_view_tag
 id nav_host_fragment_container
@@ -4559,6 +4601,7 @@ id snackbar_action
 id snackbar_text
 id snap
 id snapMargins
+id software
 id south
 id spacer
 id special_effects_controller_view_tag
@@ -4891,6 +4934,7 @@ layout ssp_example
 layout support_simple_spinner_dropdown_item
 navigation walkthrough_nav
 plurals mtrl_badge_content_description
+raw hand_anim
 string abc_action_bar_home_description
 string abc_action_bar_up_description
 string abc_action_menu_overflow_description
@@ -6326,6 +6370,7 @@ styleable LinearLayoutCompat_Layout android_layout_gravity android_layout_width 
 styleable LinearProgressIndicator indeterminateAnimationType indicatorDirectionLinear trackStopIndicatorSize
 styleable ListPopupWindow android_dropDownHorizontalOffset android_dropDownVerticalOffset
 styleable LoadingImageView circleCrop imageAspectRatio imageAspectRatioAdjust
+styleable LottieAnimationView lottie_asyncUpdates lottie_autoPlay lottie_cacheComposition lottie_clipTextToBoundingBox lottie_clipToCompositionBounds lottie_colorFilter lottie_defaultFontFileExtension lottie_enableMergePathsForKitKatAndAbove lottie_fallbackRes lottie_fileName lottie_ignoreDisabledSystemAnimations lottie_imageAssetsFolder lottie_loop lottie_progress lottie_rawRes lottie_renderMode lottie_repeatCount lottie_repeatMode lottie_speed lottie_url lottie_useCompositionFrameRate
 styleable MaterialAlertDialog backgroundInsetBottom backgroundInsetEnd backgroundInsetStart backgroundInsetTop backgroundTint
 styleable MaterialAlertDialogTheme materialAlertDialogBodyTextStyle materialAlertDialogButtonSpacerVisibility materialAlertDialogTheme materialAlertDialogTitleIconStyle materialAlertDialogTitlePanelStyle materialAlertDialogTitleTextStyle
 styleable MaterialAutoCompleteTextView android_inputType android_popupElevation dropDownBackgroundTint simpleItemLayout simpleItemSelectedColor simpleItemSelectedRippleColor simpleItems
