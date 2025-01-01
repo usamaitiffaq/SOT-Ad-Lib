@@ -84,6 +84,7 @@ class WTFullScreenAdFragment : Fragment() {
                 adContainer = binding.nativeAdContainer,
                 onAdFailed = {
                     binding.nativeAdView.visibility = View.GONE
+                    binding.ivClose.performClick()
                     Log.i("SOT_ADS_TAG", "WALKTHROUGH_1: Admob: onAdFailed()")
                 },
                 onAdLoaded = {
