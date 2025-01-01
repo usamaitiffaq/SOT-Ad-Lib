@@ -79,9 +79,9 @@ class LanguageScreenDup: AppCompatBaseActivity() {
         val callback = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 intent?.let {
-                    if (it.getStringExtra("From").equals("AppSettings")) {
+//                    if (it.getStringExtra("From").equals("AppSettings")) {
                         finish()
-                    }
+//                    }
                 }
             }
         }

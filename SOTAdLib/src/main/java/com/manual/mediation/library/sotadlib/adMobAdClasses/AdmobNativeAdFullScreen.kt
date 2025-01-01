@@ -3,7 +3,6 @@ package com.manual.mediation.library.sotadlib.adMobAdClasses
 import android.app.Activity
 import android.util.Log
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
@@ -73,9 +72,7 @@ object AdmobNativeAdFullScreen {
                     if (populateView) {
                         adContainer.let { container ->
                             Log.i("SOT_ADS_TAG", "Admob: Native : $adName : populateWithMediaViewAdmob()")
-                            populateWithMediaViewAdmob(nativeAd, adView)
-//                            container.removeAllViews()
-//                            container.addView(adView)
+                            populateNativeAd(nativeAd, adView)
                         }
                     } else {
                         mContext.let {
@@ -93,7 +90,7 @@ object AdmobNativeAdFullScreen {
                         onAdFailed?.invoke()
                         mContext.let {
                             if (BuildConfig.DEBUG) {
-                                Toast.makeText(mContext,"Admob: Native : onAdFailedToLoad() $adName \n$errorCode", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(mContext,"Admob: Native : onAdFailedToLoad() $adName", Toast.LENGTH_SHORT).show()
                             }
                         }
                         Log.i("SOT_ADS_TAG", "Admob: Native : $adName : onAdFailedToLoad()\n$errorCode")
@@ -136,49 +133,39 @@ object AdmobNativeAdFullScreen {
         }
     }
 
-    fun showCachedAd(adName: String, adContainer: CardView?) {
+    private fun showCachedAd(adName: String, adContainer: CardView?) {
         adContainer?.context?.let { context ->
             nativeAdCache[adName]?.let { cachedAd ->
                 val adView = adContainer.findViewById(R.id.nativeAdView) as? NativeAdView ?: return
-                populateWithMediaViewAdmob(cachedAd, adView)
-//                adContainer.removeAllViews()
-//                adContainer.addView(adView)
+                populateNativeAd(cachedAd, adView)
             } ?: run {
                 Log.i("SOT_ADS_TAG", "Ad is not available in cache for adName: $adName")
             }
         } ?: Log.i("SOT_ADS_TAG", "Ad container or context is null; cannot load ad.")
     }
 
-    private fun populateWithMediaViewAdmob(nativeAd: NativeAd, adView: NativeAdView) {
+    private fun populateNativeAd(
+        nativeAd: NativeAd,
+        adView: NativeAdView
+    ) {
         adView.headlineView = adView.findViewById(R.id.adHeadline)
         adView.bodyView = adView.findViewById(R.id.adBody)
         adView.callToActionView = adView.findViewById(R.id.adCallToAction)
         adView.iconView = adView.findViewById(R.id.adAppIcon)
-        adView.mediaView = adView.findViewById<View>(R.id.adMedia) as MediaView
+
         (adView.headlineView as TextView).text = nativeAd.headline
-        (adView.findViewById<View>(R.id.adMedia) as MediaView).setOnHierarchyChangeListener(object : ViewGroup.OnHierarchyChangeListener {
-            override fun onChildViewAdded(parent: View, child: View) {
-                /*if (child is ImageView) {
-                    child.scaleType = ImageView.ScaleType.FIT_XY
-                }*/
-            }
-
-            override fun onChildViewRemoved(view: View, view1: View) {}
-        })
-
-        adView.mediaView!!.mediaContent = nativeAd.mediaContent!!
 
         if (nativeAd.body == null) {
-            adView.bodyView!!.visibility = View.INVISIBLE
+            adView.bodyView?.visibility = View.INVISIBLE
         } else {
-            adView.bodyView!!.visibility = View.VISIBLE
+            adView.bodyView?.visibility = View.VISIBLE
             (adView.bodyView as TextView).text = nativeAd.body
         }
 
         if (nativeAd.callToAction == null) {
-            adView.callToActionView!!.visibility = View.INVISIBLE
+            adView.callToActionView?.visibility = View.INVISIBLE
         } else {
-            adView.callToActionView!!.visibility = View.VISIBLE
+            adView.callToActionView?.visibility = View.VISIBLE
             (adView.callToActionView as Button).text = nativeAd.callToAction
         }
 
@@ -190,11 +177,19 @@ object AdmobNativeAdFullScreen {
             adView.iconView!!.visibility = View.VISIBLE
         }
 
+        configureMediaView(nativeAd, adView)
+
         adView.setNativeAd(nativeAd)
         adView.visibility = View.VISIBLE
-        val vc: VideoController = nativeAd.mediaContent!!.videoController
-        if (vc.hasVideoContent()) {
-            vc.videoLifecycleCallbacks = object : VideoController.VideoLifecycleCallbacks() {}
+    }
+
+    private fun configureMediaView(nativeAd: NativeAd, adView: NativeAdView) {
+        adView.mediaView = adView.findViewById<View>(R.id.adMedia) as MediaView
+        adView.mediaView?.mediaContent = nativeAd.mediaContent!!
+        val videoController = nativeAd.mediaContent!!.videoController
+        if (videoController.hasVideoContent()) {
+            videoController.videoLifecycleCallbacks = object : VideoController.VideoLifecycleCallbacks() {
+            }
         }
     }
 }

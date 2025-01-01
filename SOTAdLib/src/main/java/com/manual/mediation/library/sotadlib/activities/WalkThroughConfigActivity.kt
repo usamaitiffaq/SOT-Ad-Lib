@@ -20,6 +20,7 @@ class WalkThroughConfigActivity : AppCompatBaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        overridePendingTransition(0, 0)
         supportActionBar?.hide()
 //        hideSystemUIUpdated()
         binding = ActivityWalkThroughConfigBinding.inflate(layoutInflater)
@@ -59,8 +60,13 @@ class WalkThroughConfigActivity : AppCompatBaseActivity() {
         })
     }
 
-    override fun onResume() {
+    /*override fun onResume() {
         super.onResume()
+        hideSystemUIUpdated()
+    }*/
+
+    override fun onWindowFocusChanged(hasFocus: Boolean) {
+        super.onWindowFocusChanged(hasFocus)
         hideSystemUIUpdated()
     }
 }

@@ -1,7 +1,7 @@
 -- Merging decision tree log ---
 manifest
-ADDED from E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\src\main\AndroidManifest.xml:2:1-38:12
-INJECTED from E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\src\main\AndroidManifest.xml:2:1-38:12
+ADDED from E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\src\main\AndroidManifest.xml:2:1-41:12
+INJECTED from E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\src\main\AndroidManifest.xml:2:1-41:12
 	package
 		INJECTED from E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\src\main\AndroidManifest.xml
 	xmlns:tools
@@ -23,7 +23,7 @@ ADDED from E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\src\main\AndroidMa
 	android:name
 		ADDED from E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\src\main\AndroidManifest.xml:8:9-63
 application
-ADDED from E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\src\main\AndroidManifest.xml:11:5-36:19
+ADDED from E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\src\main\AndroidManifest.xml:11:5-39:19
 activity#com.manual.mediation.library.sotadlib.activities.LanguageScreenOne
 ADDED from E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\src\main\AndroidManifest.xml:12:9-15:51
 	android:screenOrientation
@@ -70,6 +70,12 @@ ADDED from E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\src\main\AndroidMa
 		ADDED from E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\src\main\AndroidManifest.xml:35:13-54
 	android:name
 		ADDED from E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\src\main\AndroidManifest.xml:34:13-43
+meta-data#com.google.android.gms.ads.flag.NATIVE_AD_DEBUGGER_ENABLED
+ADDED from E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\src\main\AndroidManifest.xml:36:9-38:37
+	android:value
+		ADDED from E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\src\main\AndroidManifest.xml:38:13-34
+	android:name
+		ADDED from E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\src\main\AndroidManifest.xml:37:13-86
 uses-sdk
 INJECTED from E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\src\main\AndroidManifest.xml

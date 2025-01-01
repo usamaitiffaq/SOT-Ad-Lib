@@ -86,7 +86,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/_3sdp"
-            android:ellipsize="marquee"
+            android:ellipsize="end"
             android:fontFamily="@font/lexend_semibold"
             android:lines="2"
             android:text="Ad Body"

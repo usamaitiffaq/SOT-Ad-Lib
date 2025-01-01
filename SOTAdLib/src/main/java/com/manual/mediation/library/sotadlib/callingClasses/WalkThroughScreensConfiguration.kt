@@ -15,6 +15,7 @@ class WalkThroughScreensConfiguration private constructor() {
         Log.i("WalkThroughScreensConfiguration","WalkThrough: walkThroughInitializationSetup()")
         activityContext.startActivity(Intent(activityContext, WalkThroughConfigActivity::class.java))
         activityContext.finish()
+        activityContext.overridePendingTransition(0,0)
     }
 
     class Builder {

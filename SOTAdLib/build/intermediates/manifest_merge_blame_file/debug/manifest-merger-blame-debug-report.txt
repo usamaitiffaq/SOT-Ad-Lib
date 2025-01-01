@@ -19,7 +19,7 @@
 12-->E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\src\main\AndroidManifest.xml:9:9-28
 13
 14    <application>
-14-->E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\src\main\AndroidManifest.xml:11:5-36:19
+14-->E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\src\main\AndroidManifest.xml:11:5-39:19
 15        <activity
 15-->E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\src\main\AndroidManifest.xml:12:9-15:51
 16            android:name="com.manual.mediation.library.sotadlib.activities.LanguageScreenOne"
@@ -67,6 +67,12 @@
 37-->E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\src\main\AndroidManifest.xml:34:13-43
 38            android:resource="@array/preloaded_fonts" />
 38-->E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\src\main\AndroidManifest.xml:35:13-54
-39    </application>
-40
-41</manifest>
+39        <meta-data
+39-->E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\src\main\AndroidManifest.xml:36:9-38:37
+40            android:name="com.google.android.gms.ads.flag.NATIVE_AD_DEBUGGER_ENABLED"
+40-->E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\src\main\AndroidManifest.xml:37:13-86
+41            android:value="false" />
+41-->E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\src\main\AndroidManifest.xml:38:13-34
+42    </application>
+43
+44</manifest>
