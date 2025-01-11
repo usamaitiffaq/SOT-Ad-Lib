@@ -13,6 +13,7 @@ constraintlayout = "2.1.4"
 
 gms = "4.4.2"
 crashlytics = "3.0.2"
+mbridge_android_sdk = "16.9.21"
 navigation = "2.8.0"
 perf = "1.4.2"
 
@@ -43,6 +44,7 @@ firebase-core = { module = "com.google.firebase:firebase-core", version.ref = "f
 firebase-crashlytics = { module = "com.google.firebase:firebase-crashlytics", version.ref = "firebaseCrashlytics" }
 firebase-messaging = { module = "com.google.firebase:firebase-messaging", version.ref = "firebaseMessaging" }
 firebase-perf = { module = "com.google.firebase:firebase-perf", version.ref = "firebasePerf" }
+mbridge_android_sdk = { module = "com.mbridge.msdk.oversea:mbridge_android_sdk", version.ref = "mbridge_android_sdk" }
 play-services-ads = { module = "com.google.android.gms:play-services-ads", version.ref = "playServicesAds" }
 sdp-android = { module = "com.intuit.sdp:sdp-android", version.ref = "sdpAndroid" }
 ssp-android = { module = "com.intuit.ssp:ssp-android", version.ref = "sspAndroid" }

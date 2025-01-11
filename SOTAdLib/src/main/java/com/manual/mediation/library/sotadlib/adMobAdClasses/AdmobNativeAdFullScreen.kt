@@ -43,15 +43,15 @@ object AdmobNativeAdFullScreen {
         if (populateView) {
             if (!NetworkCheck.isNetworkAvailable(mContext) || !remoteConfig) {
                 adContainer?.visibility = View.GONE
-                Log.i("SOT_ADS_TAG","Native : Admob : View is gone")
+                Log.i("SOT_ADS_TAG", "Native : Admob : View is gone")
                 onAdFailed?.invoke()
                 return
             } else {
                 adContainer?.visibility = View.VISIBLE
-                Log.i("SOT_ADS_TAG","Native : Admob : View is VISIBLE")
+                Log.i("SOT_ADS_TAG", "Native : Admob : View is VISIBLE")
             }
         } else {
-            Log.i("SOT_ADS_TAG","Native : Admob : populateView")
+            Log.i("SOT_ADS_TAG", "Native : Admob : populateView")
         }
 
         if (adLoadingState[adName] == true && nativeAdCache[adName] != null) {
@@ -62,7 +62,7 @@ object AdmobNativeAdFullScreen {
 
         adLoadingState[adName] = true
 
-        val adView = adContainer?.findViewById(R.id.nativeAdView) as? NativeAdView ?: return
+        val adView = adContainer?.findViewById(R.id.nativeAdViewAdmob) as? NativeAdView ?: return
 
         if (NetworkCheck.isNetworkAvailable(mContext)) {
             val adLoader = AdLoader.Builder(mContext, adId)
@@ -71,13 +71,20 @@ object AdmobNativeAdFullScreen {
                     adLoadingState[adName] = true
                     if (populateView) {
                         adContainer.let { container ->
-                            Log.i("SOT_ADS_TAG", "Admob: Native : $adName : populateWithMediaViewAdmob()")
+                            Log.i(
+                                "SOT_ADS_TAG",
+                                "Admob: Native : $adName : populateWithMediaViewAdmob()"
+                            )
                             populateNativeAd(nativeAd, adView)
                         }
                     } else {
                         mContext.let {
                             if (BuildConfig.DEBUG) {
-                                Toast.makeText(mContext,"Admob: Native : Loaded()\n$adName", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(
+                                    mContext,
+                                    "Admob: Native : Loaded()\n$adName",
+                                    Toast.LENGTH_SHORT
+                                ).show()
                             }
                         }
                     }
@@ -90,10 +97,17 @@ object AdmobNativeAdFullScreen {
                         onAdFailed?.invoke()
                         mContext.let {
                             if (BuildConfig.DEBUG) {
-                                Toast.makeText(mContext,"Admob: Native : onAdFailedToLoad() $adName", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(
+                                    mContext,
+                                    "Admob: Native : onAdFailedToLoad() $adName",
+                                    Toast.LENGTH_SHORT
+                                ).show()
                             }
                         }
-                        Log.i("SOT_ADS_TAG", "Admob: Native : $adName : onAdFailedToLoad()\n$errorCode")
+                        Log.i(
+                            "SOT_ADS_TAG",
+                            "Admob: Native : $adName : onAdFailedToLoad()\n$errorCode"
+                        )
                     }
 
                     override fun onAdLoaded() {
@@ -136,7 +150,8 @@ object AdmobNativeAdFullScreen {
     private fun showCachedAd(adName: String, adContainer: CardView?) {
         adContainer?.context?.let { context ->
             nativeAdCache[adName]?.let { cachedAd ->
-                val adView = adContainer.findViewById(R.id.nativeAdView) as? NativeAdView ?: return
+                val adView =
+                    adContainer.findViewById(R.id.nativeAdViewAdmob) as? NativeAdView ?: return
                 populateNativeAd(cachedAd, adView)
             } ?: run {
                 Log.i("SOT_ADS_TAG", "Ad is not available in cache for adName: $adName")
@@ -188,8 +203,9 @@ object AdmobNativeAdFullScreen {
         adView.mediaView?.mediaContent = nativeAd.mediaContent!!
         val videoController = nativeAd.mediaContent!!.videoController
         if (videoController.hasVideoContent()) {
-            videoController.videoLifecycleCallbacks = object : VideoController.VideoLifecycleCallbacks() {
-            }
+            videoController.videoLifecycleCallbacks =
+                object : VideoController.VideoLifecycleCallbacks() {
+                }
         }
     }
 }

@@ -446,6 +446,16 @@
     <attr format="reference" name="materialTimePickerStyle"/>
     <attr format="reference" name="materialTimePickerTheme"/>
     <attr format="reference" name="materialTimePickerTitleStyle"/>
+    <attr format="string" name="mbridge_click"/>
+    <attr format="string" name="mbridge_data"/>
+    <attr format="string" name="mbridge_effect"/>
+    <attr format="string" name="mbridge_effect_strategy"/>
+    <attr name="mbridge_report">
+        <flag name="mbridgeAttached" value="1"/>
+        <flag name="mbridgeDetached" value="2"/>
+        <flag name="mbridgeClicked" value="3"/>
+    </attr>
+    <attr format="string" name="mbridge_strategy"/>
     <attr format="dimension" name="minTouchTargetSize"/>
     <attr format="integer" name="motionDurationExtraLong1"/>
     <attr format="integer" name="motionDurationExtraLong2"/>
@@ -972,6 +982,65 @@
     <color name="material_personalized_color_text_primary_inverse_disable_only">#FFFFFF</color>
     <color name="material_personalized_color_text_secondary_and_tertiary_inverse">#FFFFFF</color>
     <color name="material_personalized_color_text_secondary_and_tertiary_inverse_disabled">#FFFFFF</color>
+    <color name="mbridge_black">#FF000000</color>
+    <color name="mbridge_black_66">#99000000</color>
+    <color name="mbridge_black_alpha_50">#7F000000</color>
+    <color name="mbridge_cm_feedback_dialog_chice_bg_pressed">#8FC31F</color>
+    <color name="mbridge_color_999999">#999999</color>
+    <color name="mbridge_color_cc000000">#CC000000</color>
+    <color name="mbridge_color_cc0000001">#89C120</color>
+    <color name="mbridge_common_white">#FFFFFF</color>
+    <color name="mbridge_cpb_blue">#ff0099cc</color>
+    <color name="mbridge_cpb_blue_dark">#ff00719b</color>
+    <color name="mbridge_cpb_green">#ff99cc00</color>
+    <color name="mbridge_cpb_green_dark">#ff6d9b00</color>
+    <color name="mbridge_cpb_grey">#ffdedede</color>
+    <color name="mbridge_cpb_red">#ffff4444</color>
+    <color name="mbridge_cpb_red_dark">#ffcd3a3a</color>
+    <color name="mbridge_cpb_white">@android:color/white</color>
+    <color name="mbridge_dd_grey">#DDE6E5E5</color>
+    <color name="mbridge_ee_grey">#EEE6E5E5</color>
+    <color name="mbridge_interstitial_black">#30000000</color>
+    <color name="mbridge_interstitial_white">#ffffff</color>
+    <color name="mbridge_more_offer_list_bg">#40EAEAEA</color>
+    <color name="mbridge_nativex_cta_txt_nor">#C3C3C3</color>
+    <color name="mbridge_nativex_cta_txt_pre">#ffffff</color>
+    <color name="mbridge_nativex_land_cta_bg_nor">#7f000000</color>
+    <color name="mbridge_nativex_por_cta_bg_nor">#4A4A4A</color>
+    <color name="mbridge_nativex_por_cta_bg_pre">#4990E2</color>
+    <color name="mbridge_nativex_sound_bg">#B3000000</color>
+    <color name="mbridge_purple_200">#FFBB86FC</color>
+    <color name="mbridge_purple_500">#FF6200EE</color>
+    <color name="mbridge_purple_700">#FF3700B3</color>
+    <color name="mbridge_reward_black">#ff000000</color>
+    <color name="mbridge_reward_cta_bg">@color/mbridge_reward_minicard_bg</color>
+    <color name="mbridge_reward_desc_textcolor">#5f5f5f</color>
+    <color name="mbridge_reward_endcard_hor_bg">#ffffff</color>
+    <color name="mbridge_reward_endcard_land_bg">#f1f1f1</color>
+    <color name="mbridge_reward_endcard_line_bg">#d8d8d8</color>
+    <color name="mbridge_reward_endcard_vast_bg">#aa000000</color>
+    <color name="mbridge_reward_kiloo_background">#b3000000</color>
+    <color name="mbridge_reward_layer_text_bg">#DE000000</color>
+    <color name="mbridge_reward_minicard_bg">#7f000000</color>
+    <color name="mbridge_reward_six_black_transparent">#60000000</color>
+    <color name="mbridge_reward_six_black_transparent1">#03A9F4</color>
+    <color name="mbridge_reward_six_black_transparent2">#2196F3</color>
+    <color name="mbridge_reward_title_textcolor">#282828</color>
+    <color name="mbridge_reward_white">#FFFFFF</color>
+    <color name="mbridge_splash_count_time_skip_text_color">#ffffff</color>
+    <color name="mbridge_teal_200">#FF03DAC5</color>
+    <color name="mbridge_teal_700">#FF018786</color>
+    <color name="mbridge_video_common_alertview_bg">#FFFFFFFF</color>
+    <color name="mbridge_video_common_alertview_cancel_button_bg_default">#FF27AE5F</color>
+    <color name="mbridge_video_common_alertview_cancel_button_bg_pressed">#B327AE5F</color>
+    <color name="mbridge_video_common_alertview_cancel_button_textcolor">#FFFFFF</color>
+    <color name="mbridge_video_common_alertview_confirm_button_bg_default">#FFEAEAEA</color>
+    <color name="mbridge_video_common_alertview_confirm_button_bg_pressed">#B3EAEAEA</color>
+    <color name="mbridge_video_common_alertview_confirm_button_textcolor">#38B154</color>
+    <color name="mbridge_video_common_alertview_content_textcolor">#353535 </color>
+    <color name="mbridge_video_common_alertview_feedback_rb_bg">#FFF8F8F8</color>
+    <color name="mbridge_video_common_alertview_title_textcolor">#38B154</color>
+    <color name="mbridge_white">#FFFFFFFF</color>
     <color name="mtrl_btn_text_color_disabled">#61000000</color>
     <color name="mtrl_btn_transparent_bg_color">#00ffffff</color>
     <color name="mtrl_scrim_color">#52000000</color>
@@ -2349,6 +2418,17 @@
     <dimen name="material_textinput_min_width">56dp</dimen>
     <dimen name="material_time_picker_minimum_screen_height">560dp</dimen>
     <dimen name="material_time_picker_minimum_screen_width">340dp</dimen>
+    <dimen name="mbridge_video_common_alertview_bg_padding">30dp</dimen>
+    <dimen name="mbridge_video_common_alertview_button_height">28dp</dimen>
+    <dimen name="mbridge_video_common_alertview_button_margintop">38dp</dimen>
+    <dimen name="mbridge_video_common_alertview_button_radius">50dp</dimen>
+    <dimen name="mbridge_video_common_alertview_button_textsize">18sp</dimen>
+    <dimen name="mbridge_video_common_alertview_button_width">105dp</dimen>
+    <dimen name="mbridge_video_common_alertview_content_margintop">13dp</dimen>
+    <dimen name="mbridge_video_common_alertview_content_size">18sp</dimen>
+    <dimen name="mbridge_video_common_alertview_contentview_maxwidth">240dp</dimen>
+    <dimen name="mbridge_video_common_alertview_contentview_minwidth">240dp</dimen>
+    <dimen name="mbridge_video_common_alertview_title_size">20sp</dimen>
     <dimen name="mtrl_alert_dialog_background_inset_bottom">80dp</dimen>
     <dimen name="mtrl_alert_dialog_background_inset_end">24dp</dimen>
     <dimen name="mtrl_alert_dialog_background_inset_start">24dp</dimen>
@@ -2813,6 +2893,9 @@
     <string name="call_notification_incoming_text">Incoming call</string>
     <string name="call_notification_ongoing_text">Ongoing call</string>
     <string name="call_notification_screening_text">Screening an incoming call</string>
+    <string name="campaign.appName">getAppName</string>
+    <string name="campaign.iconUrl">getIconUrl</string>
+    <string name="campaign.imageUrl">getImageUrl</string>
     <string name="character_counter_content_description">Characters entered %1$d of %2$d</string>
     <string name="character_counter_overflowed_content_description">Character limit exceeded %1$d of %2$d</string>
     <string name="character_counter_pattern" translatable="false">%1$d/%2$d</string>
@@ -2836,9 +2919,27 @@
     <string name="common_signin_button_text">Sign in</string>
     <string name="common_signin_button_text_long">Sign in with Google</string>
     <string name="copy_toast_msg">Link copied to clipboard</string>
+    <string name="defaults">default</string>
     <string name="des_country_flag">Country Flag</string>
     <string name="des_selection_state">Selection State</string>
     <string name="dest_title">destination title</string>
+    <string name="dyAction.getClick">click</string>
+    <string name="dyAction.getLogicClick">click|alecfc</string>
+    <string name="dyAction.getLongClick">longclick</string>
+    <string name="dyAction.getMove">move</string>
+    <string name="dyAction.getWobble">wobble</string>
+    <string name="dyEffect.getCountDown">countdown</string>
+    <string name="dyEffect.getVisible">visible</string>
+    <string name="dyEffect.getVisibleParam">visible|parent</string>
+    <string name="dyEffect.getWobble">wobble</string>
+    <string name="dyStrategy.feedback">feedback</string>
+    <string name="dyStrategy.getActivity">activity</string>
+    <string name="dyStrategy.getClose">close</string>
+    <string name="dyStrategy.getDeeplink">deeplink</string>
+    <string name="dyStrategy.getDownload">download</string>
+    <string name="dyStrategy.notice">notice</string>
+    <string name="dyStrategy.permissionInfo">permissionInfo</string>
+    <string name="dyStrategy.privateAddress">privateAddress</string>
     <string description="Screen reader announcement for when a checkbox is on error. [CHAR LIMIT=NONE]" name="error_a11y_label">
     Error: invalid
   </string>
@@ -2874,6 +2975,12 @@
     <string name="m3_sys_motion_easing_standard" translatable="false">cubic-bezier(0.2, 0, 0, 1)</string>
     <string name="m3_sys_motion_easing_standard_accelerate" translatable="false">cubic-bezier(0.3, 0, 1, 1)</string>
     <string name="m3_sys_motion_easing_standard_decelerate" translatable="false">cubic-bezier(0, 0, 0, 1)</string>
+    <string name="mSplashData.setAdClickText">getAdClickText</string>
+    <string name="mSplashData.setAppInfo">getAppInfo</string>
+    <string name="mSplashData.setCountDownText">getCountDownText</string>
+    <string name="mSplashData.setLogoImage">getLogoImage</string>
+    <string name="mSplashData.setLogoText">getLogoText</string>
+    <string name="mSplashData.setNoticeImage">getNoticeImage</string>
     <string name="material_clock_display_divider" translatable="false">:</string>
     <string description="Description for the toggle to choose between AM and PM [CHAR_LIMIT=NONE]" name="material_clock_toggle_content_description">Select AM or PM</string>
     <string description="Spoken suffix for an hour in the 24-hour clock [CHAR_LIMIT=10]" name="material_hour_24h_suffix"><ns2:g id="number">%1$s</ns2:g> hours</string>
@@ -2896,6 +3003,49 @@
     <string description="Suffix for time in 12-hour standard, after noon. [CHAR_LIMIT=2]" name="material_timepicker_pm">PM</string>
     <string description="Title for the dialog with a time picker. [CHAR_LIMIT=32]" name="material_timepicker_select_time">Select time</string>
     <string name="material_timepicker_text_input_mode_description">Switch to text input mode for the time input.</string>
+    <string name="mbridge_cm_feedback_btn_text">feedback</string>
+    <string name="mbridge_cm_feedback_dialog_close_close">Close</string>
+    <string name="mbridge_cm_feedback_dialog_close_submit">Submit</string>
+    <string name="mbridge_cm_feedback_dialog_content_fraud">Fraud</string>
+    <string name="mbridge_cm_feedback_dialog_content_misleading">Misleading</string>
+    <string name="mbridge_cm_feedback_dialog_content_not_play">Not playing</string>
+    <string name="mbridge_cm_feedback_dialog_content_other">Other issues</string>
+    <string name="mbridge_cm_feedback_dialog_content_por_violence">Pornography &amp; Violence</string>
+    <string name="mbridge_cm_feedback_dialog_content_sound_problems">Sound problems</string>
+    <string name="mbridge_cm_feedback_dialog_privacy_des">Mintegral Privacy Policy</string>
+    <string name="mbridge_cm_feedback_dialog_submit_notice">Thanks for your feedback</string>
+    <string name="mbridge_cm_feedback_dialog_title">Report Ads</string>
+    <string name="mbridge_download_notify_cancel">取消</string>
+    <string name="mbridge_download_notify_continue">继续</string>
+    <string name="mbridge_download_notify_download_failed">下载失败</string>
+    <string name="mbridge_download_notify_download_finish_to_install">下载完成，点击安装</string>
+    <string name="mbridge_download_notify_download_interrupt">下载失败，请检查网络</string>
+    <string name="mbridge_download_notify_downloading">下载中</string>
+    <string name="mbridge_download_notify_ins">安装</string>
+    <string name="mbridge_download_notify_ins_progress_des">下载完成</string>
+    <string name="mbridge_download_notify_network_error">网络异常</string>
+    <string name="mbridge_download_notify_open">打开</string>
+    <string name="mbridge_download_notify_open_progress_des">安装完成</string>
+    <string name="mbridge_download_notify_pause">暂停</string>
+    <string name="mbridge_download_notify_prefix_download">下载：</string>
+    <string name="mbridge_download_notify_prefix_pause">暂停:</string>
+    <string name="mbridge_download_notify_start_download">开始下载</string>
+    <string name="mbridge_download_notify_update_finish_to_install">更新完成，点击安装</string>
+    <string name="mbridge_download_notify_update_package">正在更新安装包</string>
+    <string name="mbridge_reward_appdesc">app desc</string>
+    <string name="mbridge_reward_apptitle">app title</string>
+    <string name="mbridge_reward_clickable_cta_btntext">Play Game</string>
+    <string name="mbridge_reward_endcard_ad">AD</string>
+    <string name="mbridge_reward_endcard_vast_notice">Do you want to learn more?</string>
+    <string name="mbridge_reward_heat_count_unit">w</string>
+    <string name="mbridge_reward_install">Install Now</string>
+    <string name="mbridge_reward_video_view_reward_time_complete">you have been rewarded</string>
+    <string name="mbridge_reward_video_view_reward_time_left">s left to be rewarded</string>
+    <string name="mbridge_reward_video_view_reward_time_left_skip_time">s left to skip</string>
+    <string name="mbridge_reward_viewed_text_str">Viewed</string>
+    <string name="mbridge_splash_count_time_can_skip">SKIP </string>
+    <string name="mbridge_splash_count_time_can_skip_not">Auto close after</string>
+    <string name="mbridge_splash_count_time_can_skip_s">s</string>
     <string description="Content description for new notification (no number count) [CHAR_LIMIT=NONE]" name="mtrl_badge_numberless_content_description">New notification</string>
     <string name="mtrl_checkbox_button_icon_path_checked" translatable="false">M14,18.2 11.4,15.6 10,17 14,21 22,13 20.6,11.6z</string>
     <string name="mtrl_checkbox_button_icon_path_group_name" translatable="false">icon</string>
@@ -3047,6 +3197,9 @@
     <item name="android:windowEnterAnimation">@anim/mtrl_bottom_sheet_slide_in</item>
     <item name="android:windowExitAnimation">@anim/mtrl_bottom_sheet_slide_out</item>
   </style>
+    <style name="AppBaseTheme" parent="">
+
+    </style>
     <style name="Base.AlertDialog.AppCompat" parent="android:Widget">
         <item name="android:layout">@layout/abc_alert_dialog_material</item>
         <item name="listLayout">@layout/abc_select_dialog_material</item>
@@ -6430,6 +6583,9 @@
     </style>
     <style name="CardView.Light">
         <item name="cardBackgroundColor">@color/cardview_light_background</item>
+    </style>
+    <style name="MBridgeAppTheme" parent="AppBaseTheme">
+        <item name="android:windowNoTitle">true</item>
     </style>
     <style name="MaterialAlertDialog.Material3" parent="MaterialAlertDialog.MaterialComponents">
     <item name="backgroundTint">@macro/m3_comp_dialog_container_color</item>
@@ -10159,6 +10315,31 @@
     <style name="Widget.Support.CoordinatorLayout" parent="android:Widget">
         <item name="statusBarBackground">#000000</item>
     </style>
+    <style name="mbridge_common_activity_style" parent="@android:style/Theme.Translucent.NoTitleBar"/>
+    <style name="mbridge_reward_theme" parent="@android:style/Theme.NoTitleBar.Fullscreen"/>
+    <style name="mbridge_transparent_common_activity_style" parent="mbridge_common_activity_style">
+    </style>
+    <style name="mbridge_transparent_theme" parent="mbridge_reward_theme">
+            <item name="android:windowIsTranslucent">true</item>
+            <item name="android:windowContentOverlay">@null</item>
+            <item name="android:windowTranslucentStatus" ns1:targetApi="kitkat">true</item>
+            <item name="android:windowFullscreen">true</item>
+            <item name="android:statusBarColor" ns1:targetApi="lollipop">@android:color/transparent</item>
+            <item name="android:windowAnimationStyle">@android:style/Animation.Translucent</item>
+            <item name="android:backgroundDimEnabled">false</item>
+            <item name="android:windowBackground">@android:color/transparent</item>
+            <item name="android:windowNoTitle">true</item>
+            <item name="android:windowActionBar" ns1:targetApi="honeycomb">false</item>
+        </style>
+    <style name="myDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@drawable/mbridge_shape_btn</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
     <declare-styleable name="ActionBar">
         
         <attr name="navigationMode">
@@ -13733,6 +13914,9 @@
         <attr format="reference" name="fastScrollVerticalTrackDrawable"/>
         <attr format="reference" name="fastScrollHorizontalThumbDrawable"/>
         <attr format="reference" name="fastScrollHorizontalTrackDrawable"/>
+    </declare-styleable>
+    <declare-styleable name="RoundRectImageView">
+        <attr format="dimension" name="corner"/>
     </declare-styleable>
     <declare-styleable name="ScrimInsetsFrameLayout">
     <attr format="color|reference" name="insetForeground"/>

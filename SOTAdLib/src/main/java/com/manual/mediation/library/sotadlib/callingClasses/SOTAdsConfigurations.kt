@@ -7,11 +7,11 @@ import com.manual.mediation.library.sotadlib.adMobAdClasses.AdmobResumeAdSplash
 import com.manual.mediation.library.sotadlib.adMobAdClasses.AdmobNativeAdManager
 import com.manual.mediation.library.sotadlib.metaAdClasses.MetaInterstitialAdSplash
 import com.manual.mediation.library.sotadlib.metaAdClasses.MetaNativeAdManager
+import com.manual.mediation.library.sotadlib.mintegralAdClasses.MintegralInterstitialAdSplash
+import com.manual.mediation.library.sotadlib.mintegralAdClasses.MintegralResumeAdSplash
 import com.manual.mediation.library.sotadlib.utils.NetworkCheck
 import com.manual.mediation.library.sotadlib.utils.PrefHelper
 import com.manual.mediation.library.sotadlib.utilsGoogleAdsConsent.ConsentConfigurations
-import com.manual.mediation.library.sotadlib.vungleAdClasses.VungleInterstitialAdSplash
-import com.manual.mediation.library.sotadlib.vungleAdClasses.VungleResumeAdSplash
 
 class SOTAdsConfigurations private constructor() {
 
@@ -20,11 +20,11 @@ class SOTAdsConfigurations private constructor() {
     var walkThroughScreensConfiguration: WalkThroughScreensConfiguration? = null
     private var remoteConfigData: HashMap<String, Any>? = null
     var firstOpenFlowAdIds: HashMap<String, String> = HashMap()
-    lateinit var admobResumeAdSplash: AdmobResumeAdSplash
-    lateinit var vungleResumeAdSplash: VungleResumeAdSplash
-    lateinit var admobInterstitialAdSplash: AdmobInterstitialAdSplash
-    lateinit var metaInterstitialAdSplash: MetaInterstitialAdSplash
-    lateinit var vungleInterstitialAdSplash: VungleInterstitialAdSplash
+    private lateinit var admobResumeAdSplash: AdmobResumeAdSplash
+    private lateinit var mintegralResumeAdSplash: MintegralResumeAdSplash
+    private lateinit var admobInterstitialAdSplash: AdmobInterstitialAdSplash
+    private lateinit var mintegralInterstitialAdSplash: MintegralInterstitialAdSplash
+    private lateinit var metaInterstitialAdSplash: MetaInterstitialAdSplash
 
     fun setRemoteConfigData(activityContext: Activity, myRemoteConfigData: HashMap<String, Any>) {
         this.remoteConfigData = myRemoteConfigData
@@ -41,8 +41,8 @@ class SOTAdsConfigurations private constructor() {
                     myRemoteConfigData.getValue("RESUME_INTER_SPLASH_MED") == "ADMOB" -> {
                         showAdMobResumeAdSplash(activityContext)
                     }
-                    myRemoteConfigData.getValue("RESUME_INTER_SPLASH_MED") == "LIFTOFF" || myRemoteConfigData.getValue("RESUME_INTER_SPLASH_MED") == "VUNGLE" -> {
-                        showVungleResumeAdSplash(activityContext)
+                    myRemoteConfigData.getValue("RESUME_INTER_SPLASH_MED") == "MINTEGRAL" -> {
+                        showMintegralResumeAdSplash(activityContext)
                     }
                 }
             }
@@ -51,11 +51,11 @@ class SOTAdsConfigurations private constructor() {
                     myRemoteConfigData.getValue("RESUME_INTER_SPLASH_MED") == "ADMOB" -> {
                         showAdMobInterstitialAdSplash(activityContext)
                     }
-                    myRemoteConfigData.getValue("RESUME_INTER_SPLASH_MED") == "LIFTOFF" || myRemoteConfigData.getValue("RESUME_INTER_SPLASH_MED") == "VUNGLE" -> {
-                        showVungleInterstitialAdSplash(activityContext)
-                    }
                     myRemoteConfigData.getValue("RESUME_INTER_SPLASH_MED") == "META" -> {
                         showMetaInterstitialAdSplash(activityContext)
+                    }
+                    myRemoteConfigData.getValue("RESUME_INTER_SPLASH_MED") == "MINTEGRAL" -> {
+                        showMintegralInterstitialAdSplash(activityContext)
                     }
                 }
             }
@@ -117,40 +117,6 @@ class SOTAdsConfigurations private constructor() {
         }
     }
 
-    private fun showVungleInterstitialAdSplash(activityContext: Activity) {
-        activityContext.let {
-            vungleInterstitialAdSplash = VungleInterstitialAdSplash(activityContext, firstOpenFlowAdIds.getValue("LIFTOFF_SPLASH_INTERSTITIAL"),
-                onAdDismissed = {
-                    proceedNext(activityContext)
-                },
-                onAdFailed = {
-                    proceedNext(activityContext)
-                },
-                onAdTimeout = {
-                    proceedNext(activityContext)
-                },
-                onAdShowed = {}
-            )
-        }
-    }
-
-    private fun showVungleResumeAdSplash(activityContext: Activity) {
-        activityContext.let {
-            vungleResumeAdSplash = VungleResumeAdSplash(activityContext, firstOpenFlowAdIds.getValue("LIFTOFF_SPLASH_RESUME"),
-                onAdDismissed = {
-                    proceedNext(activityContext)
-                },
-                onAdFailed = {
-                    proceedNext(activityContext)
-                },
-                onAdTimeout = {
-                    proceedNext(activityContext)
-                },
-                onAdShowed = {}
-            )
-        }
-    }
-
     private fun showAdMobResumeAdSplash(activityContext: Activity) {
         activityContext.let {
             admobResumeAdSplash = AdmobResumeAdSplash(activityContext, firstOpenFlowAdIds.getValue("ADMOB_SPLASH_RESUME"),
@@ -168,6 +134,26 @@ class SOTAdsConfigurations private constructor() {
         }
     }
 
+    private fun showMintegralResumeAdSplash(activityContext: Activity) {
+        activityContext.let {
+            if (firstOpenFlowAdIds.getValue("MINTEGRAL_SPLASH_RESUME").split("-").size == 2) {
+                mintegralResumeAdSplash = MintegralResumeAdSplash(
+                    activity = activityContext,
+                    placementId = firstOpenFlowAdIds.getValue("MINTEGRAL_SPLASH_RESUME").split("-")[0],
+                    unitId = firstOpenFlowAdIds.getValue("MINTEGRAL_SPLASH_RESUME").split("-")[1],
+                    canSkip = true,
+                    timeoutSkip = 5,
+                    onAdDismissed = { proceedNext(activityContext) },
+                    onAdFailed = { proceedNext(activityContext) },
+                    onAdTimeout = { proceedNext(activityContext) },
+                    onAdShowed = { }
+                )
+            } else {
+                Log.i("SOT_ADS_TAG","Interstitial : Mintegral : Incorrect ID Format (placementID-unitID)")
+            }
+        }
+    }
+
     private fun showAdMobInterstitialAdSplash(activityContext: Activity) {
         activityContext.let {
             admobInterstitialAdSplash = AdmobInterstitialAdSplash(activityContext, firstOpenFlowAdIds.getValue("ADMOB_SPLASH_INTERSTITIAL"),
@@ -182,6 +168,30 @@ class SOTAdsConfigurations private constructor() {
                 },
                 onAdShowed = {}
             )
+        }
+    }
+
+    private fun showMintegralInterstitialAdSplash(activityContext: Activity) {
+        activityContext.let {
+            if (firstOpenFlowAdIds.getValue("MINTEGRAL_SPLASH_INTERSTITIAL").split("-").size == 2) {
+                mintegralInterstitialAdSplash = MintegralInterstitialAdSplash(
+                    activityContext,
+                    placementId = firstOpenFlowAdIds.getValue("MINTEGRAL_SPLASH_INTERSTITIAL").split("-")[0],
+                    unitId = firstOpenFlowAdIds.getValue("MINTEGRAL_SPLASH_INTERSTITIAL").split("-")[1],
+                    onAdDismissed = {
+                        proceedNext(activityContext)
+                    },
+                    onAdFailed = {
+                        proceedNext(activityContext)
+                    },
+                    onAdTimeout = {
+                        proceedNext(activityContext)
+                    },
+                    onAdShowed = {}
+                )
+            } else {
+                Log.i("SOT_ADS_TAG","Interstitial : Mintegral : Incorrect ID Format (placementID-unitID)")
+            }
         }
     }
 

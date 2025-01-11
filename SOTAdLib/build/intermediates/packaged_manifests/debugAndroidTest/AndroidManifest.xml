@@ -34,6 +34,13 @@
         </intent>
 
         <package android:name="com.facebook.katana" />
+
+        <intent>
+            <action android:name="android.intent.action.MAIN" />
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+        </intent>
     </queries>
 
     <uses-permission android:name="android.permission.REORDER_TASKS" />
@@ -52,8 +59,7 @@
     <application
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:debuggable="true"
-        android:extractNativeLibs="false"
-        android:hardwareAccelerated="true" >
+        android:extractNativeLibs="false" >
         <uses-library android:name="android.test.runner" />
 
         <activity
@@ -107,12 +113,7 @@
             <intent-filter android:priority="-100" >
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity
-            android:name="com.vungle.ads.internal.ui.VungleActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
-            android:hardwareAccelerated="true"
-            android:launchMode="singleTop" /> <!-- Include the AdActivity and InAppPurchaseActivity configChanges and themes. -->
+        </activity> <!-- Include the AdActivity and InAppPurchaseActivity configChanges and themes. -->
         <activity
             android:name="com.google.android.gms.ads.AdActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
@@ -309,7 +310,32 @@
         <service
             android:name="androidx.room.MultiInstanceInvalidationService"
             android:directBootAware="true"
-            android:exported="false" />
+            android:exported="false" /> <!-- mbridge base activity -->
+        <activity
+            android:name="com.mbridge.msdk.activity.MBCommonActivity"
+            android:configChanges="keyboard|orientation"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:theme="@style/mbridge_transparent_common_activity_style" /> <!-- integration rewardVideo if aggregation nativeX pls add start -->
+        <activity android:name="com.mbridge.msdk.out.LoadingActivity" /> <!-- integration rewardVideo if aggregation nativeX pls add end -->
+        <activity
+            android:name="com.mbridge.msdk.newreward.player.MBRewardVideoActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:excludeFromRecents="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.mbridge.msdk.reward.player.MBRewardVideoActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:excludeFromRecents="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <receiver
+            android:name="com.mbridge.msdk.foundation.same.broadcast.NetWorkChangeReceiver"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

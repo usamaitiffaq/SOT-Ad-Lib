@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mbridge_reward_heat_count_unit">w</string>
+    <string name="mbridge_reward_viewed_text_str">Viewed</string>
+    <string name="mbridge_splash_count_time_can_skip">SKIP </string>
+    <string name="mbridge_splash_count_time_can_skip_not">Auto close after</string>
+    <string name="mbridge_splash_count_time_can_skip_s">s</string>
+</resources>

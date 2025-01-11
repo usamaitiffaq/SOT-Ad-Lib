@@ -26,7 +26,6 @@ class MetaInterstitialAdSplash(
     private var currentActivity: Activity? = activity
     private var isShowingAd = false
     private var isShowingDialog = false
-    private var isShowDialog = true
     private val timeoutHandler = Handler(Looper.getMainLooper())
 
     private val timeoutRunnable = Runnable {
@@ -100,21 +99,24 @@ class MetaInterstitialAdSplash(
             override fun onLoggingImpression(ad: Ad?) {}
         }
 
-        interstitialAd?.loadAd(
-            interstitialAd?.buildLoadAdConfig()
-                ?.withAdListener(interstitialAdListener)
-                ?.build()
-        )
+        interstitialAd?.loadAd(interstitialAd?.buildLoadAdConfig()?.withAdListener(interstitialAdListener)?.build())
 
         timeoutHandler.postDelayed(timeoutRunnable, 20000)
-        showWaitDialog()
     }
 
     private fun showAdIfAvailable() {
         if (!isShowingAd && isAdAvailable()) {
             Handler(Looper.getMainLooper()).postDelayed({
-                interstitialAd?.show()
-            }, 1500)
+                currentActivity?.let {
+                    showWaitDialog()
+
+                    Handler(Looper.getMainLooper()).postDelayed({
+                        currentActivity?.let {
+                            interstitialAd?.show()
+                        }
+                    },1500)
+                }
+            },7000)
         }
     }
 
@@ -123,12 +125,10 @@ class MetaInterstitialAdSplash(
     }
 
     private fun showWaitDialog() {
-        if (isShowDialog) {
-            currentActivity?.let {
-                val view = it.layoutInflater.inflate(R.layout.dialog_adloading, null, false)
-                isShowingDialog = true
-                AdLoadingDialog.setContentView(it, view = view, isCancelable = false).showDialogInterstitial()
-            }
+        currentActivity?.let {
+            val view = it.layoutInflater.inflate(R.layout.dialog_adloading, null, false)
+            isShowingDialog = true
+            AdLoadingDialog.setContentView(it, view = view, isCancelable = false).showDialogInterstitial()
         }
     }
 

@@ -7,17 +7,54 @@
     android:layout_height="match_parent"
     tools:context=".SOTStartTestActivity">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:src="@drawable/app_icon"
+        app:layout_constraintBottom_toTopOf="@+id/txtSplashScreen"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
+        android:id="@+id/txtSplashScreen"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        android:text="Splash Screen"
-        android:gravity="center"
-        android:textSize="@dimen/_18ssp"
         android:background="#e1e1e1"
+        android:gravity="center"
+        android:text="Splash Screen"
         android:textColor="#000000"
+        android:textSize="@dimen/_18ssp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/txtContainsAds"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="This action may contains ads."
+        android:textColor="#000000"
+        android:textSize="@dimen/_18ssp"
+        app:layout_constraintBottom_toTopOf="@+id/bannerAd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/bannerAd"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1">
+
+        <include
+            android:id="@+id/bannerShimmerLayout"
+            layout="@layout/banner_shimmer" />
+    </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,20 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.manual.mediation.library.sotadlib.test.SOTAdLib-mergeDebugAndroidTestResources-61:/values-v27/values-v27.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Sr. Developer - SOT\\.gradle\\caches\\transforms-3\\c3d1bdd745c06f9e89db300fc44675ea\\transformed\\mbridge_android_sdk-16.9.21\\res\\values-v27\\values-v27.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,158",
+                        "endLines": "2,4",
+                        "endColumns": "102,12",
+                        "endOffsets": "153,266"
+                    }
+                }
+            ]
+        }
+    ]
+}

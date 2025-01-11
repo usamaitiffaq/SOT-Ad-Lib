@@ -19,6 +19,7 @@ import com.manual.mediation.library.sotadlib.callingClasses.SOTAdsManager
 import com.manual.mediation.library.sotadlib.data.WalkThroughItem
 import com.manual.mediation.library.sotadlib.databinding.FragmentWTOneBinding
 import com.manual.mediation.library.sotadlib.metaAdClasses.MetaNativeAdManager
+import com.manual.mediation.library.sotadlib.mintegralAdClasses.MintegralNativeAdFullScreen
 import com.manual.mediation.library.sotadlib.utils.NetworkCheck
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -41,7 +42,8 @@ class WTOneFragment(val item: WalkThroughItem) : Fragment() {
         val nativeWalkThrough1Enabled = sotAdsConfigurations?.getRemoteConfigData()?.get("NATIVE_WALKTHROUGH_FULLSCR") as? Boolean ?: false
         if (nativeWalkThrough1Enabled) {
             when (sotAdsConfigurations?.getRemoteConfigData()?.get("NATIVE_WALKTHROUGH_FULLSCR_MED")) {
-                "ADMOB" -> loadAdmobWTOneNatives()
+                "ADMOB" -> loadAdmobWTFullNatives()
+                "MINTEGRAL" -> loadMintegralWTFullNatives()
             }
         }
 
@@ -94,7 +96,21 @@ class WTOneFragment(val item: WalkThroughItem) : Fragment() {
         }*/
     }
 
-    private fun loadAdmobWTOneNatives() {
+    private fun loadMintegralWTFullNatives() {
+        if (sotAdsConfigurations?.firstOpenFlowAdIds?.getValue("MINTEGRAL_NATIVE_WALKTHROUGH_FULLSCR")?.split("-")?.size == 2) {
+            MintegralNativeAdFullScreen.requestAd(
+                mContext = requireActivity(),
+                placementId = sotAdsConfigurations!!.firstOpenFlowAdIds.getValue("MINTEGRAL_NATIVE_WALKTHROUGH_FULLSCR").split("-")[0],
+                unitId = sotAdsConfigurations!!.firstOpenFlowAdIds.getValue("MINTEGRAL_NATIVE_WALKTHROUGH_FULLSCR").split("-")[1],
+                adName = "WALKTHROUGH_FULL_SCREEN",
+                populateView = false
+            )
+        } else {
+            Log.e("SOT_ADS_TAG","Interstitial : Mintegral : Incorrect ID Format (placementID-unitID)")
+        }
+    }
+
+    private fun loadAdmobWTFullNatives() {
         val adId = sotAdsConfigurations?.firstOpenFlowAdIds?.getValue("ADMOB_NATIVE_WALKTHROUGH_FULLSCR")
         if (adId != null) {
             AdmobNativeAdFullScreen.requestAd(

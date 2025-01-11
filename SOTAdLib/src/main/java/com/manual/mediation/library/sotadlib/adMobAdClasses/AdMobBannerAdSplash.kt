@@ -75,7 +75,7 @@ class AdMobBannerAdSplash(
     }
 
     private fun getAdSizeTest(): AdSize {
-        val display: Display = currentActivity!!.windowManager.getDefaultDisplay()
+        val display: Display = currentActivity!!.windowManager.defaultDisplay
         val outMetrics = DisplayMetrics()
         display.getMetrics(outMetrics)
         val widthPixels = outMetrics.widthPixels.toFloat()

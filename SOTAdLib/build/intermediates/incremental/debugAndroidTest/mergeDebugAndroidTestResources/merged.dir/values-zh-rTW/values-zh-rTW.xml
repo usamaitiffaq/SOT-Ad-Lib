@@ -86,6 +86,8 @@
     <string name="material_timepicker_pm">PM</string>
     <string name="material_timepicker_select_time">選取時間</string>
     <string name="material_timepicker_text_input_mode_description">切換至文字輸入模式來輸入時間。</string>
+    <string name="mbridge_reward_heat_count_unit">万</string>
+    <string name="mbridge_reward_viewed_text_str">您瀏覽過的內容</string>
     <string name="mtrl_badge_numberless_content_description">新通知</string>
     <string name="mtrl_checkbox_state_description_checked">已勾選</string>
     <string name="mtrl_checkbox_state_description_indeterminate">已勾選部分選項</string>

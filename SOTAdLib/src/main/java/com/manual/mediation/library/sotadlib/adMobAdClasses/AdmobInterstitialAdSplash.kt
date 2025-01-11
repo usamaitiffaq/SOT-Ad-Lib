@@ -124,11 +124,17 @@ class AdmobInterstitialAdSplash(
                 }
             }
 
-            showWaitDialog()
-
             Handler(Looper.getMainLooper()).postDelayed({
-                interstitialAd?.show(currentActivity!!)
-            }, 1500)
+                currentActivity?.let {
+                    showWaitDialog()
+
+                    Handler(Looper.getMainLooper()).postDelayed({
+                        currentActivity?.let {
+                            interstitialAd?.show(currentActivity!!)
+                        }
+                    }, 1500)
+                }
+            },7000)
         }
     }
 
@@ -137,12 +143,10 @@ class AdmobInterstitialAdSplash(
     }
 
     private fun showWaitDialog() {
-        if (isShowDialog) {
-            currentActivity?.let {
-                val view = it.layoutInflater.inflate(R.layout.dialog_adloading, null, false)
-                isShowingDialog = true
-                AdLoadingDialog.setContentView(it, view = view, isCancelable = false).showDialogInterstitial()
-            }
+        currentActivity?.let {
+            val view = it.layoutInflater.inflate(R.layout.dialog_adloading, null, false)
+            isShowingDialog = true
+            AdLoadingDialog.setContentView(it, view = view, isCancelable = false).showDialogInterstitial()
         }
     }
 

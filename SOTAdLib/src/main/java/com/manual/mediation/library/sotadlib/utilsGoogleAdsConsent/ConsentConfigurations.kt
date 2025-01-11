@@ -6,18 +6,18 @@ import android.os.Handler
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity.MODE_PRIVATE
 import com.facebook.ads.AdSettings
-import com.facebook.ads.AudienceNetworkAds
 import com.google.android.gms.ads.MobileAds
 import com.manual.mediation.library.sotadlib.utils.NetworkCheck
-import com.vungle.ads.InitializationListener
-import com.vungle.ads.VungleAds
-import com.vungle.ads.VungleError
+import com.mbridge.msdk.MBridgeSDK
+import com.mbridge.msdk.out.MBridgeSDKFactory
+import com.mbridge.msdk.out.SDKInitStatusListener
 import java.util.concurrent.atomic.AtomicBoolean
 
 class ConsentConfigurations private constructor(
     private val activityContext: Activity,
     private val applicationContext: Application,
-    private val vungleInitializationId: String = "",
+    private val appId: String,
+    private val appKey: String,
     private val testDeviceHashedIdList: ArrayList<String>,
     private val onConsentGathered: () -> Unit) {
 
@@ -40,14 +40,12 @@ class ConsentConfigurations private constructor(
             removeSlowInternetCallBack = {
             Log.i("ConsentMessage", "ConsentConfigurations: removeSlowInternetCallBack")
             slowInternetHandler.removeCallbacksAndMessages(null)
-                                         },
+            },
             errorMakingRequest = {
                 Log.i("ConsentMessage","ConsentConfigurations: ")
-//                if (!activityContext.getSharedPreferences("ConsentMessage", MODE_PRIVATE).getBoolean("FirstTime", false)) {
                     initializeMobileAdsSdk(initializeMobileAds = {
                         onConsentGathered.invoke()
                     })
-//                }
             },
             onConsentGatheringCompleteListener = { error ->
                 if (googleMobileAdsConsentManager.canRequestAds) {
@@ -57,14 +55,26 @@ class ConsentConfigurations private constructor(
                 } else {
                     if (error != null) {
                         Log.i("ConsentMessage","ConsentConfigurations: error:: "+error.message)
-//                        if (!activityContext.getSharedPreferences("ConsentMessage", MODE_PRIVATE).getBoolean("FirstTime", false)) {
                             initializeMobileAdsSdk(initializeMobileAds = {
                                 onConsentGathered.invoke()
                             })
-//                        }
                     }
                 }
             })
+
+        if (appId != "" && appKey != "") {
+            val sdk: MBridgeSDK = MBridgeSDKFactory.getMBridgeSDK()
+            val map = sdk.getMBConfigurationMap(appId, appKey)
+            sdk.init(map, applicationContext, object : SDKInitStatusListener {
+                override fun onInitSuccess() {
+                    Log.i("SOT_ADS_TAG","Mintegral :: Init Success")
+                }
+
+                override fun onInitFail(errorMsg: String) {
+                    Log.i("SOT_ADS_TAG", "Mintegral :: Init Fail :: $errorMsg")
+                }
+            })
+        }
     }
 
     private fun initializeMobileAdsSdk(initializeMobileAds: () -> Unit) {
@@ -81,39 +91,19 @@ class ConsentConfigurations private constructor(
             AdSettings.addTestDevice("240faf54-381a-4269-bbc6-713aed8a4b4b")
             AdSettings.addTestDevice("0f01a5f6-802a-4743-ae14-8e6a7a360965")
             AdSettings.addTestDevice("bba88f94-ecc3-4c56-bac8-8683f76946f9")
-            AdSettings.addTestDevice("67e557c7-c6ee-4209-9e84-7e5b60546400") // G-Pixel
-            AdSettings.addTestDevice("937cc986-d628-450b-ae61-f6ad32e3b6a2") // LG - Red Device
+            AdSettings.addTestDevice("67e557c7-c6ee-4209-9e84-7e5b60546400")
+            AdSettings.addTestDevice("937cc986-d628-450b-ae61-f6ad32e3b6a2")
             // AudienceNetworkAds.initialize(activityContext)
-            Log.i("ConsentMessageVungle","vungleInitializationId : $vungleInitializationId")
-            VungleAds.init(applicationContext, vungleInitializationId, object : InitializationListener {
-                override fun onSuccess() {
-                    Log.i("ConsentMessageVungle","Vungle : Success")
-                    initializeMobileAds.invoke()
-                }
-                override fun onError(vungleError: VungleError) {
-                    Log.i("ConsentMessageVungle","Vungle : ${vungleError.localizedMessage}")
-                    VungleAds.init(applicationContext, vungleInitializationId, object : InitializationListener {
-                        override fun onSuccess() {
-                            Log.i("ConsentMessageVungle","Vungle :AGAIN: Success")
-                            initializeMobileAds.invoke()
-                        }
-                        override fun onError(vungleError: VungleError) {
-                            Log.i("ConsentMessageVungle","Vungle :AGAIN: ${vungleError.localizedMessage}")
-                            initializeMobileAds.invoke()
-                        }
-                    })
-                }
-            })
-        } else {
-            initializeMobileAds.invoke()
         }
+        initializeMobileAds.invoke()
         slowInternetHandler.removeCallbacksAndMessages(null)
     }
 
     class Builder {
         private lateinit var activityContext: Activity
         private lateinit var applicationContext: Application
-        private lateinit var vungleInitializationId: String
+        private var appKey: String = ""
+        private var appId: String = ""
         private var testDeviceHashedIdList: ArrayList<String> = ArrayList()
         private lateinit var onConsentGathered: () -> Unit
 
@@ -121,8 +111,9 @@ class ConsentConfigurations private constructor(
             this.applicationContext = applicationContext
         }
 
-        fun setVungleInitializationId(vungleInitializationId: String) = apply {
-            this.vungleInitializationId = vungleInitializationId
+        fun setMintegralInitializationId(appKey: String, appId: String) = apply {
+            this.appKey = appKey
+            this.appId = appId
         }
 
         fun setActivityContext(activity: Activity) = apply {
@@ -144,7 +135,7 @@ class ConsentConfigurations private constructor(
             if (!::onConsentGathered.isInitialized) {
                 throw IllegalStateException("OnConsentGathered callback must be provided")
             }
-            return ConsentConfigurations(activityContext, applicationContext, vungleInitializationId, testDeviceHashedIdList, onConsentGathered)
+            return ConsentConfigurations(activityContext, applicationContext, appId, appKey, testDeviceHashedIdList, onConsentGathered)
         }
     }
 }

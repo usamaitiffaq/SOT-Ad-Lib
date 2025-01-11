@@ -15,6 +15,7 @@ import android.widget.Toast
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.widget.AppCompatTextView
 import com.manual.mediation.library.sotadlib.activities.AppCompatBaseActivity
+import com.manual.mediation.library.sotadlib.adMobAdClasses.AdMobBannerAdSplash
 import com.manual.mediation.library.sotadlib.callingClasses.LanguageScreensConfiguration
 import com.manual.mediation.library.sotadlib.callingClasses.SOTAdsConfigurations
 import com.manual.mediation.library.sotadlib.callingClasses.SOTAdsManager
@@ -22,21 +23,26 @@ import com.manual.mediation.library.sotadlib.callingClasses.WalkThroughScreensCo
 import com.manual.mediation.library.sotadlib.callingClasses.WelcomeScreensConfiguration
 import com.manual.mediation.library.sotadlib.data.Language
 import com.manual.mediation.library.sotadlib.data.WalkThroughItem
+import com.manual.mediation.library.sotadlib.metaAdClasses.MetaBannerAdSplash
+import com.manual.mediation.library.sotadlib.mintegralAdClasses.MintegralBannerAdSplash
 import com.manual.mediation.library.sotadlib.utils.MyLocaleHelper
 import com.manual.mediation.library.sotadlib.utils.NetworkCheck
 import com.manual.mediation.library.sotadlib.utils.PrefHelper
 import com.manual.mediation.library.sotadlib.utilsGoogleAdsConsent.ConsentConfigurations
+import com.sot.adslib.databinding.ActivitySotstartTestBinding
 import com.urdu_keyboard.utilityClasses.RemoteConfigConstTest
 
 class SOTStartTestActivity : AppCompatBaseActivity() {
 
+    lateinit var binding: ActivitySotstartTestBinding
     private lateinit var sotAdsConfigurations: SOTAdsConfigurations
     private var firstOpenFlowAdIds: HashMap<String, String> = HashMap()
     private var isDuplicateScreenStarted = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_sotstart_test)
+        binding = ActivitySotstartTestBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         startFirstOpenFlow()
     }
@@ -66,16 +72,17 @@ class SOTStartTestActivity : AppCompatBaseActivity() {
             this["META_NATIVE_WALKTHROUGH_FULLSCR"] = ""
             this["META_NATIVE_WALKTHROUGH_3"] = ""
 
-            this["LIFTOFF_SPLASH_INTERSTITIAL"] = ""
-            this["LIFTOFF_SPLASH_RESUME"] = ""
-            this["LIFTOFF_BANNER_SPLASH"] = ""
-            this["LIFTOFF_NATIVE_LANGUAGE_1"] = ""
-            this["LIFTOFF_NATIVE_LANGUAGE_2"] = ""
-            this["LIFTOFF_NATIVE_SURVEY_1"] = ""
-            this["LIFTOFF_NATIVE_SURVEY_2"] = ""
-            this["LIFTOFF_NATIVE_WALKTHROUGH_1"] = ""
-            this["LIFTOFF_NATIVE_WALKTHROUGH_FULLSCR"] = ""
-            this["LIFTOFF_NATIVE_WALKTHROUGH_3"] = ""
+            // Ad PlacementID-UnitID
+            this["MINTEGRAL_SPLASH_INTERSTITIAL"] = "290653-462374"
+            this["MINTEGRAL_SPLASH_RESUME"] = "328916-1542060"
+            this["MINTEGRAL_BANNER_SPLASH"] = ""
+            this["MINTEGRAL_NATIVE_LANGUAGE_1"] = ""
+            this["MINTEGRAL_NATIVE_LANGUAGE_2"] = ""
+            this["MINTEGRAL_NATIVE_SURVEY_1"] = ""
+            this["MINTEGRAL_NATIVE_SURVEY_2"] = ""
+            this["MINTEGRAL_NATIVE_WALKTHROUGH_1"] = ""
+            this["MINTEGRAL_NATIVE_WALKTHROUGH_FULLSCR"] = "290656-462377"
+            this["MINTEGRAL_NATIVE_WALKTHROUGH_3"] = ""
         }
 
         SOTAdsManager.setOnFlowStateListener(
@@ -89,8 +96,9 @@ class SOTStartTestActivity : AppCompatBaseActivity() {
         )
 
         val consentConfig = ConsentConfigurations.Builder()
-            .setVungleInitializationId("66dff077655237cdd139d49a")
+            /*.setVungleInitializationId("66dff077655237cdd139d49a")*/
             .setApplicationContext(application)
+            .setMintegralInitializationId(appId = "144002", appKey = "7c22942b749fe6a6e361b675e96b3ee9")
             .setActivityContext(this)
             .setTestDeviceHashedIdList(
                 arrayListOf(
@@ -112,14 +120,14 @@ class SOTStartTestActivity : AppCompatBaseActivity() {
 
                         if (NetworkCheck.isNetworkAvailable(this)) {
                             if (it.getValue(RemoteConfigConstTest.BANNER_SPLASH) == true) {
-                                /*binding.bannerAd.visibility = View.VISIBLE
+                                binding.bannerAd.visibility = View.VISIBLE
                                 if (it.getValue(RemoteConfigConstTest.BANNER_SPLASH_MED) == "ADMOB") {
                                     loadAdmobBannerAd()
                                 } else if (it.getValue(RemoteConfigConstTest.BANNER_SPLASH_MED) == "META") {
                                     loadMetaBannerAd()
-                                } else if (it.getValue(RemoteConfigConstTest.BANNER_SPLASH_MED) == "VUNGLE" || it.getValue(RemoteConfigConstTest.BANNER_SPLASH_MED) == "LIFTOFF") {
-                                    loadVungleBannerAd()
-                                }*/
+                                } else if (it.getValue(RemoteConfigConstTest.BANNER_SPLASH_MED) == "MINTEGRAL") {
+                                    loadMintegralBannerAd()
+                                }
                             }
                         }
                     }
@@ -169,6 +177,51 @@ class SOTStartTestActivity : AppCompatBaseActivity() {
             .build()
 
         SOTAdsManager.startFlow(sotAdsConfigurations)
+    }
+
+    private fun loadMintegralBannerAd() {
+        MintegralBannerAdSplash(
+            activity = this@SOTStartTestActivity,
+            placementID = "1010694",
+            unitID = "2677210",
+            bannerContainer = binding.bannerAd,
+            shimmerContainer = binding.bannerShimmerLayout.root,
+            onAdFailed = {
+                binding.bannerAd.visibility = View.GONE
+            },
+            onAdLoaded = {
+            },
+            onAdClicked = {}
+        )
+    }
+
+    private fun loadAdmobBannerAd() {
+        AdMobBannerAdSplash(
+            activity = this@SOTStartTestActivity,
+            placementID = "ca-app-pub-3940256099942544/9214589741",
+            bannerContainer = binding.bannerAd,
+            shimmerContainer = binding.bannerShimmerLayout.root,
+            onAdFailed = {
+                binding.bannerAd.visibility = View.GONE
+            },
+            onAdLoaded = {
+            },
+            onAdClicked = {}
+        )
+    }
+
+    private fun loadMetaBannerAd() {
+        MetaBannerAdSplash(this@SOTStartTestActivity,
+            placementID = "",
+            bannerContainer = binding.bannerAd,
+            shimmerContainer = binding.bannerShimmerLayout.root,
+            onAdFailed = {
+                binding.bannerAd.visibility = View.GONE
+            },
+            onAdLoaded = {
+            },
+            onAdClicked = {}
+        )
     }
 
     private fun gotoMainActivity() {
@@ -420,7 +473,7 @@ class SOTStartTestActivity : AppCompatBaseActivity() {
         editor.putString(RemoteConfigConstTest.NATIVE_SURVEY_1_MED, "ADMOB")
         editor.putString(RemoteConfigConstTest.NATIVE_SURVEY_2_MED, "ADMOB")
         editor.putString(RemoteConfigConstTest.NATIVE_WALKTHROUGH_1_MED, "ADMOB")
-        editor.putString(RemoteConfigConstTest.NATIVE_WALKTHROUGH_FULLSCR_MED, "ADMOB")
+        editor.putString(RemoteConfigConstTest.NATIVE_WALKTHROUGH_FULLSCR_MED, "MINTEGRAL")
         editor.putString(RemoteConfigConstTest.NATIVE_WALKTHROUGH_3_MED, "ADMOB")
 
         editor.putString(RemoteConfigConstTest.TIMER_NATIVE_F_SRC, "5")

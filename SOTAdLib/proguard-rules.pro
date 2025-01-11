@@ -51,7 +51,3 @@
 
 -keep class com.manual.mediation.library.sotadlib.utilsGoogleAdsConsent.ConsentConfigurations.** { *; }
 -keep class com.manual.mediation.library.sotadlib.utilsGoogleAdsConsent.GoogleMobileAdsConsentManager.** { *; }
-
--keep class com.manual.mediation.library.sotadlib.vungleAdClasses.VungleResumeAdSplash.** { *; }
--keep class com.manual.mediation.library.sotadlib.vungleAdClasses.VungleInterstitialAdSplash.** { *; }
--keep class com.manual.mediation.library.sotadlib.vungleAdClasses.VungleBannerAdSplash.** { *; }
