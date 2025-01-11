@@ -169,7 +169,7 @@ id nativeAdCallToAction
 id nativeAdContainer
 id nativeAdContainerAd
 id nativeAdContainerAdmobShimmer
-id nativeAdContainerShimmer
+id nativeAdContainerMintegralShimmer
 id nativeAdIcon
 id nativeAdMedia
 id nativeAdSocialContext

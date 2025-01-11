@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
+import androidx.constraintlayout.widget.ConstraintLayout
 import com.bumptech.glide.Glide
 import com.manual.mediation.library.sotadlib.R
 import com.manual.mediation.library.sotadlib.utils.NetworkCheck
@@ -21,7 +22,7 @@ object MintegralNativeAdFullScreen {
 
     private val nativeAdCache = HashMap<String, Campaign?>()
     private val adLoadingState = HashMap<String, Boolean>()
-    private val mbNativeHandlerState = HashMap<String, MBNativeHandler>()
+    private val mbNativeHandlerState = HashMap<String, MBNativeHandler?>()
 
     fun requestAd(
         mContext: Activity?,
@@ -54,7 +55,7 @@ object MintegralNativeAdFullScreen {
 
         if (adLoadingState[adName] == true && nativeAdCache[adName] != null && mbNativeHandlerState[adName] != null) {
             Log.i("SOT_ADS_TAG", "Mintegral: Native: $adName: showCachedAd()")
-            showCachedAd(adName, adContainer, mbNativeHandlerState[adName]!!)
+            showCachedAd(adName, adContainer, mbNativeHandlerState[adName]!!, onAdLoaded)
             return
         }
 
@@ -83,6 +84,7 @@ object MintegralNativeAdFullScreen {
             override fun onAdLoadError(error: String) {
                 nativeAdCache[adName] = null
                 adLoadingState[adName] = false
+                mbNativeHandlerState[adName] = null
                 onAdFailed?.invoke()
                 Log.e("SOT_ADS_TAG", "Mintegral: Native: $adName: onAdLoadError(): $error")
             }
@@ -91,6 +93,7 @@ object MintegralNativeAdFullScreen {
                 Log.i("SOT_ADS_TAG", "Mintegral: Native: $adName: onAdClick()")
                 nativeAdCache[adName] = null
                 adLoadingState[adName] = false
+                mbNativeHandlerState[adName] = null
             }
 
             override fun onAdFramesLoaded(p0: MutableList<Frame>?) {
@@ -98,6 +101,9 @@ object MintegralNativeAdFullScreen {
             }
 
             override fun onLoggingImpression(i: Int) {
+                nativeAdCache[adName] = null
+                adLoadingState[adName] = false
+                mbNativeHandlerState[adName] = null
                 Log.i("SOT_ADS_TAG", "Mintegral: Native: $adName: onLoggingImpression()")
             }
         })
@@ -119,7 +125,7 @@ object MintegralNativeAdFullScreen {
             }
 
             override fun onDownloadFinish(campaign: Campaign) {
-                Log.e("SOT_ADS_TAG","onDownloadFinish(): ")
+                Log.e("SOT_ADS_TAG", "onDownloadFinish(): ")
             }
 
             override fun onDownloadProgress(i: Int) {
@@ -127,7 +133,6 @@ object MintegralNativeAdFullScreen {
             }
 
             override fun onStartRedirection(campaign: Campaign, s: String) {
-
                 Log.e("SOT_ADS_TAG", "onStartRedirection(): $campaign :: $s")
             }
 
@@ -145,10 +150,12 @@ object MintegralNativeAdFullScreen {
     private fun showCachedAd(
         adName: String,
         adContainer: CardView?,
-        mbNativeHandler: MBNativeHandler) {
+        mbNativeHandler: MBNativeHandler,
+        onAdLoaded: (() -> Unit)? = null
+    ) {
         adContainer?.context?.let {
             nativeAdCache[adName]?.let { cachedAd ->
-                populateNativeAd(cachedAd, adContainer, mbNativeHandler)
+                populateNativeAd(cachedAd, adContainer, mbNativeHandler, onAdLoaded)
             } ?: run {
                 Log.i("SOT_ADS_TAG", "Ad is not available in cache for adName: $adName")
             }
@@ -158,8 +165,10 @@ object MintegralNativeAdFullScreen {
     private fun populateNativeAd(
         campaign: Campaign,
         adContainer: CardView?,
-        mbNativeHandler: MBNativeHandler
+        mbNativeHandler: MBNativeHandler,
+        onAdLoaded: (() -> Unit)? = null
     ) {
+        onAdLoaded?.invoke()
         val ivIcon = adContainer?.findViewById<ImageView>(R.id.custom_icon)
         val mbMediaView = adContainer?.findViewById<MBMediaView>(R.id.custom_media)
         val mbAdChoice = adContainer?.findViewById<MBAdChoice>(R.id.custom_choice)
@@ -171,7 +180,7 @@ object MintegralNativeAdFullScreen {
                 Glide.with(imageView.context)
                     .load(campaign.imageUrl)
                     .into(imageView)
-                mbNativeHandler.registerView(imageView, campaign)
+                mbNativeHandler.registerView(adContainer, campaign)
             }
         }
 
@@ -182,7 +191,11 @@ object MintegralNativeAdFullScreen {
         mbMediaView?.setNativeAd(campaign)
 
         adContainer?.let {
-            mbNativeHandler.registerView(it, campaign)
+            val views = ArrayList<View>()
+            views.add(adContainer)
+            tvTitle?.let { views.add(tvTitle) }
+            tvDescription?.let { views.add(tvDescription) }
+            mbNativeHandler.registerView(it, views, campaign)
         }
     }
 }

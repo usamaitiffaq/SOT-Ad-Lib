@@ -72,12 +72,12 @@ class WTFullScreenAdFragment : Fragment() {
             when (sotAdsConfigurations?.getRemoteConfigData()
                 ?.get("NATIVE_WALKTHROUGH_FULLSCR_MED")) {
                 "ADMOB" -> {
-                    binding.nativeAdContainerShimmer.visibility = View.VISIBLE
+                    binding.nativeAdContainerAdmobShimmer.visibility = View.VISIBLE
                     showAdmobWTFullNatives()
                 }
 
                 "MINTEGRAL" -> {
-                    binding.nativeAdViewMintegralShimmer.visibility = View.VISIBLE
+                    binding.nativeAdContainerMintegralShimmer.visibility = View.VISIBLE
                     showMintegralWTFullNatives()
                 }
             }
@@ -93,41 +93,44 @@ class WTFullScreenAdFragment : Fragment() {
                     mContext = requireActivity(),
                     adId = adId,
                     adName = "WALKTHROUGH_FULL_SCREEN",
-                    remoteConfig = sotAdsConfigurations?.getRemoteConfigData()
-                        ?.getValue("NATIVE_WALKTHROUGH_FULLSCR").toString().toBoolean(),
+                    remoteConfig = sotAdsConfigurations?.getRemoteConfigData()?.getValue("NATIVE_WALKTHROUGH_FULLSCR").toString().toBoolean(),
                     populateView = true,
                     adContainer = binding.nativeAdContainer,
                     onAdFailed = {
                         binding.nativeAdViewAdmob.visibility = View.GONE
                         binding.ivClose.performClick()
-                        Log.i("SOT_ADS_TAG", "WALKTHROUGH_1: Admob: onAdFailed()")
+                        Log.i("SOT_ADS_TAG", "WALKTHROUGH_FULL_SCREEN: Admob: onAdFailed()")
                     },
                     onAdLoaded = {
+                        binding.nativeAdContainerAdmobShimmer.visibility = View.GONE
                         binding.nativeAdViewAdmob.visibility = View.VISIBLE
-                        Log.i("SOT_ADS_TAG", "WALKTHROUGH_1: Admob: onAdLoaded()")
+                        Log.i("SOT_ADS_TAG", "WALKTHROUGH_FULL_SCREEN: Admob: onAdLoaded()")
                     }
                 )
-            } ?: Log.w("WTOneFragment", "ADMOB_NATIVE_WALKTHROUGH_1 ad ID is missing.")
+            } ?: Log.w("WTOneFragment", "ADMOB_NATIVE_WALKTHROUGH_FULL_SCREEN ad ID is missing.")
     }
 
     private fun showMintegralWTFullNatives() {
         if (sotAdsConfigurations?.firstOpenFlowAdIds?.getValue("MINTEGRAL_NATIVE_WALKTHROUGH_FULLSCR")?.split("-")?.size == 2) {
             MintegralNativeAdFullScreen.requestAd(
                 mContext = requireActivity(),
-                placementId = sotAdsConfigurations!!.firstOpenFlowAdIds.getValue("MINTEGRAL_NATIVE_WALKTHROUGH_FULLSCR").split("-")[0],
-                unitId = sotAdsConfigurations!!.firstOpenFlowAdIds.getValue("MINTEGRAL_NATIVE_WALKTHROUGH_FULLSCR").split("-")[1],
+                /*placementId = sotAdsConfigurations!!.firstOpenFlowAdIds.getValue("MINTEGRAL_NATIVE_WALKTHROUGH_FULLSCR").split("-")[0],
+                unitId = sotAdsConfigurations!!.firstOpenFlowAdIds.getValue("MINTEGRAL_NATIVE_WALKTHROUGH_FULLSCR").split("-")[1],*/
+                placementId = "290656",
+                unitId = "462377",
                 adName = "WALKTHROUGH_FULL_SCREEN",
                 remoteConfig = sotAdsConfigurations?.getRemoteConfigData()?.getValue("NATIVE_WALKTHROUGH_FULLSCR").toString().toBoolean(),
                 populateView = true,
                 adContainer = binding.nativeAdContainer,
                 onAdFailed = {
                     binding.nativeAdViewMintegral.visibility = View.GONE
-                    binding.ivClose.performClick()
-                    Log.i("SOT_ADS_TAG", "WALKTHROUGH_1: Mintegral: onAdFailed()")
+//                    binding.ivClose.performClick()
+                    Log.i("SOT_ADS_TAG", "WALKTHROUGH_FULL_SCREEN: Mintegral: onAdFailed()")
                 },
                 onAdLoaded = {
                     binding.nativeAdViewMintegral.visibility = View.VISIBLE
-                    Log.i("SOT_ADS_TAG", "WALKTHROUGH_1: Mintegral: onAdLoaded()")
+                    binding.nativeAdContainerMintegralShimmer.visibility = View.GONE
+                    Log.i("SOT_ADS_TAG", "WALKTHROUGH_FULL_SCREEN: Mintegral: onAdLoaded()")
                 }
             )
         } else {

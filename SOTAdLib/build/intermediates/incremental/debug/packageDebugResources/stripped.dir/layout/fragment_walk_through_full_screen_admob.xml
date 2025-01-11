@@ -12,7 +12,7 @@
         app:cardElevation="10dp">
 
         <com.facebook.shimmer.ShimmerFrameLayout
-            android:id="@+id/nativeAdContainerShimmer"
+            android:id="@+id/nativeAdContainerAdmobShimmer"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:visibility="gone">
@@ -124,23 +124,23 @@
             </com.google.android.gms.ads.nativead.NativeAdView>
         </com.facebook.shimmer.ShimmerFrameLayout>
 
+        <ImageView
+            android:id="@+id/ivClose"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_gravity="end"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:elevation="@dimen/_10sdp"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/ic_close"
+            android:visibility="gone" />
+
         <com.google.android.gms.ads.nativead.NativeAdView
             android:id="@+id/nativeAdViewAdmob"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#e1e1e1"
             android:visibility="gone">
-
-            <ImageView
-                android:id="@+id/ivClose"
-                android:layout_width="@dimen/_30sdp"
-                android:layout_height="@dimen/_30sdp"
-                android:layout_gravity="end"
-                android:layout_marginTop="@dimen/_20sdp"
-                android:elevation="@dimen/_10sdp"
-                android:padding="@dimen/_5sdp"
-                android:src="@drawable/ic_close"
-                android:visibility="gone" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -289,7 +289,7 @@
                 android:layout_marginTop="@dimen/_25sdp"
                 android:paddingHorizontal="4.5dp"
                 android:paddingVertical="3.5dp"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -369,7 +369,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <com.facebook.shimmer.ShimmerFrameLayout
-            android:id="@+id/nativeAdContainerAdmobShimmer"
+            android:id="@+id/nativeAdContainerMintegralShimmer"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:visibility="gone">
@@ -378,7 +378,8 @@
                 android:id="@+id/nativeAdViewMintegralShimmer"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/lightTransparent">
+                android:background="#D9D9D9"
+                android:clickable="false">
 
                 <com.mbridge.msdk.nativex.view.MBMediaView
                     android:id="@+id/custom_mediaShimmer"

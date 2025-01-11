@@ -144,7 +144,7 @@ public final class FragmentWalkThroughFullScreenAdmobBinding implements ViewBind
   public final ShimmerFrameLayout nativeAdContainerAdmobShimmer;
 
   @NonNull
-  public final ShimmerFrameLayout nativeAdContainerShimmer;
+  public final ShimmerFrameLayout nativeAdContainerMintegralShimmer;
 
   @NonNull
   public final NativeAdView nativeAdViewAdmob;
@@ -175,8 +175,8 @@ public final class FragmentWalkThroughFullScreenAdmobBinding implements ViewBind
       @NonNull LinearLayout ll4Shimmer, @NonNull LinearLayout ll4integral,
       @NonNull LinearLayout ll4integralShimmer, @NonNull CardView nativeAdContainer,
       @NonNull ShimmerFrameLayout nativeAdContainerAdmobShimmer,
-      @NonNull ShimmerFrameLayout nativeAdContainerShimmer, @NonNull NativeAdView nativeAdViewAdmob,
-      @NonNull ConstraintLayout nativeAdViewMintegral,
+      @NonNull ShimmerFrameLayout nativeAdContainerMintegralShimmer,
+      @NonNull NativeAdView nativeAdViewAdmob, @NonNull ConstraintLayout nativeAdViewMintegral,
       @NonNull ConstraintLayout nativeAdViewMintegralShimmer) {
     this.rootView = rootView;
     this.adAppIcon = adAppIcon;
@@ -217,7 +217,7 @@ public final class FragmentWalkThroughFullScreenAdmobBinding implements ViewBind
     this.ll4integralShimmer = ll4integralShimmer;
     this.nativeAdContainer = nativeAdContainer;
     this.nativeAdContainerAdmobShimmer = nativeAdContainerAdmobShimmer;
-    this.nativeAdContainerShimmer = nativeAdContainerShimmer;
+    this.nativeAdContainerMintegralShimmer = nativeAdContainerMintegralShimmer;
     this.nativeAdViewAdmob = nativeAdViewAdmob;
     this.nativeAdViewMintegral = nativeAdViewMintegral;
     this.nativeAdViewMintegralShimmer = nativeAdViewMintegralShimmer;
@@ -479,9 +479,9 @@ public final class FragmentWalkThroughFullScreenAdmobBinding implements ViewBind
         break missingId;
       }
 
-      id = R.id.nativeAdContainerShimmer;
-      ShimmerFrameLayout nativeAdContainerShimmer = ViewBindings.findChildViewById(rootView, id);
-      if (nativeAdContainerShimmer == null) {
+      id = R.id.nativeAdContainerMintegralShimmer;
+      ShimmerFrameLayout nativeAdContainerMintegralShimmer = ViewBindings.findChildViewById(rootView, id);
+      if (nativeAdContainerMintegralShimmer == null) {
         break missingId;
       }
 
@@ -512,7 +512,7 @@ public final class FragmentWalkThroughFullScreenAdmobBinding implements ViewBind
           g1MintegralShimmer, ivClose, linearLayout3, linearLayout3Mintegral,
           linearLayout3MintegralShimmer, linearLayout3Shimmer, ll4, ll4Shimmer, ll4integral,
           ll4integralShimmer, nativeAdContainer, nativeAdContainerAdmobShimmer,
-          nativeAdContainerShimmer, nativeAdViewAdmob, nativeAdViewMintegral,
+          nativeAdContainerMintegralShimmer, nativeAdViewAdmob, nativeAdViewMintegral,
           nativeAdViewMintegralShimmer);
     }
     String missingId = rootView.getResources().getResourceName(id);

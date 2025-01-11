@@ -4918,7 +4918,7 @@ int id nativeAdCallToAction 0x7f0a0252
 int id nativeAdContainer 0x7f0a0253
 int id nativeAdContainerAd 0x7f0a0254
 int id nativeAdContainerAdmobShimmer 0x7f0a0255
-int id nativeAdContainerShimmer 0x7f0a0256
+int id nativeAdContainerMintegralShimmer 0x7f0a0256
 int id nativeAdIcon 0x7f0a0257
 int id nativeAdMedia 0x7f0a0258
 int id nativeAdSocialContext 0x7f0a0259

@@ -168,7 +168,7 @@ int id nativeAdCallToAction 0x0
 int id nativeAdContainer 0x0
 int id nativeAdContainerAd 0x0
 int id nativeAdContainerAdmobShimmer 0x0
-int id nativeAdContainerShimmer 0x0
+int id nativeAdContainerMintegralShimmer 0x0
 int id nativeAdIcon 0x0
 int id nativeAdMedia 0x0
 int id nativeAdSocialContext 0x0
