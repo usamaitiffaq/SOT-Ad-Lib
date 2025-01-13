@@ -11,6 +11,8 @@ import com.manual.mediation.library.sotadlib.utils.NetworkCheck
 import com.mbridge.msdk.MBridgeSDK
 import com.mbridge.msdk.out.MBridgeSDKFactory
 import com.mbridge.msdk.out.SDKInitStatusListener
+import com.unity3d.ads.IUnityAdsInitializationListener
+import com.unity3d.ads.UnityAds
 import java.util.concurrent.atomic.AtomicBoolean
 
 class ConsentConfigurations private constructor(
@@ -18,6 +20,8 @@ class ConsentConfigurations private constructor(
     private val applicationContext: Application,
     private val appId: String,
     private val appKey: String,
+    private val gameId: String,
+    private val testMode: Boolean,
     private val testDeviceHashedIdList: ArrayList<String>,
     private val onConsentGathered: () -> Unit) {
 
@@ -75,6 +79,18 @@ class ConsentConfigurations private constructor(
                 }
             })
         }
+
+        if (gameId != "") {
+            UnityAds.initialize(applicationContext, gameId, testMode, object : IUnityAdsInitializationListener {
+                override fun onInitializationComplete() {
+                    Log.e("SOT_ADS_TAG", "UnityAds: onInitializationComplete()")
+                }
+
+                override fun onInitializationFailed(error: UnityAds.UnityAdsInitializationError?, message: String?) {
+                    Log.e("SOT_ADS_TAG", "UnityAds: onInitializationFailed() \n\n$error\n\n$message")
+                }
+            })
+        }
     }
 
     private fun initializeMobileAdsSdk(initializeMobileAds: () -> Unit) {
@@ -104,6 +120,8 @@ class ConsentConfigurations private constructor(
         private lateinit var applicationContext: Application
         private var appKey: String = ""
         private var appId: String = ""
+        private var gameId: String = ""
+        private var testMode: Boolean = true
         private var testDeviceHashedIdList: ArrayList<String> = ArrayList()
         private lateinit var onConsentGathered: () -> Unit
 
@@ -114,6 +132,11 @@ class ConsentConfigurations private constructor(
         fun setMintegralInitializationId(appKey: String, appId: String) = apply {
             this.appKey = appKey
             this.appId = appId
+        }
+
+        fun setUnityInitializationId(gameId: String, testMode: Boolean) = apply {
+            this.gameId = gameId
+            this.testMode = testMode
         }
 
         fun setActivityContext(activity: Activity) = apply {
@@ -135,7 +158,7 @@ class ConsentConfigurations private constructor(
             if (!::onConsentGathered.isInitialized) {
                 throw IllegalStateException("OnConsentGathered callback must be provided")
             }
-            return ConsentConfigurations(activityContext, applicationContext, appId, appKey, testDeviceHashedIdList, onConsentGathered)
+            return ConsentConfigurations(activityContext, applicationContext, appId, appKey, gameId, testMode, testDeviceHashedIdList, onConsentGathered)
         }
     }
 }

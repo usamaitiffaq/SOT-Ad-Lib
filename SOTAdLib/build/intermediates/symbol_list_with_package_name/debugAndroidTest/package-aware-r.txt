@@ -5418,6 +5418,8 @@ layout temple904
 navigation walkthrough_nav
 plurals mtrl_badge_content_description
 raw hand_anim
+raw keep_cronet_api
+string CronetProviderClassName
 string abc_action_bar_home_description
 string abc_action_bar_up_description
 string abc_action_menu_overflow_description

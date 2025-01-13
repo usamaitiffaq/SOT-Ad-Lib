@@ -25,6 +25,7 @@ firebasePerf = "21.0.1"
 playServicesAds = "23.3.0"
 sdpAndroid = "1.1.1"
 sspAndroid = "1.1.1"
+unityAds = "4.12.5"
 userMessagingPlatform = "3.0.0"
 lottie = "6.5.1"
 
@@ -48,6 +49,7 @@ mbridge_android_sdk = { module = "com.mbridge.msdk.oversea:mbridge_android_sdk",
 play-services-ads = { module = "com.google.android.gms:play-services-ads", version.ref = "playServicesAds" }
 sdp-android = { module = "com.intuit.sdp:sdp-android", version.ref = "sdpAndroid" }
 ssp-android = { module = "com.intuit.ssp:ssp-android", version.ref = "sspAndroid" }
+unity-ads = { module = "com.unity3d.ads:unity-ads", version.ref = "unityAds" }
 user-messaging-platform = { module = "com.google.android.ump:user-messaging-platform", version.ref = "userMessagingPlatform" }
 lottie = { module = "com.airbnb.android:lottie", version.ref = "lottie" }
 

@@ -25,6 +25,7 @@ import com.manual.mediation.library.sotadlib.data.Language
 import com.manual.mediation.library.sotadlib.data.WalkThroughItem
 import com.manual.mediation.library.sotadlib.metaAdClasses.MetaBannerAdSplash
 import com.manual.mediation.library.sotadlib.mintegralAdClasses.MintegralBannerAdSplash
+import com.manual.mediation.library.sotadlib.unityAdClasses.UnityBannerAdSplash
 import com.manual.mediation.library.sotadlib.utils.MyLocaleHelper
 import com.manual.mediation.library.sotadlib.utils.NetworkCheck
 import com.manual.mediation.library.sotadlib.utils.PrefHelper
@@ -100,6 +101,7 @@ class SOTStartTestActivity : AppCompatBaseActivity() {
             /*.setVungleInitializationId("66dff077655237cdd139d49a")*/
             .setApplicationContext(application)
             .setMintegralInitializationId(appId = "144002", appKey = "7c22942b749fe6a6e361b675e96b3ee9")
+            .setUnityInitializationId(gameId = "1234567", testMode = true)
             .setActivityContext(this)
             .setTestDeviceHashedIdList(
                 arrayListOf(
@@ -122,12 +124,19 @@ class SOTStartTestActivity : AppCompatBaseActivity() {
                         if (NetworkCheck.isNetworkAvailable(this)) {
                             if (it.getValue(RemoteConfigConstTest.BANNER_SPLASH) == true) {
                                 binding.bannerAd.visibility = View.VISIBLE
-                                if (it.getValue(RemoteConfigConstTest.BANNER_SPLASH_MED) == "ADMOB") {
-                                    loadAdmobBannerAd()
-                                } else if (it.getValue(RemoteConfigConstTest.BANNER_SPLASH_MED) == "META") {
-                                    loadMetaBannerAd()
-                                } else if (it.getValue(RemoteConfigConstTest.BANNER_SPLASH_MED) == "MINTEGRAL") {
-                                    loadMintegralBannerAd()
+                                when {
+                                    it.getValue(RemoteConfigConstTest.BANNER_SPLASH_MED) == "ADMOB" -> {
+                                        loadAdmobBannerAd()
+                                    }
+                                    it.getValue(RemoteConfigConstTest.BANNER_SPLASH_MED) == "META" -> {
+                                        loadMetaBannerAd()
+                                    }
+                                    it.getValue(RemoteConfigConstTest.BANNER_SPLASH_MED) == "MINTEGRAL" -> {
+                                        loadMintegralBannerAd()
+                                    }
+                                    it.getValue(RemoteConfigConstTest.BANNER_SPLASH_MED) == "UNITY" -> {
+                                        loadUnityBannerAd()
+                                    }
                                 }
                             }
                         }
@@ -173,6 +182,13 @@ class SOTStartTestActivity : AppCompatBaseActivity() {
             .build()
 
         SOTAdsManager.startFlow(sotAdsConfigurations)
+    }
+
+    private fun loadUnityBannerAd() {
+        UnityBannerAdSplash.showBannerAds(
+            activity = this,
+            bannerContainer = binding.bannerAd,
+            placementId = "banner")
     }
 
     private fun loadMintegralBannerAd() {
@@ -461,7 +477,7 @@ class SOTStartTestActivity : AppCompatBaseActivity() {
         editor.putBoolean(RemoteConfigConstTest.NATIVE_WALKTHROUGH_3, true)
 
         // SOT-Ads-Mediation-Config
-        editor.putString(RemoteConfigConstTest.RESUME_INTER_SPLASH_MED, "MINTEGRAL")
+        editor.putString(RemoteConfigConstTest.RESUME_INTER_SPLASH_MED, "ADMOB")
         editor.putString(RemoteConfigConstTest.RESUME_OVERALL_MED, "ADMOB")
         editor.putString(RemoteConfigConstTest.BANNER_SPLASH_MED, "ADMOB")
         editor.putString(RemoteConfigConstTest.NATIVE_LANGUAGE_1_MED, "ADMOB")

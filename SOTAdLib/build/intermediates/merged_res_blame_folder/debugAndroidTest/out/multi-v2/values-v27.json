@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.manual.mediation.library.sotadlib.test.SOTAdLib-mergeDebugAndroidTestResources-61:/values-v27/values-v27.xml",
+            "outputFile": "com.manual.mediation.library.sotadlib.test.SOTAdLib-mergeDebugAndroidTestResources-65:/values-v27/values-v27.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Sr. Developer - SOT\\.gradle\\caches\\transforms-3\\c3d1bdd745c06f9e89db300fc44675ea\\transformed\\mbridge_android_sdk-16.9.21\\res\\values-v27\\values-v27.xml",
+                    "source": "C:\\Users\\Sr. Developer - SOT\\.gradle\\caches\\transforms-3\\bb10f4f239071ebb4df8f2aeff2f72e4\\transformed\\mbridge_android_sdk-16.9.21\\res\\values-v27\\values-v27.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",

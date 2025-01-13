@@ -52,9 +52,10 @@ dependencies {
     implementation libs.user.messaging.platform
     implementation libs.lottie
 
-    // Admob
+    // Admob + Mintegral + Unity
     implementation libs.play.services.ads
     implementation libs.mbridge.android.sdk
+    implementation libs.unity.ads
     implementation 'androidx.lifecycle:lifecycle-process:2.8.6'
     implementation 'com.facebook.android:audience-network-sdk:6.11.0'
 
@@ -73,7 +74,7 @@ afterEvaluate {
 
                 groupId = 'com.github.mubashir-max'
                 artifactId = 'SOT-Ad-Lib'
-                version = '1.2.6'
+                version = '1.2.7'
             }
         }
     }
