@@ -19,7 +19,7 @@ import com.manual.mediation.library.sotadlib.callingClasses.SOTAdsManager
 import com.manual.mediation.library.sotadlib.data.WalkThroughItem
 import com.manual.mediation.library.sotadlib.databinding.FragmentWTOneBinding
 import com.manual.mediation.library.sotadlib.metaAdClasses.MetaNativeAdManager
-import com.manual.mediation.library.sotadlib.mintegralAdClasses.MintegralNativeAdFullScreen
+import com.manual.mediation.library.sotadlib.mintegralAdClasses.MintegralBannerFullScreen
 import com.manual.mediation.library.sotadlib.utils.NetworkCheck
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -43,7 +43,7 @@ class WTOneFragment(val item: WalkThroughItem) : Fragment() {
         if (nativeWalkThrough1Enabled) {
             when (sotAdsConfigurations?.getRemoteConfigData()?.get("NATIVE_WALKTHROUGH_FULLSCR_MED")) {
                 "ADMOB" -> loadAdmobWTFullNatives()
-                "MINTEGRAL" -> loadMintegralWTFullNatives()
+                "MINTEGRAL" -> loadMintegralWTFullBanner()
             }
         }
 
@@ -96,17 +96,16 @@ class WTOneFragment(val item: WalkThroughItem) : Fragment() {
         }*/
     }
 
-    private fun loadMintegralWTFullNatives() {
-        if (sotAdsConfigurations?.firstOpenFlowAdIds?.getValue("MINTEGRAL_NATIVE_WALKTHROUGH_FULLSCR")?.split("-")?.size == 2) {
-            MintegralNativeAdFullScreen.requestAd(
-                mContext = requireActivity(),
-                placementId = sotAdsConfigurations!!.firstOpenFlowAdIds.getValue("MINTEGRAL_NATIVE_WALKTHROUGH_FULLSCR").split("-")[0],
-                unitId = sotAdsConfigurations!!.firstOpenFlowAdIds.getValue("MINTEGRAL_NATIVE_WALKTHROUGH_FULLSCR").split("-")[1],
+    private fun loadMintegralWTFullBanner() {
+        if (sotAdsConfigurations?.firstOpenFlowAdIds?.getValue("MINTEGRAL_BANNER_WALKTHROUGH_FULLSCR")?.split("-")?.size == 2) {
+            MintegralBannerFullScreen.requestBannerAd(
+                activity = requireActivity(),
+                placementId = sotAdsConfigurations!!.firstOpenFlowAdIds.getValue("MINTEGRAL_BANNER_WALKTHROUGH_FULLSCR").split("-")[0],
+                unitId = sotAdsConfigurations!!.firstOpenFlowAdIds.getValue("MINTEGRAL_BANNER_WALKTHROUGH_FULLSCR").split("-")[1],
                 adName = "WALKTHROUGH_FULL_SCREEN",
-                populateView = false
-            )
+                populateView = false)
         } else {
-            Log.e("SOT_ADS_TAG","Interstitial : Mintegral : Incorrect ID Format (placementID-unitID)")
+            Log.e("SOT_ADS_TAG","BANNER : Mintegral : MAY WT_FULL_Incorrect ID Format (placementID-unitID)")
         }
     }
 

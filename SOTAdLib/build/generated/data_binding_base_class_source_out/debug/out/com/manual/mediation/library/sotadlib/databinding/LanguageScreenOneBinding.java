@@ -4,6 +4,7 @@ package com.manual.mediation.library.sotadlib.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatImageView;
@@ -23,6 +24,9 @@ import java.lang.String;
 public final class LanguageScreenOneBinding implements ViewBinding {
   @NonNull
   private final ConstraintLayout rootView;
+
+  @NonNull
+  public final FrameLayout bannerAdMint;
 
   @NonNull
   public final LottieAnimationView handAnimActive;
@@ -49,11 +53,13 @@ public final class LanguageScreenOneBinding implements ViewBinding {
   public final AppCompatTextView txtSelectKeyboard;
 
   private LanguageScreenOneBinding(@NonNull ConstraintLayout rootView,
-      @NonNull LottieAnimationView handAnimActive, @NonNull AppCompatImageView imvDone,
-      @NonNull ConstraintLayout mainLayout, @NonNull CardView nativeAdContainerAd,
-      @NonNull RecyclerView recyclerViewLanguage, @NonNull ShimmerFrameLayout shimmerLayout,
-      @NonNull AppCompatTextView txtAllLanguages, @NonNull AppCompatTextView txtSelectKeyboard) {
+      @NonNull FrameLayout bannerAdMint, @NonNull LottieAnimationView handAnimActive,
+      @NonNull AppCompatImageView imvDone, @NonNull ConstraintLayout mainLayout,
+      @NonNull CardView nativeAdContainerAd, @NonNull RecyclerView recyclerViewLanguage,
+      @NonNull ShimmerFrameLayout shimmerLayout, @NonNull AppCompatTextView txtAllLanguages,
+      @NonNull AppCompatTextView txtSelectKeyboard) {
     this.rootView = rootView;
+    this.bannerAdMint = bannerAdMint;
     this.handAnimActive = handAnimActive;
     this.imvDone = imvDone;
     this.mainLayout = mainLayout;
@@ -91,6 +97,12 @@ public final class LanguageScreenOneBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.bannerAdMint;
+      FrameLayout bannerAdMint = ViewBindings.findChildViewById(rootView, id);
+      if (bannerAdMint == null) {
+        break missingId;
+      }
+
       id = R.id.handAnimActive;
       LottieAnimationView handAnimActive = ViewBindings.findChildViewById(rootView, id);
       if (handAnimActive == null) {
@@ -139,9 +151,9 @@ public final class LanguageScreenOneBinding implements ViewBinding {
         break missingId;
       }
 
-      return new LanguageScreenOneBinding((ConstraintLayout) rootView, handAnimActive, imvDone,
-          mainLayout, nativeAdContainerAd, recyclerViewLanguage, shimmerLayout, txtAllLanguages,
-          txtSelectKeyboard);
+      return new LanguageScreenOneBinding((ConstraintLayout) rootView, bannerAdMint, handAnimActive,
+          imvDone, mainLayout, nativeAdContainerAd, recyclerViewLanguage, shimmerLayout,
+          txtAllLanguages, txtSelectKeyboard);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

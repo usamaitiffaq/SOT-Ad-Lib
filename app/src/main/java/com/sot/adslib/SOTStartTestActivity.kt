@@ -28,13 +28,14 @@ import com.manual.mediation.library.sotadlib.mintegralAdClasses.MintegralBannerA
 import com.manual.mediation.library.sotadlib.utils.MyLocaleHelper
 import com.manual.mediation.library.sotadlib.utils.NetworkCheck
 import com.manual.mediation.library.sotadlib.utils.PrefHelper
+import com.manual.mediation.library.sotadlib.utils.hideSystemUIUpdated
 import com.manual.mediation.library.sotadlib.utilsGoogleAdsConsent.ConsentConfigurations
 import com.sot.adslib.databinding.ActivitySotstartTestBinding
 import com.urdu_keyboard.utilityClasses.RemoteConfigConstTest
 
 class SOTStartTestActivity : AppCompatBaseActivity() {
 
-    lateinit var binding: ActivitySotstartTestBinding
+    private lateinit var binding: ActivitySotstartTestBinding
     private lateinit var sotAdsConfigurations: SOTAdsConfigurations
     private var firstOpenFlowAdIds: HashMap<String, String> = HashMap()
     private var isDuplicateScreenStarted = true
@@ -43,7 +44,7 @@ class SOTStartTestActivity : AppCompatBaseActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySotstartTestBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        hideSystemUIUpdated()
         startFirstOpenFlow()
     }
 
@@ -75,14 +76,14 @@ class SOTStartTestActivity : AppCompatBaseActivity() {
             // Ad PlacementID-UnitID
             this["MINTEGRAL_SPLASH_INTERSTITIAL"] = "290653-462374"
             this["MINTEGRAL_SPLASH_RESUME"] = "328916-1542060"
-            this["MINTEGRAL_BANNER_SPLASH"] = ""
-            this["MINTEGRAL_NATIVE_LANGUAGE_1"] = ""
-            this["MINTEGRAL_NATIVE_LANGUAGE_2"] = ""
-            this["MINTEGRAL_NATIVE_SURVEY_1"] = ""
-            this["MINTEGRAL_NATIVE_SURVEY_2"] = ""
-            this["MINTEGRAL_NATIVE_WALKTHROUGH_1"] = ""
-            this["MINTEGRAL_NATIVE_WALKTHROUGH_FULLSCR"] = "290656-462377"
-            this["MINTEGRAL_NATIVE_WALKTHROUGH_3"] = ""
+            this["MINTEGRAL_BANNER_SPLASH"] = "1010694-2677210"
+            this["MINTEGRAL_BANNER_LANGUAGE_1"] = "1010694-2677210"
+            this["MINTEGRAL_BANNER_LANGUAGE_2"] = "1010694-2677210"
+            this["MINTEGRAL_BANNER_SURVEY_1"] = "1010694-2677210"
+            this["MINTEGRAL_BANNER_SURVEY_2"] = "1010694-2677210"
+            this["MINTEGRAL_BANNER_WALKTHROUGH_1"] = "1010694-2677210"
+            this["MINTEGRAL_BANNER_WALKTHROUGH_FULLSCR"] = "1010694-2677210"
+            this["MINTEGRAL_BANNER_WALKTHROUGH_3"] = "1010694-2677210"
         }
 
         SOTAdsManager.setOnFlowStateListener(
@@ -143,22 +144,17 @@ class SOTStartTestActivity : AppCompatBaseActivity() {
         val languageScreensConfiguration = LanguageScreensConfiguration.Builder()
             .setActivityContext(this)
             .setDrawableColors(
-                selectedDrawable = AppCompatResources.getDrawable(
-                    this,
-                    com.manual.mediation.library.sotadlib.R.drawable.ad_att_bg
-                )!!,
+                selectedDrawable = AppCompatResources.getDrawable(this,
+                    com.manual.mediation.library.sotadlib.R.drawable.ad_att_bg)!!,
                 unSelectedDrawable = AppCompatResources.getDrawable(
                     this,
-                    com.manual.mediation.library.sotadlib.R.drawable.ad_att_bg
-                )!!,
+                    com.manual.mediation.library.sotadlib.R.drawable.ad_att_bg)!!,
                 selectedRadio = AppCompatResources.getDrawable(
                     this,
-                    com.manual.mediation.library.sotadlib.R.drawable.ic_done
-                )!!,
+                    com.manual.mediation.library.sotadlib.R.drawable.ic_done)!!,
                 unSelectedRadio = AppCompatResources.getDrawable(
                     this,
-                    R.drawable.ic_launcher_foreground
-                )!!
+                    R.drawable.ic_launcher_foreground)!!
             )
             .setLanguages(arrayListOf(Language.Urdu, Language.English, Language.Hindi, Language.French, Language.Dutch, Language.Arabic, Language.German))
             .build()
@@ -465,13 +461,13 @@ class SOTStartTestActivity : AppCompatBaseActivity() {
         editor.putBoolean(RemoteConfigConstTest.NATIVE_WALKTHROUGH_3, true)
 
         // SOT-Ads-Mediation-Config
-        editor.putString(RemoteConfigConstTest.RESUME_INTER_SPLASH_MED, "ADMOB")
+        editor.putString(RemoteConfigConstTest.RESUME_INTER_SPLASH_MED, "MINTEGRAL")
         editor.putString(RemoteConfigConstTest.RESUME_OVERALL_MED, "ADMOB")
         editor.putString(RemoteConfigConstTest.BANNER_SPLASH_MED, "ADMOB")
         editor.putString(RemoteConfigConstTest.NATIVE_LANGUAGE_1_MED, "ADMOB")
-        editor.putString(RemoteConfigConstTest.NATIVE_LANGUAGE_2_MED, "ADMOB")
+        editor.putString(RemoteConfigConstTest.NATIVE_LANGUAGE_2_MED, "MINTEGRAL")
         editor.putString(RemoteConfigConstTest.NATIVE_SURVEY_1_MED, "ADMOB")
-        editor.putString(RemoteConfigConstTest.NATIVE_SURVEY_2_MED, "ADMOB")
+        editor.putString(RemoteConfigConstTest.NATIVE_SURVEY_2_MED, "MINTEGRAL")
         editor.putString(RemoteConfigConstTest.NATIVE_WALKTHROUGH_1_MED, "ADMOB")
         editor.putString(RemoteConfigConstTest.NATIVE_WALKTHROUGH_FULLSCR_MED, "MINTEGRAL")
         editor.putString(RemoteConfigConstTest.NATIVE_WALKTHROUGH_3_MED, "ADMOB")

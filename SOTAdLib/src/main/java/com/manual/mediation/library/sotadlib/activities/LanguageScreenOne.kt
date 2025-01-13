@@ -5,9 +5,11 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.FrameLayout
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.facebook.shimmer.ShimmerFrameLayout
 import com.manual.mediation.library.sotadlib.R
 import com.manual.mediation.library.sotadlib.adMobAdClasses.AdmobNativeAdManager
 import com.manual.mediation.library.sotadlib.adapters.LanguageAdapter
@@ -16,6 +18,7 @@ import com.manual.mediation.library.sotadlib.callingClasses.SOTAdsConfigurations
 import com.manual.mediation.library.sotadlib.callingClasses.SOTAdsManager
 import com.manual.mediation.library.sotadlib.interfaces.LanguageInterface
 import com.manual.mediation.library.sotadlib.metaAdClasses.MetaNativeAdManager
+import com.manual.mediation.library.sotadlib.mintegralAdClasses.MintegralBannerAdManager
 import com.manual.mediation.library.sotadlib.utils.hideSystemUIUpdated
 
 class LanguageScreenOne : AppCompatBaseActivity(), LanguageInterface {
@@ -56,13 +59,13 @@ class LanguageScreenOne : AppCompatBaseActivity(), LanguageInterface {
             }
         }
 
-        val nativeLanguage2Enabled = sotAdsConfigurations?.getRemoteConfigData()?.get("NATIVE_LANGUAGE_2") as? Boolean ?: false
+        /*val nativeLanguage2Enabled = sotAdsConfigurations?.getRemoteConfigData()?.get("NATIVE_LANGUAGE_2") as? Boolean ?: false
         if (nativeLanguage2Enabled) {
             when (sotAdsConfigurations?.getRemoteConfigData()?.get("NATIVE_LANGUAGE_2_MED")) {
                 "ADMOB" -> loadAdmobLanguageScreenDupNatives()
                 "META" -> loadMetaLanguageScreenDupNatives()
             }
-        }
+        }*/
     }
 
     private fun loadMetaLanguageScreenDupNatives() {
@@ -97,7 +100,6 @@ class LanguageScreenOne : AppCompatBaseActivity(), LanguageInterface {
         }
     }
 
-
     override fun showLanguageTwoScreen() {
         Log.i("LanguageScreenOne", "Language: showLanguageTwoScreen()")
         startActivity(Intent(this, LanguageScreenDup::class.java), ActivityOptions.makeCustomAnimation(this, 0, 0).toBundle())
@@ -118,12 +120,38 @@ class LanguageScreenOne : AppCompatBaseActivity(), LanguageInterface {
                     findViewById<CardView>(R.id.nativeAdContainerAd).visibility = View.VISIBLE
                     showMetaLanguageScreenOneNatives()
                 }
+                "MINTEGRAL" -> {
+                    findViewById<CardView>(R.id.nativeAdContainerAd).visibility = View.VISIBLE
+                    showMintegralLanguageScreenOneBanner()
+                }
             }
         } else {
             findViewById<CardView>(R.id.nativeAdContainerAd)?.let {
                 findViewById<CardView>(R.id.nativeAdContainerAd)?.visibility = View.GONE
             }
         }
+    }
+
+    private fun showAdmobLanguageScreenOneNatives() {
+        sotAdsConfigurations?.firstOpenFlowAdIds?.getValue("ADMOB_NATIVE_LANGUAGE_1")?.let { adId ->
+            AdmobNativeAdManager.requestAd(
+                mContext = this,
+                adId = adId,
+                adName = "NATIVE_LANGUAGE_1",
+                isMedia = true,
+                isMediumAd = true,
+                remoteConfig = sotAdsConfigurations?.getRemoteConfigData()?.getValue("NATIVE_LANGUAGE_1").toString().toBoolean(),
+                populateView = true,
+                adContainer = findViewById(R.id.nativeAdContainerAd),
+                onAdFailed = {
+                    findViewById<CardView>(R.id.nativeAdContainerAd).visibility = View.GONE
+                    Log.i("LanguageScreenOne", "Language: onAdFailed()")
+                },
+                onAdLoaded = {
+                    Log.i("LanguageScreenOne", "Language: onAdLoaded()")
+                }
+            )
+        } ?: Log.w("LanguageScreenOne", "ADMOB_NATIVE_LANGUAGE_1 ad ID is missing.")
     }
 
     private fun showMetaLanguageScreenOneNatives() {
@@ -148,25 +176,30 @@ class LanguageScreenOne : AppCompatBaseActivity(), LanguageInterface {
         } ?: Log.w("LanguageScreenOne", "META_NATIVE_LANGUAGE_1 ad ID is missing.")
     }
 
-    private fun showAdmobLanguageScreenOneNatives() {
-        sotAdsConfigurations?.firstOpenFlowAdIds?.getValue("ADMOB_NATIVE_LANGUAGE_1")?.let { adId ->
-            AdmobNativeAdManager.requestAd(
-                mContext = this,
-                adId = adId,
+    private fun showMintegralLanguageScreenOneBanner() {
+        if (sotAdsConfigurations?.firstOpenFlowAdIds?.getValue("MINTEGRAL_BANNER_LANGUAGE_1")?.split("-")?.size == 2) {
+            MintegralBannerAdManager.requestBannerAd(
+                activity = this,
+                placementId = sotAdsConfigurations!!.firstOpenFlowAdIds.getValue("MINTEGRAL_BANNER_LANGUAGE_1").split("-")[0],
+                unitId = sotAdsConfigurations!!.firstOpenFlowAdIds.getValue("MINTEGRAL_BANNER_LANGUAGE_1").split("-")[1],
                 adName = "NATIVE_LANGUAGE_1",
-                isMedia = true,
-                isMediumAd = true,
                 remoteConfig = sotAdsConfigurations?.getRemoteConfigData()?.getValue("NATIVE_LANGUAGE_1").toString().toBoolean(),
                 populateView = true,
-                adContainer = findViewById(R.id.nativeAdContainerAd),
+                bannerContainer = findViewById(R.id.bannerAdMint),
+                shimmerContainer = findViewById(R.id.shimmerLayout),
                 onAdFailed = {
-                    findViewById<CardView>(R.id.nativeAdContainerAd).visibility = View.GONE
-                    Log.i("LanguageScreenOne", "Language: onAdFailed()")
+//                    findViewById<CardView>(R.id.nativeAdContainerAd).visibility = View.GONE
+                    Log.i("SOT_ADS_TAG", "LANGUAGE_1: MINTEGRAL: onAdFailed()")
                 },
                 onAdLoaded = {
-                    Log.i("LanguageScreenOne", "Language: onAdLoaded()")
+                    findViewById<ShimmerFrameLayout>(R.id.shimmerLayout).stopShimmer()
+                    findViewById<ShimmerFrameLayout>(R.id.shimmerLayout).visibility = View.INVISIBLE
+                    findViewById<FrameLayout>(R.id.bannerAdMint).visibility = View.VISIBLE
+                    Log.i("SOT_ADS_TAG", "LANGUAGE_1: MINTEGRAL: onAdLoaded()")
                 }
             )
-        } ?: Log.w("LanguageScreenOne", "ADMOB_NATIVE_LANGUAGE_1 ad ID is missing.")
+        } else {
+            Log.i("SOT_ADS_TAG", "BANNER : Mintegral : MAY LANGUAGE_1 Incorrect ID Format (placementID-unitID)")
+        }
     }
 }

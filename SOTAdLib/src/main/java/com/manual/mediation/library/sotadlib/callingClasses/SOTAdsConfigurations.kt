@@ -7,6 +7,7 @@ import com.manual.mediation.library.sotadlib.adMobAdClasses.AdmobResumeAdSplash
 import com.manual.mediation.library.sotadlib.adMobAdClasses.AdmobNativeAdManager
 import com.manual.mediation.library.sotadlib.metaAdClasses.MetaInterstitialAdSplash
 import com.manual.mediation.library.sotadlib.metaAdClasses.MetaNativeAdManager
+import com.manual.mediation.library.sotadlib.mintegralAdClasses.MintegralBannerAdManager
 import com.manual.mediation.library.sotadlib.mintegralAdClasses.MintegralInterstitialAdSplash
 import com.manual.mediation.library.sotadlib.mintegralAdClasses.MintegralResumeAdSplash
 import com.manual.mediation.library.sotadlib.utils.NetworkCheck
@@ -73,6 +74,23 @@ class SOTAdsConfigurations private constructor() {
                     myRemoteConfigData.getValue("NATIVE_LANGUAGE_1_MED") == "META" -> {
                         loadMetaLanguageScreenOneNatives(activityContext)
                     }
+                    myRemoteConfigData.getValue("NATIVE_LANGUAGE_1_MED") == "MINTEGRAL" -> {
+                        loadMintegralLanguageScreenOneBanner(activityContext)
+                    }
+                }
+            }
+
+            if (myRemoteConfigData.getValue("NATIVE_LANGUAGE_2") == true) {
+                when {
+                    myRemoteConfigData.getValue("NATIVE_LANGUAGE_2_MED") == "ADMOB" -> {
+                        loadAdmobLanguageScreenDupNatives(activityContext)
+                    }
+                    myRemoteConfigData.getValue("NATIVE_LANGUAGE_2_MED") == "META" -> {
+                        loadMetaLanguageScreenDupNatives(activityContext)
+                    }
+                    myRemoteConfigData.getValue("NATIVE_LANGUAGE_2_MED") == "MINTEGRAL" -> {
+                        loadMintegralLanguageScreenDupBanner(activityContext)
+                    }
                 }
             }
         }
@@ -88,7 +106,6 @@ class SOTAdsConfigurations private constructor() {
              populateView = false
          )
     }
-
     private fun loadMetaLanguageScreenOneNatives(mContext: Activity) {
         MetaNativeAdManager.requestAd(
             mContext = mContext,
@@ -98,6 +115,51 @@ class SOTAdsConfigurations private constructor() {
             isMediumAd = true,
             populateView = false
         )
+    }
+    private fun loadMintegralLanguageScreenOneBanner(activityContext: Activity) {
+        if (firstOpenFlowAdIds.getValue("MINTEGRAL_BANNER_LANGUAGE_1").split("-").size == 2) {
+            MintegralBannerAdManager.requestBannerAd(
+                activity = activityContext,
+                placementId = firstOpenFlowAdIds.getValue("MINTEGRAL_BANNER_LANGUAGE_1").split("-")[0],
+                unitId = firstOpenFlowAdIds.getValue("MINTEGRAL_BANNER_LANGUAGE_1").split("-")[1],
+                adName = "NATIVE_LANGUAGE_1",
+                populateView = false)
+        } else {
+            Log.e("SOT_ADS_TAG","BANNER : Mintegral : MAY LANGUAGE_1 Incorrect ID Format (placementID-unitID)")
+        }
+    }
+
+    private fun loadAdmobLanguageScreenDupNatives(mContext: Activity) {
+        AdmobNativeAdManager.requestAd(
+            mContext = mContext,
+            adId = firstOpenFlowAdIds.getValue("ADMOB_NATIVE_LANGUAGE_2"),
+            adName = "NATIVE_LANGUAGE_2",
+            isMedia = true,
+            isMediumAd = true,
+            populateView = false
+        )
+    }
+    private fun loadMetaLanguageScreenDupNatives(mContext: Activity) {
+        MetaNativeAdManager.requestAd(
+            mContext = mContext,
+            adId = firstOpenFlowAdIds.getValue("META_NATIVE_LANGUAGE_2"),
+            adName = "NATIVE_LANGUAGE_2",
+            isMedia = true,
+            isMediumAd = true,
+            populateView = false
+        )
+    }
+    private fun loadMintegralLanguageScreenDupBanner(activityContext: Activity) {
+        if (firstOpenFlowAdIds.getValue("MINTEGRAL_BANNER_LANGUAGE_2").split("-").size == 2) {
+            MintegralBannerAdManager.requestBannerAd(
+                activity = activityContext,
+                placementId = firstOpenFlowAdIds.getValue("MINTEGRAL_BANNER_LANGUAGE_2").split("-")[0],
+                unitId = firstOpenFlowAdIds.getValue("MINTEGRAL_BANNER_LANGUAGE_2").split("-")[1],
+                adName = "NATIVE_LANGUAGE_2",
+                populateView = false)
+        } else {
+            Log.e("SOT_ADS_TAG","BANNER : Mintegral : MAY LANGUAGE_2 Incorrect ID Format (placementID-unitID)")
+        }
     }
 
     private fun showMetaInterstitialAdSplash(activityContext: Activity) {
@@ -149,7 +211,7 @@ class SOTAdsConfigurations private constructor() {
                     onAdShowed = { }
                 )
             } else {
-                Log.i("SOT_ADS_TAG","Interstitial : Mintegral : Incorrect ID Format (placementID-unitID)")
+                Log.i("SOT_ADS_TAG","Interstitial : Mintegral : May SPLASH_Incorrect ID Format (placementID-unitID)")
             }
         }
     }
@@ -190,7 +252,7 @@ class SOTAdsConfigurations private constructor() {
                     onAdShowed = {}
                 )
             } else {
-                Log.i("SOT_ADS_TAG","Interstitial : Mintegral : Incorrect ID Format (placementID-unitID)")
+                Log.i("SOT_ADS_TAG","Interstitial : Mintegral : May SPLASH_Incorrect ID Format (placementID-unitID)")
             }
         }
     }

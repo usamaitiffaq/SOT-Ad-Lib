@@ -108,6 +108,7 @@ class MintegralResumeAdSplash(
                 override fun onDismiss(ids: MBridgeIds, type: Int) {
                     Log.i("MintegralResumeAd", "onDismiss: $type $ids")
                     onAdDismissed?.invoke()
+                    dismissWaitDialog()
                     dismissAdView()
                 }
 

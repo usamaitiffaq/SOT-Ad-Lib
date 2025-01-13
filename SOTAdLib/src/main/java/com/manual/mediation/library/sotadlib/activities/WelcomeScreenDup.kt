@@ -4,7 +4,9 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
 import androidx.cardview.widget.CardView
+import com.facebook.shimmer.ShimmerFrameLayout
 import com.manual.mediation.library.sotadlib.R
 import com.manual.mediation.library.sotadlib.adMobAdClasses.AdmobNativeAdManager
 import com.manual.mediation.library.sotadlib.callingClasses.SOTAdsConfigurations
@@ -12,6 +14,7 @@ import com.manual.mediation.library.sotadlib.callingClasses.SOTAdsManager
 import com.manual.mediation.library.sotadlib.callingClasses.WelcomeScreensConfiguration
 import com.manual.mediation.library.sotadlib.interfaces.WelcomeDupInterface
 import com.manual.mediation.library.sotadlib.metaAdClasses.MetaNativeAdManager
+import com.manual.mediation.library.sotadlib.mintegralAdClasses.MintegralBannerAdManager
 import com.manual.mediation.library.sotadlib.utils.hideSystemUIUpdated
 
 class WelcomeScreenDup: AppCompatBaseActivity(), WelcomeDupInterface {
@@ -53,6 +56,7 @@ class WelcomeScreenDup: AppCompatBaseActivity(), WelcomeDupInterface {
             when (sotAdsConfigurations?.getRemoteConfigData()?.get("NATIVE_SURVEY_2_MED")) {
                 "ADMOB" -> showAdmobLanguageScreenOneNatives()
                 "META" -> showMetaLanguageScreenOneNatives()
+                "MINTEGRAL" -> showMintegralSurveyDupBanner()
             }
         } else {
             myView?.let {
@@ -84,7 +88,6 @@ class WelcomeScreenDup: AppCompatBaseActivity(), WelcomeDupInterface {
             } ?: Log.w("WelcomeScreenDup", "META_NATIVE_SURVEY_2 ad ID is missing.")
         }
     }
-
     private fun showAdmobLanguageScreenOneNatives() {
         myView?.let {
             sotAdsConfigurations?.firstOpenFlowAdIds?.getValue("ADMOB_NATIVE_SURVEY_2")?.let { adId ->
@@ -108,6 +111,31 @@ class WelcomeScreenDup: AppCompatBaseActivity(), WelcomeDupInterface {
             } ?: Log.w("WelcomeScreenDup", "ADMOB_NATIVE_SURVEY_2 ad ID is missing.")
         }
     }
+    private fun showMintegralSurveyDupBanner() {
+        if (sotAdsConfigurations?.firstOpenFlowAdIds?.getValue("MINTEGRAL_BANNER_SURVEY_2")?.split("-")?.size == 2) {
+            MintegralBannerAdManager.requestBannerAd(
+                activity = this,
+                placementId = sotAdsConfigurations?.firstOpenFlowAdIds?.getValue("MINTEGRAL_BANNER_SURVEY_2")!!.split("-")[0],
+                unitId = sotAdsConfigurations?.firstOpenFlowAdIds?.getValue("MINTEGRAL_BANNER_SURVEY_2")!!.split("-")[1],
+                adName = "NATIVE_SURVEY_2",
+                populateView = true,
+                bannerContainer = findViewById(R.id.bannerAdMint),
+                shimmerContainer = findViewById(R.id.shimmerLayout),
+                onAdFailed = {
+//                    findViewById<CardView>(R.id.nativeAdContainerAd).visibility = View.GONE
+                    Log.i("SOT_ADS_TAG", "SURVEY_2: MINTEGRAL: onAdFailed()")
+                },
+                onAdLoaded = {
+                    findViewById<ShimmerFrameLayout>(R.id.shimmerLayout).stopShimmer()
+                    findViewById<ShimmerFrameLayout>(R.id.shimmerLayout).visibility = View.INVISIBLE
+                    findViewById<FrameLayout>(R.id.bannerAdMint).visibility = View.VISIBLE
+                    Log.i("SOT_ADS_TAG", "SURVEY_2: MINTEGRAL: onAdLoaded()")
+                }
+            )
+        } else {
+            Log.i("SOT_ADS_TAG", "BANNER : Mintegral : MAY SURVEY_2 Incorrect ID Format (placementID-unitID)")
+        }
+    }
 
     private fun loadMetaWTOneNatives() {
         val adId = sotAdsConfigurations?.firstOpenFlowAdIds?.getValue("META_NATIVE_WALKTHROUGH_1")
@@ -124,7 +152,6 @@ class WelcomeScreenDup: AppCompatBaseActivity(), WelcomeDupInterface {
             Log.e("SOT_ADS_TAG","Meta ad ID not found for WALKTHROUGH_1")
         }
     }
-
     private fun loadAdmobWTOneNatives() {
         val adId = sotAdsConfigurations?.firstOpenFlowAdIds?.getValue("ADMOB_NATIVE_WALKTHROUGH_1")
         if (adId != null) {

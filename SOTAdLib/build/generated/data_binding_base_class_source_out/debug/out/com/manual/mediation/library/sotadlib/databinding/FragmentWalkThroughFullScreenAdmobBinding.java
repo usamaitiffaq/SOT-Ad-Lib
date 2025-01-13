@@ -4,6 +4,7 @@ package com.manual.mediation.library.sotadlib.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -15,12 +16,9 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Guideline;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
-import com.facebook.shimmer.ShimmerFrameLayout;
 import com.google.android.gms.ads.nativead.MediaView;
 import com.google.android.gms.ads.nativead.NativeAdView;
 import com.manual.mediation.library.sotadlib.R;
-import com.mbridge.msdk.nativex.view.MBMediaView;
-import com.mbridge.msdk.widget.MBAdChoice;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
@@ -33,82 +31,25 @@ public final class FragmentWalkThroughFullScreenAdmobBinding implements ViewBind
   public final ImageView adAppIcon;
 
   @NonNull
-  public final ImageView adAppIconShimmer;
-
-  @NonNull
   public final TextView adBody;
-
-  @NonNull
-  public final TextView adBodyShimmer;
 
   @NonNull
   public final AppCompatButton adCallToAction;
 
   @NonNull
-  public final AppCompatButton adCallToActionShimmer;
-
-  @NonNull
   public final TextView adHeadline;
-
-  @NonNull
-  public final TextView adHeadlineShimmer;
 
   @NonNull
   public final CardView adIconCard;
 
   @NonNull
-  public final CardView adIconCardMintegral;
-
-  @NonNull
-  public final CardView adIconCardMintegralShimmer;
-
-  @NonNull
   public final MediaView adMedia;
 
   @NonNull
-  public final MediaView adMediaShimmer;
-
-  @NonNull
-  public final MBAdChoice customChoice;
-
-  @NonNull
-  public final MBAdChoice customChoiceShimmer;
-
-  @NonNull
-  public final TextView customDesc;
-
-  @NonNull
-  public final TextView customDescShimmer;
-
-  @NonNull
-  public final ImageView customIcon;
-
-  @NonNull
-  public final ImageView customIconShimmer;
-
-  @NonNull
-  public final MBMediaView customMedia;
-
-  @NonNull
-  public final MBMediaView customMediaShimmer;
-
-  @NonNull
-  public final TextView customTitle;
-
-  @NonNull
-  public final TextView customTitleShimmer;
-
-  @NonNull
-  public final CardView cvIconAppShimmer;
+  public final FrameLayout bannerAdF;
 
   @NonNull
   public final Guideline g1;
-
-  @NonNull
-  public final Guideline g1Mintegral;
-
-  @NonNull
-  public final Guideline g1MintegralShimmer;
 
   @NonNull
   public final ImageView ivClose;
@@ -117,110 +58,39 @@ public final class FragmentWalkThroughFullScreenAdmobBinding implements ViewBind
   public final ConstraintLayout linearLayout3;
 
   @NonNull
-  public final ConstraintLayout linearLayout3Mintegral;
-
-  @NonNull
-  public final ConstraintLayout linearLayout3MintegralShimmer;
-
-  @NonNull
-  public final ConstraintLayout linearLayout3Shimmer;
-
-  @NonNull
   public final LinearLayout ll4;
-
-  @NonNull
-  public final LinearLayout ll4Shimmer;
-
-  @NonNull
-  public final LinearLayout ll4integral;
-
-  @NonNull
-  public final LinearLayout ll4integralShimmer;
 
   @NonNull
   public final CardView nativeAdContainer;
 
   @NonNull
-  public final ShimmerFrameLayout nativeAdContainerAdmobShimmer;
-
-  @NonNull
-  public final ShimmerFrameLayout nativeAdContainerMintegralShimmer;
-
-  @NonNull
   public final NativeAdView nativeAdViewAdmob;
 
   @NonNull
-  public final ConstraintLayout nativeAdViewMintegral;
-
-  @NonNull
-  public final ConstraintLayout nativeAdViewMintegralShimmer;
+  public final ShimmerFullScreenBinding shimmerLayoutF;
 
   private FragmentWalkThroughFullScreenAdmobBinding(@NonNull ConstraintLayout rootView,
-      @NonNull ImageView adAppIcon, @NonNull ImageView adAppIconShimmer, @NonNull TextView adBody,
-      @NonNull TextView adBodyShimmer, @NonNull AppCompatButton adCallToAction,
-      @NonNull AppCompatButton adCallToActionShimmer, @NonNull TextView adHeadline,
-      @NonNull TextView adHeadlineShimmer, @NonNull CardView adIconCard,
-      @NonNull CardView adIconCardMintegral, @NonNull CardView adIconCardMintegralShimmer,
-      @NonNull MediaView adMedia, @NonNull MediaView adMediaShimmer,
-      @NonNull MBAdChoice customChoice, @NonNull MBAdChoice customChoiceShimmer,
-      @NonNull TextView customDesc, @NonNull TextView customDescShimmer,
-      @NonNull ImageView customIcon, @NonNull ImageView customIconShimmer,
-      @NonNull MBMediaView customMedia, @NonNull MBMediaView customMediaShimmer,
-      @NonNull TextView customTitle, @NonNull TextView customTitleShimmer,
-      @NonNull CardView cvIconAppShimmer, @NonNull Guideline g1, @NonNull Guideline g1Mintegral,
-      @NonNull Guideline g1MintegralShimmer, @NonNull ImageView ivClose,
-      @NonNull ConstraintLayout linearLayout3, @NonNull ConstraintLayout linearLayout3Mintegral,
-      @NonNull ConstraintLayout linearLayout3MintegralShimmer,
-      @NonNull ConstraintLayout linearLayout3Shimmer, @NonNull LinearLayout ll4,
-      @NonNull LinearLayout ll4Shimmer, @NonNull LinearLayout ll4integral,
-      @NonNull LinearLayout ll4integralShimmer, @NonNull CardView nativeAdContainer,
-      @NonNull ShimmerFrameLayout nativeAdContainerAdmobShimmer,
-      @NonNull ShimmerFrameLayout nativeAdContainerMintegralShimmer,
-      @NonNull NativeAdView nativeAdViewAdmob, @NonNull ConstraintLayout nativeAdViewMintegral,
-      @NonNull ConstraintLayout nativeAdViewMintegralShimmer) {
+      @NonNull ImageView adAppIcon, @NonNull TextView adBody,
+      @NonNull AppCompatButton adCallToAction, @NonNull TextView adHeadline,
+      @NonNull CardView adIconCard, @NonNull MediaView adMedia, @NonNull FrameLayout bannerAdF,
+      @NonNull Guideline g1, @NonNull ImageView ivClose, @NonNull ConstraintLayout linearLayout3,
+      @NonNull LinearLayout ll4, @NonNull CardView nativeAdContainer,
+      @NonNull NativeAdView nativeAdViewAdmob, @NonNull ShimmerFullScreenBinding shimmerLayoutF) {
     this.rootView = rootView;
     this.adAppIcon = adAppIcon;
-    this.adAppIconShimmer = adAppIconShimmer;
     this.adBody = adBody;
-    this.adBodyShimmer = adBodyShimmer;
     this.adCallToAction = adCallToAction;
-    this.adCallToActionShimmer = adCallToActionShimmer;
     this.adHeadline = adHeadline;
-    this.adHeadlineShimmer = adHeadlineShimmer;
     this.adIconCard = adIconCard;
-    this.adIconCardMintegral = adIconCardMintegral;
-    this.adIconCardMintegralShimmer = adIconCardMintegralShimmer;
     this.adMedia = adMedia;
-    this.adMediaShimmer = adMediaShimmer;
-    this.customChoice = customChoice;
-    this.customChoiceShimmer = customChoiceShimmer;
-    this.customDesc = customDesc;
-    this.customDescShimmer = customDescShimmer;
-    this.customIcon = customIcon;
-    this.customIconShimmer = customIconShimmer;
-    this.customMedia = customMedia;
-    this.customMediaShimmer = customMediaShimmer;
-    this.customTitle = customTitle;
-    this.customTitleShimmer = customTitleShimmer;
-    this.cvIconAppShimmer = cvIconAppShimmer;
+    this.bannerAdF = bannerAdF;
     this.g1 = g1;
-    this.g1Mintegral = g1Mintegral;
-    this.g1MintegralShimmer = g1MintegralShimmer;
     this.ivClose = ivClose;
     this.linearLayout3 = linearLayout3;
-    this.linearLayout3Mintegral = linearLayout3Mintegral;
-    this.linearLayout3MintegralShimmer = linearLayout3MintegralShimmer;
-    this.linearLayout3Shimmer = linearLayout3Shimmer;
     this.ll4 = ll4;
-    this.ll4Shimmer = ll4Shimmer;
-    this.ll4integral = ll4integral;
-    this.ll4integralShimmer = ll4integralShimmer;
     this.nativeAdContainer = nativeAdContainer;
-    this.nativeAdContainerAdmobShimmer = nativeAdContainerAdmobShimmer;
-    this.nativeAdContainerMintegralShimmer = nativeAdContainerMintegralShimmer;
     this.nativeAdViewAdmob = nativeAdViewAdmob;
-    this.nativeAdViewMintegral = nativeAdViewMintegral;
-    this.nativeAdViewMintegralShimmer = nativeAdViewMintegralShimmer;
+    this.shimmerLayoutF = shimmerLayoutF;
   }
 
   @Override
@@ -257,21 +127,9 @@ public final class FragmentWalkThroughFullScreenAdmobBinding implements ViewBind
         break missingId;
       }
 
-      id = R.id.ad_app_iconShimmer;
-      ImageView adAppIconShimmer = ViewBindings.findChildViewById(rootView, id);
-      if (adAppIconShimmer == null) {
-        break missingId;
-      }
-
       id = R.id.adBody;
       TextView adBody = ViewBindings.findChildViewById(rootView, id);
       if (adBody == null) {
-        break missingId;
-      }
-
-      id = R.id.ad_bodyShimmer;
-      TextView adBodyShimmer = ViewBindings.findChildViewById(rootView, id);
-      if (adBodyShimmer == null) {
         break missingId;
       }
 
@@ -281,21 +139,9 @@ public final class FragmentWalkThroughFullScreenAdmobBinding implements ViewBind
         break missingId;
       }
 
-      id = R.id.ad_call_to_actionShimmer;
-      AppCompatButton adCallToActionShimmer = ViewBindings.findChildViewById(rootView, id);
-      if (adCallToActionShimmer == null) {
-        break missingId;
-      }
-
       id = R.id.adHeadline;
       TextView adHeadline = ViewBindings.findChildViewById(rootView, id);
       if (adHeadline == null) {
-        break missingId;
-      }
-
-      id = R.id.ad_headlineShimmer;
-      TextView adHeadlineShimmer = ViewBindings.findChildViewById(rootView, id);
-      if (adHeadlineShimmer == null) {
         break missingId;
       }
 
@@ -305,111 +151,21 @@ public final class FragmentWalkThroughFullScreenAdmobBinding implements ViewBind
         break missingId;
       }
 
-      id = R.id.adIconCardMintegral;
-      CardView adIconCardMintegral = ViewBindings.findChildViewById(rootView, id);
-      if (adIconCardMintegral == null) {
-        break missingId;
-      }
-
-      id = R.id.adIconCardMintegralShimmer;
-      CardView adIconCardMintegralShimmer = ViewBindings.findChildViewById(rootView, id);
-      if (adIconCardMintegralShimmer == null) {
-        break missingId;
-      }
-
       id = R.id.adMedia;
       MediaView adMedia = ViewBindings.findChildViewById(rootView, id);
       if (adMedia == null) {
         break missingId;
       }
 
-      id = R.id.ad_mediaShimmer;
-      MediaView adMediaShimmer = ViewBindings.findChildViewById(rootView, id);
-      if (adMediaShimmer == null) {
-        break missingId;
-      }
-
-      id = R.id.custom_choice;
-      MBAdChoice customChoice = ViewBindings.findChildViewById(rootView, id);
-      if (customChoice == null) {
-        break missingId;
-      }
-
-      id = R.id.custom_choiceShimmer;
-      MBAdChoice customChoiceShimmer = ViewBindings.findChildViewById(rootView, id);
-      if (customChoiceShimmer == null) {
-        break missingId;
-      }
-
-      id = R.id.custom_desc;
-      TextView customDesc = ViewBindings.findChildViewById(rootView, id);
-      if (customDesc == null) {
-        break missingId;
-      }
-
-      id = R.id.custom_descShimmer;
-      TextView customDescShimmer = ViewBindings.findChildViewById(rootView, id);
-      if (customDescShimmer == null) {
-        break missingId;
-      }
-
-      id = R.id.custom_icon;
-      ImageView customIcon = ViewBindings.findChildViewById(rootView, id);
-      if (customIcon == null) {
-        break missingId;
-      }
-
-      id = R.id.custom_iconShimmer;
-      ImageView customIconShimmer = ViewBindings.findChildViewById(rootView, id);
-      if (customIconShimmer == null) {
-        break missingId;
-      }
-
-      id = R.id.custom_media;
-      MBMediaView customMedia = ViewBindings.findChildViewById(rootView, id);
-      if (customMedia == null) {
-        break missingId;
-      }
-
-      id = R.id.custom_mediaShimmer;
-      MBMediaView customMediaShimmer = ViewBindings.findChildViewById(rootView, id);
-      if (customMediaShimmer == null) {
-        break missingId;
-      }
-
-      id = R.id.custom_title;
-      TextView customTitle = ViewBindings.findChildViewById(rootView, id);
-      if (customTitle == null) {
-        break missingId;
-      }
-
-      id = R.id.custom_titleShimmer;
-      TextView customTitleShimmer = ViewBindings.findChildViewById(rootView, id);
-      if (customTitleShimmer == null) {
-        break missingId;
-      }
-
-      id = R.id.cvIconAppShimmer;
-      CardView cvIconAppShimmer = ViewBindings.findChildViewById(rootView, id);
-      if (cvIconAppShimmer == null) {
+      id = R.id.bannerAdF;
+      FrameLayout bannerAdF = ViewBindings.findChildViewById(rootView, id);
+      if (bannerAdF == null) {
         break missingId;
       }
 
       id = R.id.g1;
       Guideline g1 = ViewBindings.findChildViewById(rootView, id);
       if (g1 == null) {
-        break missingId;
-      }
-
-      id = R.id.g1Mintegral;
-      Guideline g1Mintegral = ViewBindings.findChildViewById(rootView, id);
-      if (g1Mintegral == null) {
-        break missingId;
-      }
-
-      id = R.id.g1MintegralShimmer;
-      Guideline g1MintegralShimmer = ViewBindings.findChildViewById(rootView, id);
-      if (g1MintegralShimmer == null) {
         break missingId;
       }
 
@@ -425,45 +181,9 @@ public final class FragmentWalkThroughFullScreenAdmobBinding implements ViewBind
         break missingId;
       }
 
-      id = R.id.linearLayout3Mintegral;
-      ConstraintLayout linearLayout3Mintegral = ViewBindings.findChildViewById(rootView, id);
-      if (linearLayout3Mintegral == null) {
-        break missingId;
-      }
-
-      id = R.id.linearLayout3MintegralShimmer;
-      ConstraintLayout linearLayout3MintegralShimmer = ViewBindings.findChildViewById(rootView, id);
-      if (linearLayout3MintegralShimmer == null) {
-        break missingId;
-      }
-
-      id = R.id.linearLayout3Shimmer;
-      ConstraintLayout linearLayout3Shimmer = ViewBindings.findChildViewById(rootView, id);
-      if (linearLayout3Shimmer == null) {
-        break missingId;
-      }
-
       id = R.id.ll4;
       LinearLayout ll4 = ViewBindings.findChildViewById(rootView, id);
       if (ll4 == null) {
-        break missingId;
-      }
-
-      id = R.id.ll4Shimmer;
-      LinearLayout ll4Shimmer = ViewBindings.findChildViewById(rootView, id);
-      if (ll4Shimmer == null) {
-        break missingId;
-      }
-
-      id = R.id.ll4integral;
-      LinearLayout ll4integral = ViewBindings.findChildViewById(rootView, id);
-      if (ll4integral == null) {
-        break missingId;
-      }
-
-      id = R.id.ll4integralShimmer;
-      LinearLayout ll4integralShimmer = ViewBindings.findChildViewById(rootView, id);
-      if (ll4integralShimmer == null) {
         break missingId;
       }
 
@@ -473,47 +193,22 @@ public final class FragmentWalkThroughFullScreenAdmobBinding implements ViewBind
         break missingId;
       }
 
-      id = R.id.nativeAdContainerAdmobShimmer;
-      ShimmerFrameLayout nativeAdContainerAdmobShimmer = ViewBindings.findChildViewById(rootView, id);
-      if (nativeAdContainerAdmobShimmer == null) {
-        break missingId;
-      }
-
-      id = R.id.nativeAdContainerMintegralShimmer;
-      ShimmerFrameLayout nativeAdContainerMintegralShimmer = ViewBindings.findChildViewById(rootView, id);
-      if (nativeAdContainerMintegralShimmer == null) {
-        break missingId;
-      }
-
       id = R.id.nativeAdViewAdmob;
       NativeAdView nativeAdViewAdmob = ViewBindings.findChildViewById(rootView, id);
       if (nativeAdViewAdmob == null) {
         break missingId;
       }
 
-      id = R.id.nativeAdViewMintegral;
-      ConstraintLayout nativeAdViewMintegral = ViewBindings.findChildViewById(rootView, id);
-      if (nativeAdViewMintegral == null) {
+      id = R.id.shimmerLayoutF;
+      View shimmerLayoutF = ViewBindings.findChildViewById(rootView, id);
+      if (shimmerLayoutF == null) {
         break missingId;
       }
-
-      id = R.id.nativeAdViewMintegralShimmer;
-      ConstraintLayout nativeAdViewMintegralShimmer = ViewBindings.findChildViewById(rootView, id);
-      if (nativeAdViewMintegralShimmer == null) {
-        break missingId;
-      }
+      ShimmerFullScreenBinding binding_shimmerLayoutF = ShimmerFullScreenBinding.bind(shimmerLayoutF);
 
       return new FragmentWalkThroughFullScreenAdmobBinding((ConstraintLayout) rootView, adAppIcon,
-          adAppIconShimmer, adBody, adBodyShimmer, adCallToAction, adCallToActionShimmer,
-          adHeadline, adHeadlineShimmer, adIconCard, adIconCardMintegral,
-          adIconCardMintegralShimmer, adMedia, adMediaShimmer, customChoice, customChoiceShimmer,
-          customDesc, customDescShimmer, customIcon, customIconShimmer, customMedia,
-          customMediaShimmer, customTitle, customTitleShimmer, cvIconAppShimmer, g1, g1Mintegral,
-          g1MintegralShimmer, ivClose, linearLayout3, linearLayout3Mintegral,
-          linearLayout3MintegralShimmer, linearLayout3Shimmer, ll4, ll4Shimmer, ll4integral,
-          ll4integralShimmer, nativeAdContainer, nativeAdContainerAdmobShimmer,
-          nativeAdContainerMintegralShimmer, nativeAdViewAdmob, nativeAdViewMintegral,
-          nativeAdViewMintegralShimmer);
+          adBody, adCallToAction, adHeadline, adIconCard, adMedia, bannerAdF, g1, ivClose,
+          linearLayout3, ll4, nativeAdContainer, nativeAdViewAdmob, binding_shimmerLayoutF);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

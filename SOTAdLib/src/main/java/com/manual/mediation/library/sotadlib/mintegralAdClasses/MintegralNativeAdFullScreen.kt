@@ -169,7 +169,7 @@ object MintegralNativeAdFullScreen {
         onAdLoaded: (() -> Unit)? = null
     ) {
         onAdLoaded?.invoke()
-        val ivIcon = adContainer?.findViewById<ImageView>(R.id.custom_icon)
+        /*val ivIcon = adContainer?.findViewById<ImageView>(R.id.custom_icon)
         val mbMediaView = adContainer?.findViewById<MBMediaView>(R.id.custom_media)
         val mbAdChoice = adContainer?.findViewById<MBAdChoice>(R.id.custom_choice)
         val tvTitle = adContainer?.findViewById<TextView>(R.id.custom_title)
@@ -196,6 +196,6 @@ object MintegralNativeAdFullScreen {
             tvTitle?.let { views.add(tvTitle) }
             tvDescription?.let { views.add(tvDescription) }
             mbNativeHandler.registerView(it, views, campaign)
-        }
+        }*/
     }
 }

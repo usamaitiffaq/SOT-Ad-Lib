@@ -56,12 +56,14 @@ object AdmobNativeAdManager {
                 Log.i("SOT_ADS_TAG","Native : Admob : View is VISIBLE")
             }
         } else {
-            Log.i("SOT_ADS_TAG","Native : Admob : populateView")
+            Log.i("SOT_ADS_TAG","Native : Admob : canPopulateView")
         }
 
         if (adLoadingState[adName] == true && nativeAdCache[adName] != null) {
             Log.i("SOT_ADS_TAG", "Admob: Native : $adName : showCachedAd()")
-            showCachedAd(adName, isMedia, adContainer, isMediumAd)
+            if (populateView) {
+                showCachedAd(adName, isMedia, adContainer, isMediumAd)
+            }
             return
         }
 
@@ -91,7 +93,7 @@ object AdmobNativeAdManager {
                                 Log.i("SOT_ADS_TAG", "Admob: Native : $adName : populateSimpleNativeAdmob()")*/
                                 populateNativeAd(isMediumAd, nativeAd, adView, isMedia)
                             /*}*/
-                            container.removeAllViews()
+//                            container.removeAllViews()
                             container.addView(adView)
                         }
                     } else {
@@ -107,8 +109,8 @@ object AdmobNativeAdManager {
                     override fun onAdFailedToLoad(errorCode: LoadAdError) {
                         nativeAdCache[adName] = null
                         adLoadingState[adName] = false
-                        onAdFailed?.invoke()
                         mContext.let {
+                            onAdFailed?.invoke()
                             if (BuildConfig.DEBUG) {
                                 Toast.makeText(mContext,"Admob: Native : onAdFailedToLoad() $adName", Toast.LENGTH_SHORT).show()
                             }
@@ -173,7 +175,7 @@ object AdmobNativeAdManager {
                     populateSimpleNativeAdmob(isMediumAd, cachedAd, adView)
                 }*/
 
-                adContainer.removeAllViews()
+//                adContainer.removeAllViews()
                 adContainer.addView(adView)
             } ?: run {
                 Log.i("SOT_ADS_TAG", "Ad is not available in cache for adName: $adName")
