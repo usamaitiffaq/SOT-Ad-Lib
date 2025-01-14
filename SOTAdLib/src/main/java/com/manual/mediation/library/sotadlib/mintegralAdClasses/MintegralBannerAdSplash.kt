@@ -95,11 +95,4 @@ class MintegralBannerAdSplash(
 
         bannerView?.load()
     }
-
-    fun removeAd() {
-        bannerContainer.removeAllViews()
-        bannerView = null
-        isBannerLoaded = false
-        Log.i("SOT_ADS_TAG", "Mintegral: BannerAd : removeAd()")
-    }
 }

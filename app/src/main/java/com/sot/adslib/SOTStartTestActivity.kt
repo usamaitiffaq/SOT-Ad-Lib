@@ -60,8 +60,10 @@ class SOTStartTestActivity : AppCompatBaseActivity() {
             this["ADMOB_NATIVE_SURVEY_1"] = "ca-app-pub-3940256099942544/2247696110"
             this["ADMOB_NATIVE_SURVEY_2"] = "ca-app-pub-3940256099942544/2247696110"
             this["ADMOB_NATIVE_WALKTHROUGH_1"] = "ca-app-pub-3940256099942544/2247696110"
+            this["ADMOB_NATIVE_WALKTHROUGH_2"] = "ca-app-pub-3940256099942544/2247696110"
             this["ADMOB_NATIVE_WALKTHROUGH_FULLSCR"] = "ca-app-pub-3940256099942544/2247696110"
             this["ADMOB_NATIVE_WALKTHROUGH_3"] = "ca-app-pub-3940256099942544/2247696110"
+            this["ADMOB_INTERSTITIAL_LETS_START"] = "ca-app-pub-3940256099942544/1033173712"
 
             this["META_SPLASH_INTERSTITIAL"] = ""
             this["META_SPLASH_RESUME"] = ""
@@ -71,8 +73,10 @@ class SOTStartTestActivity : AppCompatBaseActivity() {
             this["META_NATIVE_SURVEY_1"] = ""
             this["META_NATIVE_SURVEY_2"] = ""
             this["META_NATIVE_WALKTHROUGH_1"] = ""
+            this["META_NATIVE_WALKTHROUGH_2"] = ""
             this["META_NATIVE_WALKTHROUGH_FULLSCR"] = ""
             this["META_NATIVE_WALKTHROUGH_3"] = ""
+            this["META_INTERSTITIAL_LETS_START"] = ""
 
             // Ad PlacementID-UnitID
             this["MINTEGRAL_SPLASH_INTERSTITIAL"] = "290653-462374"
@@ -83,8 +87,10 @@ class SOTStartTestActivity : AppCompatBaseActivity() {
             this["MINTEGRAL_BANNER_SURVEY_1"] = "1010694-2677210"
             this["MINTEGRAL_BANNER_SURVEY_2"] = "1010694-2677210"
             this["MINTEGRAL_BANNER_WALKTHROUGH_1"] = "1010694-2677210"
+            this["MINTEGRAL_BANNER_WALKTHROUGH_2"] = "1010694-2677210"
             this["MINTEGRAL_BANNER_WALKTHROUGH_FULLSCR"] = "1010694-2677210"
             this["MINTEGRAL_BANNER_WALKTHROUGH_3"] = "1010694-2677210"
+            this["MINTEGRAL_INTERSTITIAL_LETS_START"] = "290653-462374"
         }
 
         SOTAdsManager.setOnFlowStateListener(
@@ -473,8 +479,10 @@ class SOTStartTestActivity : AppCompatBaseActivity() {
         editor.putBoolean(RemoteConfigConstTest.NATIVE_SURVEY_1, true)
         editor.putBoolean(RemoteConfigConstTest.NATIVE_SURVEY_2, true)
         editor.putBoolean(RemoteConfigConstTest.NATIVE_WALKTHROUGH_1, true)
+        editor.putBoolean(RemoteConfigConstTest.NATIVE_WALKTHROUGH_2, true)
         editor.putBoolean(RemoteConfigConstTest.NATIVE_WALKTHROUGH_FULLSCR, true)
         editor.putBoolean(RemoteConfigConstTest.NATIVE_WALKTHROUGH_3, true)
+        editor.putBoolean(RemoteConfigConstTest.INTERSTITIAL_LETS_START, true)
 
         // SOT-Ads-Mediation-Config
         editor.putString(RemoteConfigConstTest.RESUME_INTER_SPLASH_MED, "ADMOB")
@@ -483,10 +491,12 @@ class SOTStartTestActivity : AppCompatBaseActivity() {
         editor.putString(RemoteConfigConstTest.NATIVE_LANGUAGE_1_MED, "ADMOB")
         editor.putString(RemoteConfigConstTest.NATIVE_LANGUAGE_2_MED, "MINTEGRAL")
         editor.putString(RemoteConfigConstTest.NATIVE_SURVEY_1_MED, "ADMOB")
-        editor.putString(RemoteConfigConstTest.NATIVE_SURVEY_2_MED, "MINTEGRAL")
-        editor.putString(RemoteConfigConstTest.NATIVE_WALKTHROUGH_1_MED, "ADMOB")
+        editor.putString(RemoteConfigConstTest.NATIVE_SURVEY_2_MED, "ADMOB")
+        editor.putString(RemoteConfigConstTest.NATIVE_WALKTHROUGH_1_MED, "MINTEGRAL")
+        editor.putString(RemoteConfigConstTest.NATIVE_WALKTHROUGH_2_MED, "ADMOB")
         editor.putString(RemoteConfigConstTest.NATIVE_WALKTHROUGH_FULLSCR_MED, "MINTEGRAL")
-        editor.putString(RemoteConfigConstTest.NATIVE_WALKTHROUGH_3_MED, "ADMOB")
+        editor.putString(RemoteConfigConstTest.NATIVE_WALKTHROUGH_3_MED, "MINTEGRAL")
+        editor.putString(RemoteConfigConstTest.INTERSTITIAL_LETS_START_MED, "MINTEGRAL")
 
         editor.putString(RemoteConfigConstTest.TIMER_NATIVE_F_SRC, "5")
 
@@ -506,8 +516,10 @@ class SOTStartTestActivity : AppCompatBaseActivity() {
             this["NATIVE_SURVEY_1"] = prefs.getBoolean(RemoteConfigConstTest.NATIVE_SURVEY_1, false)
             this["NATIVE_SURVEY_2"] = prefs.getBoolean(RemoteConfigConstTest.NATIVE_SURVEY_2, false)
             this["NATIVE_WALKTHROUGH_1"] = prefs.getBoolean(RemoteConfigConstTest.NATIVE_WALKTHROUGH_1, false)
+            this["NATIVE_WALKTHROUGH_2"] = prefs.getBoolean(RemoteConfigConstTest.NATIVE_WALKTHROUGH_2, false)
             this["NATIVE_WALKTHROUGH_FULLSCR"] = prefs.getBoolean(RemoteConfigConstTest.NATIVE_WALKTHROUGH_FULLSCR, false)
             this["NATIVE_WALKTHROUGH_3"] = prefs.getBoolean(RemoteConfigConstTest.NATIVE_WALKTHROUGH_3, false)
+            this["INTERSTITIAL_LETS_START"] = prefs.getBoolean(RemoteConfigConstTest.INTERSTITIAL_LETS_START, false)
 
             this["RESUME_INTER_SPLASH_MED"] = "${prefs.getString(RemoteConfigConstTest.RESUME_INTER_SPLASH_MED, "Empty")}"
             this["RESUME_OVERALL_MED"] = "${prefs.getString(RemoteConfigConstTest.RESUME_OVERALL_MED, "Empty")}"
@@ -517,8 +529,10 @@ class SOTStartTestActivity : AppCompatBaseActivity() {
             this["NATIVE_SURVEY_1_MED"] = "${prefs.getString(RemoteConfigConstTest.NATIVE_SURVEY_1_MED, "Empty")}"
             this["NATIVE_SURVEY_2_MED"] = "${prefs.getString(RemoteConfigConstTest.NATIVE_SURVEY_2_MED, "Empty")}"
             this["NATIVE_WALKTHROUGH_1_MED"] = "${prefs.getString(RemoteConfigConstTest.NATIVE_WALKTHROUGH_1_MED, "Empty")}"
+            this["NATIVE_WALKTHROUGH_2_MED"] = "${prefs.getString(RemoteConfigConstTest.NATIVE_WALKTHROUGH_2_MED, "Empty")}"
             this["NATIVE_WALKTHROUGH_FULLSCR_MED"] = "${prefs.getString(RemoteConfigConstTest.NATIVE_WALKTHROUGH_FULLSCR_MED, "Empty")}"
             this["NATIVE_WALKTHROUGH_3_MED"] = "${prefs.getString(RemoteConfigConstTest.NATIVE_WALKTHROUGH_3_MED, "Empty")}"
+            this["INTERSTITIAL_LETS_START_MED"] = "${prefs.getString(RemoteConfigConstTest.INTERSTITIAL_LETS_START_MED, "Empty")}"
 
             this["TIMER_NATIVE_F_SRC"] = "${prefs.getString(RemoteConfigConstTest.TIMER_NATIVE_F_SRC, "Empty")}"
         }

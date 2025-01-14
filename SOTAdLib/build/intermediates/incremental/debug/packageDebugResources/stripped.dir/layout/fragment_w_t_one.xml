@@ -171,9 +171,9 @@
         android:layout_marginTop="@dimen/_10sdp"
         android:fontFamily="@font/lexend_extralight"
         android:gravity="center"
+        android:lines="2"
         android:padding="@dimen/_5sdp"
         android:text="Descrption"
-        android:lines="2"
         android:textAllCaps="false"
         android:textColor="@color/black"
         android:textSize="@dimen/_12ssp"
@@ -230,21 +230,41 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/_3sdp"
+        android:visibility="gone"
         app:cardCornerRadius="@dimen/_5sdp"
         app:cardElevation="10dp"
-        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/glOne"
         app:layout_constraintVertical_bias="1">
 
-        <com.facebook.shimmer.ShimmerFrameLayout
-            android:id="@+id/shimmerLayout"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
-            <include layout="@layout/admob_native_media_view_shimmer" />
-        </com.facebook.shimmer.ShimmerFrameLayout>
+            <FrameLayout
+                android:id="@+id/bannerAdMint"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="#D9D9D9"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@+id/shimmerLayout"
+                app:layout_constraintEnd_toEndOf="@+id/shimmerLayout"
+                app:layout_constraintStart_toStartOf="@+id/shimmerLayout"
+                app:layout_constraintTop_toTopOf="@+id/shimmerLayout" />
+
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/shimmerLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <include layout="@layout/admob_native_media_view_shimmer" />
+            </com.facebook.shimmer.ShimmerFrameLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

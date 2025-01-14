@@ -45,6 +45,7 @@ class WelcomeScreenDup: AppCompatBaseActivity(), WelcomeDupInterface {
             when (sotAdsConfigurations?.getRemoteConfigData()?.get("NATIVE_WALKTHROUGH_1_MED")) {
                 "ADMOB" -> loadAdmobWTOneNatives()
                 "META" -> loadMetaWTOneNatives()
+                "MINTEGRAL" -> loadMintegralWTOneBanner()
             }
         }
     }
@@ -165,6 +166,18 @@ class WelcomeScreenDup: AppCompatBaseActivity(), WelcomeDupInterface {
             )
         } else {
             Log.e("SOT_ADS_TAG","Admob ad ID not found for WALKTHROUGH_1")
+        }
+    }
+    private fun loadMintegralWTOneBanner() {
+        if (sotAdsConfigurations?.firstOpenFlowAdIds?.getValue("MINTEGRAL_BANNER_WALKTHROUGH_1")?.split("-")?.size == 2) {
+            MintegralBannerAdManager.requestBannerAd(
+                activity = this,
+                placementId = sotAdsConfigurations?.firstOpenFlowAdIds?.getValue("MINTEGRAL_BANNER_WALKTHROUGH_1")!!.split("-")[0],
+                unitId = sotAdsConfigurations?.firstOpenFlowAdIds?.getValue("MINTEGRAL_BANNER_WALKTHROUGH_1")!!.split("-")[1],
+                adName = "WALKTHROUGH_1",
+                populateView = false)
+        } else {
+            Log.e("SOT_ADS_TAG","BANNER : Mintegral : MAY SURVEY_1 Incorrect ID Format (placementID-unitID)")
         }
     }
 

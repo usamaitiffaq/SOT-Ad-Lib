@@ -4,14 +4,17 @@ package com.manual.mediation.library.sotadlib.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Guideline;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
+import com.facebook.shimmer.ShimmerFrameLayout;
 import com.manual.mediation.library.sotadlib.R;
 import java.lang.NullPointerException;
 import java.lang.Override;
@@ -20,6 +23,9 @@ import java.lang.String;
 public final class FragmentWTTwoBinding implements ViewBinding {
   @NonNull
   private final ConstraintLayout rootView;
+
+  @NonNull
+  public final FrameLayout bannerAdMint;
 
   @NonNull
   public final TextView btnNext;
@@ -37,20 +43,31 @@ public final class FragmentWTTwoBinding implements ViewBinding {
   public final ImageView main;
 
   @NonNull
+  public final CardView nativeAdContainerAd;
+
+  @NonNull
+  public final ShimmerFrameLayout shimmerLayout;
+
+  @NonNull
   public final TextView txtDescription;
 
   @NonNull
   public final TextView txtHeading;
 
-  private FragmentWTTwoBinding(@NonNull ConstraintLayout rootView, @NonNull TextView btnNext,
-      @NonNull ImageView bubble, @NonNull ConstraintLayout cl2, @NonNull Guideline glOne,
-      @NonNull ImageView main, @NonNull TextView txtDescription, @NonNull TextView txtHeading) {
+  private FragmentWTTwoBinding(@NonNull ConstraintLayout rootView,
+      @NonNull FrameLayout bannerAdMint, @NonNull TextView btnNext, @NonNull ImageView bubble,
+      @NonNull ConstraintLayout cl2, @NonNull Guideline glOne, @NonNull ImageView main,
+      @NonNull CardView nativeAdContainerAd, @NonNull ShimmerFrameLayout shimmerLayout,
+      @NonNull TextView txtDescription, @NonNull TextView txtHeading) {
     this.rootView = rootView;
+    this.bannerAdMint = bannerAdMint;
     this.btnNext = btnNext;
     this.bubble = bubble;
     this.cl2 = cl2;
     this.glOne = glOne;
     this.main = main;
+    this.nativeAdContainerAd = nativeAdContainerAd;
+    this.shimmerLayout = shimmerLayout;
     this.txtDescription = txtDescription;
     this.txtHeading = txtHeading;
   }
@@ -82,6 +99,12 @@ public final class FragmentWTTwoBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.bannerAdMint;
+      FrameLayout bannerAdMint = ViewBindings.findChildViewById(rootView, id);
+      if (bannerAdMint == null) {
+        break missingId;
+      }
+
       id = R.id.btnNext;
       TextView btnNext = ViewBindings.findChildViewById(rootView, id);
       if (btnNext == null) {
@@ -112,6 +135,18 @@ public final class FragmentWTTwoBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.nativeAdContainerAd;
+      CardView nativeAdContainerAd = ViewBindings.findChildViewById(rootView, id);
+      if (nativeAdContainerAd == null) {
+        break missingId;
+      }
+
+      id = R.id.shimmerLayout;
+      ShimmerFrameLayout shimmerLayout = ViewBindings.findChildViewById(rootView, id);
+      if (shimmerLayout == null) {
+        break missingId;
+      }
+
       id = R.id.txtDescription;
       TextView txtDescription = ViewBindings.findChildViewById(rootView, id);
       if (txtDescription == null) {
@@ -124,8 +159,8 @@ public final class FragmentWTTwoBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentWTTwoBinding((ConstraintLayout) rootView, btnNext, bubble, cl2, glOne,
-          main, txtDescription, txtHeading);
+      return new FragmentWTTwoBinding((ConstraintLayout) rootView, bannerAdMint, btnNext, bubble,
+          cl2, glOne, main, nativeAdContainerAd, shimmerLayout, txtDescription, txtHeading);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

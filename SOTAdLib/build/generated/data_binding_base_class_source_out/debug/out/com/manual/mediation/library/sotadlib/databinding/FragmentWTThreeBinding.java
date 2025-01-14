@@ -4,6 +4,7 @@ package com.manual.mediation.library.sotadlib.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -22,6 +23,9 @@ import java.lang.String;
 public final class FragmentWTThreeBinding implements ViewBinding {
   @NonNull
   private final ConstraintLayout rootView;
+
+  @NonNull
+  public final FrameLayout bannerAdMint;
 
   @NonNull
   public final TextView btnNext;
@@ -50,12 +54,13 @@ public final class FragmentWTThreeBinding implements ViewBinding {
   @NonNull
   public final TextView txtHeading;
 
-  private FragmentWTThreeBinding(@NonNull ConstraintLayout rootView, @NonNull TextView btnNext,
-      @NonNull ImageView bubble, @NonNull ConstraintLayout cl2, @NonNull Guideline glOne,
-      @NonNull ImageView main, @NonNull CardView nativeAdContainerAd,
-      @NonNull ShimmerFrameLayout shimmerLayout, @NonNull TextView txtDescription,
-      @NonNull TextView txtHeading) {
+  private FragmentWTThreeBinding(@NonNull ConstraintLayout rootView,
+      @NonNull FrameLayout bannerAdMint, @NonNull TextView btnNext, @NonNull ImageView bubble,
+      @NonNull ConstraintLayout cl2, @NonNull Guideline glOne, @NonNull ImageView main,
+      @NonNull CardView nativeAdContainerAd, @NonNull ShimmerFrameLayout shimmerLayout,
+      @NonNull TextView txtDescription, @NonNull TextView txtHeading) {
     this.rootView = rootView;
+    this.bannerAdMint = bannerAdMint;
     this.btnNext = btnNext;
     this.bubble = bubble;
     this.cl2 = cl2;
@@ -94,6 +99,12 @@ public final class FragmentWTThreeBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.bannerAdMint;
+      FrameLayout bannerAdMint = ViewBindings.findChildViewById(rootView, id);
+      if (bannerAdMint == null) {
+        break missingId;
+      }
+
       id = R.id.btnNext;
       TextView btnNext = ViewBindings.findChildViewById(rootView, id);
       if (btnNext == null) {
@@ -148,8 +159,8 @@ public final class FragmentWTThreeBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentWTThreeBinding((ConstraintLayout) rootView, btnNext, bubble, cl2, glOne,
-          main, nativeAdContainerAd, shimmerLayout, txtDescription, txtHeading);
+      return new FragmentWTThreeBinding((ConstraintLayout) rootView, bannerAdMint, btnNext, bubble,
+          cl2, glOne, main, nativeAdContainerAd, shimmerLayout, txtDescription, txtHeading);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
