@@ -62,7 +62,8 @@ class WelcomeScreenOne : AppCompatBaseActivity(), WelcomeInterface {
             }
         } else {
             myView?.let {
-                myView?.findViewById<CardView>(R.id.nativeAdContainerAd)?.visibility = View.GONE
+                myView?.findViewById<CardView>(R.id.nativeAdContainerAdmob)?.visibility = View.GONE
+                myView?.findViewById<CardView>(R.id.nativeAdContainerMintegral)?.visibility = View.GONE
             }
         }
     }
@@ -76,6 +77,8 @@ class WelcomeScreenOne : AppCompatBaseActivity(), WelcomeInterface {
 
     private fun showAdmobSurveyOneNatives() {
         myView?.let {
+            myView?.findViewById<CardView>(R.id.nativeAdContainerMintegral)?.visibility = View.GONE
+            myView?.findViewById<CardView>(R.id.nativeAdContainerAdmob)?.visibility = View.VISIBLE
             sotAdsConfigurations?.firstOpenFlowAdIds?.getValue("ADMOB_NATIVE_SURVEY_1")?.let { adId ->
                 AdmobNativeAdManager.requestAd(
                     mContext = this,
@@ -85,9 +88,9 @@ class WelcomeScreenOne : AppCompatBaseActivity(), WelcomeInterface {
                     isMediumAd = true,
                     remoteConfig = sotAdsConfigurations?.getRemoteConfigData()?.getValue("NATIVE_SURVEY_1").toString().toBoolean(),
                     populateView = true,
-                    adContainer = myView?.findViewById(R.id.nativeAdContainerAd),
+                    adContainer = myView?.findViewById(R.id.nativeAdContainerAdmob),
                     onAdFailed = {
-                        myView?.findViewById<CardView>(R.id.nativeAdContainerAd)?.visibility = View.GONE
+                        myView?.findViewById<CardView>(R.id.nativeAdContainerAdmob)?.visibility = View.GONE
                         Log.i("SOT_ADS_TAG","WelcomeScreenOne: Admob: onAdFailed()")
                     },
                     onAdLoaded = {
@@ -99,6 +102,8 @@ class WelcomeScreenOne : AppCompatBaseActivity(), WelcomeInterface {
     }
     private fun showMetaSurveyOneNatives() {
         myView?.let {
+            myView?.findViewById<CardView>(R.id.nativeAdContainerMintegral)?.visibility = View.GONE
+            myView?.findViewById<CardView>(R.id.nativeAdContainerAdmob)?.visibility = View.VISIBLE
             sotAdsConfigurations?.firstOpenFlowAdIds?.getValue("META_NATIVE_SURVEY_1")?.let { adId ->
                 MetaNativeAdManager.requestAd(
                     mContext = this,
@@ -108,9 +113,9 @@ class WelcomeScreenOne : AppCompatBaseActivity(), WelcomeInterface {
                     isMediumAd = true,
                     remoteConfig = sotAdsConfigurations?.getRemoteConfigData()?.getValue("NATIVE_SURVEY_1").toString().toBoolean(),
                     populateView = true,
-                    nativeAdLayout = myView?.findViewById(R.id.nativeAdContainerAd),
+                    nativeAdLayout = myView?.findViewById(R.id.nativeAdContainerAdmob),
                     onAdFailed = {
-                        myView?.findViewById<CardView>(R.id.nativeAdContainerAd)?.visibility = View.GONE
+                        myView?.findViewById<CardView>(R.id.nativeAdContainerAdmob)?.visibility = View.GONE
                         Log.i("SOT_ADS_TAG","WelcomeScreenOne: Meta: onAdFailed()")
                     },
                     onAdLoaded = {
@@ -122,22 +127,23 @@ class WelcomeScreenOne : AppCompatBaseActivity(), WelcomeInterface {
     }
     private fun showMintegralSurveyOneBanner() {
         if (sotAdsConfigurations?.firstOpenFlowAdIds?.getValue("MINTEGRAL_BANNER_SURVEY_1")?.split("-")?.size == 2) {
+            myView?.findViewById<CardView>(R.id.nativeAdContainerMintegral)?.visibility = View.VISIBLE
             MintegralBannerAdManager.requestBannerAd(
                 activity = this,
                 placementId = sotAdsConfigurations?.firstOpenFlowAdIds?.getValue("MINTEGRAL_BANNER_SURVEY_1")!!.split("-")[0],
                 unitId = sotAdsConfigurations?.firstOpenFlowAdIds?.getValue("MINTEGRAL_BANNER_SURVEY_1")!!.split("-")[1],
                 adName = "NATIVE_SURVEY_1",
                 populateView = true,
-                bannerContainer = findViewById(R.id.bannerAdMint),
-                shimmerContainer = findViewById(R.id.shimmerLayout),
+                bannerContainer = myView?.findViewById(R.id.bannerAdMint),
+                shimmerContainer = myView?.findViewById(R.id.shimmerLayoutMint),
                 onAdFailed = {
-//                    findViewById<CardView>(R.id.nativeAdContainerAd).visibility = View.GONE
+                    myView?.findViewById<CardView>(R.id.nativeAdContainerMintegral)?.visibility = View.GONE
                     Log.i("SOT_ADS_TAG", "SURVEY_1: MINTEGRAL: onAdFailed()")
                 },
                 onAdLoaded = {
-                    findViewById<ShimmerFrameLayout>(R.id.shimmerLayout).stopShimmer()
-                    findViewById<ShimmerFrameLayout>(R.id.shimmerLayout).visibility = View.INVISIBLE
-                    findViewById<FrameLayout>(R.id.bannerAdMint).visibility = View.VISIBLE
+                    myView?.findViewById<ShimmerFrameLayout>(R.id.shimmerLayoutMint)?.stopShimmer()
+                    myView?.findViewById<ShimmerFrameLayout>(R.id.shimmerLayoutMint)?.visibility = View.INVISIBLE
+                    myView?.findViewById<FrameLayout>(R.id.bannerAdMint)?.visibility = View.VISIBLE
                     Log.i("SOT_ADS_TAG", "SURVEY_1: MINTEGRAL: onAdLoaded()")
                 }
             )

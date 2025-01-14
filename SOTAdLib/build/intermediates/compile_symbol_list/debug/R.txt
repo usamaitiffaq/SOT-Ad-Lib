@@ -108,6 +108,7 @@ int id ad_bodyShimmer 0x0
 int id ad_call_to_actionShimmer 0x0
 int id ad_headlineShimmer 0x0
 int id ad_mediaShimmer 0x0
+int id adsC 0x0
 int id bannerAdF 0x0
 int id bannerAdMint 0x0
 int id bannerShimmerParent 0x0
@@ -152,6 +153,8 @@ int id nativeAdBody 0x0
 int id nativeAdCallToAction 0x0
 int id nativeAdContainer 0x0
 int id nativeAdContainerAd 0x0
+int id nativeAdContainerAdmob 0x0
+int id nativeAdContainerMintegral 0x0
 int id nativeAdIcon 0x0
 int id nativeAdMedia 0x0
 int id nativeAdSocialContext 0x0
@@ -166,6 +169,7 @@ int id recyclerViewLanguage 0x0
 int id selectedBackground 0x0
 int id shimmerLayout 0x0
 int id shimmerLayoutF 0x0
+int id shimmerLayoutMint 0x0
 int id tvCountryNameLanguage 0x0
 int id txtAllLanguages 0x0
 int id txtDescription 0x0
@@ -195,6 +199,7 @@ int layout meta_native_mediaview_large 0x0
 int layout meta_native_mediaview_medium 0x0
 int layout meta_native_simple_large 0x0
 int layout meta_native_simple_small 0x0
+int layout my_dummy 0x0
 int layout shimmer_full_screen 0x0
 int navigation walkthrough_nav 0x0
 int raw hand_anim 0x0

@@ -75,13 +75,18 @@ class AdmobInterstitialAdSplash(
 
             override fun onAdFailedToLoad(adError: LoadAdError) {
                 Log.i("SOT_ADS_TAG", "Admob: Interstitial : onAdFailedToLoad()")
-                timeoutHandler.removeCallbacks(timeoutRunnable)
-                dismissWaitDialog()
-                onAdFailed?.invoke()
-                currentActivity?.let {
-                    if (BuildConfig.DEBUG) {
-                        Toast.makeText(currentActivity, "Admob: Interstitial : Failed To Load", Toast.LENGTH_SHORT).show()
+                if (interstitialAd == null) {
+                    Log.i("SOT_ADS_TAG", "Admob: Interstitial : onAdFailedToLoad(): interstitialAd == null")
+                } else {
+                    timeoutHandler.removeCallbacks(timeoutRunnable)
+                    dismissWaitDialog()
+                    onAdFailed?.invoke()
+                    currentActivity?.let {
+                        if (BuildConfig.DEBUG) {
+                            Toast.makeText(currentActivity, "Admob: Interstitial : Failed To Load", Toast.LENGTH_SHORT).show()
+                        }
                     }
+                    Log.i("SOT_ADS_TAG", "Admob: Interstitial : onAdFailedToLoad(): interstitialAd != null")
                 }
             }
         }
@@ -112,6 +117,7 @@ class AdmobInterstitialAdSplash(
                     isShowingAd = false
                     timeoutHandler.removeCallbacks(timeoutRunnable)
                     dismissWaitDialog()
+                    interstitialAd = null
                     onAdFailed?.invoke()
                 }
 
@@ -126,13 +132,17 @@ class AdmobInterstitialAdSplash(
 
             Handler(Looper.getMainLooper()).postDelayed({
                 currentActivity?.let {
-                    showWaitDialog()
+                    if (interstitialAd != null) {
+                        showWaitDialog()
 
-                    Handler(Looper.getMainLooper()).postDelayed({
-                        currentActivity?.let {
-                            interstitialAd?.show(currentActivity!!)
-                        }
-                    }, 1500)
+                        Handler(Looper.getMainLooper()).postDelayed({
+                            currentActivity?.let {
+                                if (interstitialAd != null) {
+                                    interstitialAd?.show(currentActivity!!)
+                                }
+                            }
+                        }, 1500)
+                    }
                 }
             },7000)
         }

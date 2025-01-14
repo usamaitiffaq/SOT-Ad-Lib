@@ -4413,6 +4413,7 @@ id ad_mediaShimmer
 id add
 id adjust_height
 id adjust_width
+id adsC
 id alertTitle
 id aligned
 id all
@@ -4903,6 +4904,8 @@ id nativeAdBody
 id nativeAdCallToAction
 id nativeAdContainer
 id nativeAdContainerAd
+id nativeAdContainerAdmob
+id nativeAdContainerMintegral
 id nativeAdIcon
 id nativeAdMedia
 id nativeAdSocialContext
@@ -5018,6 +5021,7 @@ id sharedValueSet
 id sharedValueUnset
 id shimmerLayout
 id shimmerLayoutF
+id shimmerLayoutMint
 id shortcut
 id showCustom
 id showHome
@@ -5399,6 +5403,7 @@ layout mtrl_picker_text_input_date
 layout mtrl_picker_text_input_date_range
 layout mtrl_search_bar
 layout mtrl_search_view
+layout my_dummy
 layout notification_action
 layout notification_action_tombstone
 layout notification_template_custom_big

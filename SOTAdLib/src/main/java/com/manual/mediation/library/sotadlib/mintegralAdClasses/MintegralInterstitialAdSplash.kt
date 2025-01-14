@@ -130,10 +130,12 @@ class MintegralInterstitialAdSplash(
     private fun showAdIfAvailable() {
         if (!isShowingAd && mMBNewInterstitialHandler?.isReady == true) {
             Handler(Looper.getMainLooper()).postDelayed({
-                showWaitDialog()
-                Handler(Looper.getMainLooper()).postDelayed({
-                    mMBNewInterstitialHandler?.show()
-                }, 1500)
+                if (mMBNewInterstitialHandler != null) {
+                    showWaitDialog()
+                    Handler(Looper.getMainLooper()).postDelayed({
+                        mMBNewInterstitialHandler?.show()
+                    }, 1500)
+                }
             },7000)
         }
     }

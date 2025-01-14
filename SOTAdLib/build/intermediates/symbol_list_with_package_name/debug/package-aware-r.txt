@@ -109,6 +109,7 @@ id ad_bodyShimmer
 id ad_call_to_actionShimmer
 id ad_headlineShimmer
 id ad_mediaShimmer
+id adsC
 id bannerAdF
 id bannerAdMint
 id bannerShimmerParent
@@ -153,6 +154,8 @@ id nativeAdBody
 id nativeAdCallToAction
 id nativeAdContainer
 id nativeAdContainerAd
+id nativeAdContainerAdmob
+id nativeAdContainerMintegral
 id nativeAdIcon
 id nativeAdMedia
 id nativeAdSocialContext
@@ -167,6 +170,7 @@ id recyclerViewLanguage
 id selectedBackground
 id shimmerLayout
 id shimmerLayoutF
+id shimmerLayoutMint
 id tvCountryNameLanguage
 id txtAllLanguages
 id txtDescription
@@ -196,6 +200,7 @@ layout meta_native_mediaview_large
 layout meta_native_mediaview_medium
 layout meta_native_simple_large
 layout meta_native_simple_small
+layout my_dummy
 layout shimmer_full_screen
 navigation walkthrough_nav
 raw hand_anim
