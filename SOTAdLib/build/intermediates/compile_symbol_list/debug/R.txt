@@ -38,6 +38,8 @@ int drawable ic_ad 0x0
 int drawable ic_close 0x0
 int drawable ic_done 0x0
 int drawable ic_image_shimmer 0x0
+int drawable ic_radio_button_checked 0x0
+int drawable ic_radio_button_unchecked 0x0
 int drawable ic_saudi_arabia 0x0
 int drawable ic_text_dummy 0x0
 int drawable iceland 0x0

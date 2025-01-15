@@ -18,7 +18,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="file:/D:/AndroidSDK/Android/Sdk/icons/material/materialicons/close/baseline_close_24.xml" />
+                                      <entry key="url" value="file:/D:/AndroidSDK/Android/Sdk/icons/material/materialicons/radio_button_checked/baseline_radio_button_checked_24.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -28,8 +28,7 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="assetSourceType" value="FILE" />
-                            <entry key="outputName" value="ic_close" />
+                            <entry key="outputName" value="ic_radio_button_checked" />
                             <entry key="sourceFile" value="E:\Mubasher@AndDev\Working\res-library\ic_close.svg" />
                           </map>
                         </option>

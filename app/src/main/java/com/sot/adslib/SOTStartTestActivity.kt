@@ -166,10 +166,10 @@ class SOTStartTestActivity : AppCompatBaseActivity() {
                     com.manual.mediation.library.sotadlib.R.drawable.ad_att_bg)!!,
                 selectedRadio = AppCompatResources.getDrawable(
                     this,
-                    com.manual.mediation.library.sotadlib.R.drawable.ic_done)!!,
+                    com.manual.mediation.library.sotadlib.R.drawable.ic_radio_button_checked)!!,
                 unSelectedRadio = AppCompatResources.getDrawable(
                     this,
-                    R.drawable.ic_launcher_foreground)!!
+                    com.manual.mediation.library.sotadlib.R.drawable.ic_radio_button_unchecked)!!
             )
             .setLanguages(arrayListOf(Language.Urdu, Language.English, Language.Hindi, Language.French, Language.Dutch, Language.Arabic, Language.German))
             .build()

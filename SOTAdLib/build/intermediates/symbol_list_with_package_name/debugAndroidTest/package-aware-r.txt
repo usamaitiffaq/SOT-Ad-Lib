@@ -4037,6 +4037,8 @@ drawable ic_mtrl_checked_circle
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
+drawable ic_radio_button_checked
+drawable ic_radio_button_unchecked
 drawable ic_saudi_arabia
 drawable ic_search_black_24
 drawable ic_text_dummy

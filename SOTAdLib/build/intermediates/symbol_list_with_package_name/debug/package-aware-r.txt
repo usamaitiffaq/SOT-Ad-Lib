@@ -39,6 +39,8 @@ drawable ic_ad
 drawable ic_close
 drawable ic_done
 drawable ic_image_shimmer
+drawable ic_radio_button_checked
+drawable ic_radio_button_unchecked
 drawable ic_saudi_arabia
 drawable ic_text_dummy
 drawable iceland
