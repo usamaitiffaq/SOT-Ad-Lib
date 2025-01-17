@@ -33,66 +33,67 @@ class SOTAdsConfigurations private constructor() {
             Log.i("RemoteConfigFetches","SOTAdsConfigurations : setRemoteConfigData() "+value.key + " : " + value.value)
         }
 
-        when {
-            !NetworkCheck.isNetworkAvailable(activityContext) -> {
-                proceedNext(activityContext)
-            }
-            myRemoteConfigData.getValue("RESUME_INTER_SPLASH") == "RESUME" -> {
-                when {
-                    myRemoteConfigData.getValue("RESUME_INTER_SPLASH_MED") == "ADMOB" -> {
-                        showAdMobResumeAdSplash(activityContext)
-                    }
-                    myRemoteConfigData.getValue("RESUME_INTER_SPLASH_MED") == "MINTEGRAL" -> {
-                        showMintegralResumeAdSplash(activityContext)
-                    }
-                }
-            }
-            myRemoteConfigData.getValue("RESUME_INTER_SPLASH") == "INTERSTITIAL" -> {
-                when {
-                    myRemoteConfigData.getValue("RESUME_INTER_SPLASH_MED") == "ADMOB" -> {
-                        showAdMobInterstitialAdSplash(activityContext)
-                    }
-                    myRemoteConfigData.getValue("RESUME_INTER_SPLASH_MED") == "META" -> {
-                        showMetaInterstitialAdSplash(activityContext)
-                    }
-                    myRemoteConfigData.getValue("RESUME_INTER_SPLASH_MED") == "MINTEGRAL" -> {
-                        showMintegralInterstitialAdSplash(activityContext)
+        if (NetworkCheck.isNetworkAvailable(activityContext)) {
+            when {
+                myRemoteConfigData.getValue("RESUME_INTER_SPLASH") == "RESUME" -> {
+                    when {
+                        myRemoteConfigData.getValue("RESUME_INTER_SPLASH_MED") == "ADMOB" -> {
+                            showAdMobResumeAdSplash(activityContext)
+                        }
+                        myRemoteConfigData.getValue("RESUME_INTER_SPLASH_MED") == "MINTEGRAL" -> {
+                            showMintegralResumeAdSplash(activityContext)
+                        }
                     }
                 }
-            }
-            myRemoteConfigData.getValue("RESUME_INTER_SPLASH") == "OFF" -> {
-                proceedNext(activityContext)
-            }
-        }
-
-        if (!PrefHelper(activityContext).getBooleanDefault("StartScreens", default = false)) {
-            if (myRemoteConfigData.getValue("NATIVE_LANGUAGE_1") == true) {
-                when {
-                    myRemoteConfigData.getValue("NATIVE_LANGUAGE_1_MED") == "ADMOB" -> {
-                        loadAdmobLanguageScreenOneNatives(activityContext)
+                myRemoteConfigData.getValue("RESUME_INTER_SPLASH") == "INTERSTITIAL" -> {
+                    when {
+                        myRemoteConfigData.getValue("RESUME_INTER_SPLASH_MED") == "ADMOB" -> {
+                            showAdMobInterstitialAdSplash(activityContext)
+                        }
+                        myRemoteConfigData.getValue("RESUME_INTER_SPLASH_MED") == "META" -> {
+                            showMetaInterstitialAdSplash(activityContext)
+                        }
+                        myRemoteConfigData.getValue("RESUME_INTER_SPLASH_MED") == "MINTEGRAL" -> {
+                            showMintegralInterstitialAdSplash(activityContext)
+                        }
                     }
-                    myRemoteConfigData.getValue("NATIVE_LANGUAGE_1_MED") == "META" -> {
-                        loadMetaLanguageScreenOneNatives(activityContext)
-                    }
-                    myRemoteConfigData.getValue("NATIVE_LANGUAGE_1_MED") == "MINTEGRAL" -> {
-                        loadMintegralLanguageScreenOneBanner(activityContext)
-                    }
+                }
+                myRemoteConfigData.getValue("RESUME_INTER_SPLASH") == "OFF" -> {
+                    proceedNext(activityContext)
                 }
             }
 
-            if (myRemoteConfigData.getValue("NATIVE_LANGUAGE_2") == true) {
-                when {
-                    myRemoteConfigData.getValue("NATIVE_LANGUAGE_2_MED") == "ADMOB" -> {
-                        loadAdmobLanguageScreenDupNatives(activityContext)
+            if (!PrefHelper(activityContext).getBooleanDefault("StartScreens", default = false)) {
+                if (myRemoteConfigData.getValue("NATIVE_LANGUAGE_1") == true) {
+                    when {
+                        myRemoteConfigData.getValue("NATIVE_LANGUAGE_1_MED") == "ADMOB" -> {
+                            loadAdmobLanguageScreenOneNatives(activityContext)
+                        }
+                        myRemoteConfigData.getValue("NATIVE_LANGUAGE_1_MED") == "META" -> {
+                            loadMetaLanguageScreenOneNatives(activityContext)
+                        }
+                        myRemoteConfigData.getValue("NATIVE_LANGUAGE_1_MED") == "MINTEGRAL" -> {
+                            loadMintegralLanguageScreenOneBanner(activityContext)
+                        }
                     }
-                    myRemoteConfigData.getValue("NATIVE_LANGUAGE_2_MED") == "META" -> {
-                        loadMetaLanguageScreenDupNatives(activityContext)
-                    }
-                    myRemoteConfigData.getValue("NATIVE_LANGUAGE_2_MED") == "MINTEGRAL" -> {
-                        loadMintegralLanguageScreenDupBanner(activityContext)
+                }
+
+                if (myRemoteConfigData.getValue("NATIVE_LANGUAGE_2") == true) {
+                    when {
+                        myRemoteConfigData.getValue("NATIVE_LANGUAGE_2_MED") == "ADMOB" -> {
+                            loadAdmobLanguageScreenDupNatives(activityContext)
+                        }
+                        myRemoteConfigData.getValue("NATIVE_LANGUAGE_2_MED") == "META" -> {
+                            loadMetaLanguageScreenDupNatives(activityContext)
+                        }
+                        myRemoteConfigData.getValue("NATIVE_LANGUAGE_2_MED") == "MINTEGRAL" -> {
+                            loadMintegralLanguageScreenDupBanner(activityContext)
+                        }
                     }
                 }
             }
+        } else {
+            proceedNext(activityContext)
         }
     }
 

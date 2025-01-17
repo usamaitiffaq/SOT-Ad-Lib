@@ -147,10 +147,9 @@ class AdmobResumeAdSplash(activity: Activity?=null, val adId: String, onAdDismis
 
                     Handler(Looper.getMainLooper()).postDelayed({
                         currentActivity?.let {
-
+                            appOpenAd!!.show(currentActivity!!)
+                            dismissWaitDialog()
                         }
-                        appOpenAd!!.show(currentActivity!!)
-                        dismissWaitDialog()
                     },1500)
                 }
             },7000)
