@@ -91,14 +91,10 @@ class WTThreeFragment(private val fragmentActivity: FragmentActivity, val item: 
                         showMintegralWTThreeInterstitial()
                     }
                 }
+            } else {
+                letsStartClick()
             }
         }
-
-        /*binding.btnNextDup.setOnClickListener {
-            PrefHelper(requireContext()).putBoolean("StartScreens", value = true)
-            SOTAdsManager.notifyFlowFinished()
-            fragmentActivity.finish()
-        }*/
     }
 
     private fun showMintegralWTThreeInterstitial() {
@@ -111,9 +107,7 @@ class WTThreeFragment(private val fragmentActivity: FragmentActivity, val item: 
                 onAdClosedCallback = {
                     Log.i("SOT_ADS_TAG","Interstitial : WALKTHROUGH_3 : onAdClosedCallBackAdmob()")
                     Handler(Looper.getMainLooper()).postDelayed({
-                        PrefHelper(requireContext()).putBoolean("StartScreens", value = true)
-                        SOTAdsManager.notifyFlowFinished()
-                        fragmentActivity.finish()
+                        letsStartClick()
                     },300)
                 },
                 onAdShowedCallback = {
@@ -133,9 +127,7 @@ class WTThreeFragment(private val fragmentActivity: FragmentActivity, val item: 
             onAdClosedCallBackAdmob = {
                 Log.i("SOT_ADS_TAG","Interstitial : WALKTHROUGH_3 : onAdClosedCallBackAdmob()")
                 Handler(Looper.getMainLooper()).postDelayed({
-                    PrefHelper(requireContext()).putBoolean("StartScreens", value = true)
-                    SOTAdsManager.notifyFlowFinished()
-                    fragmentActivity.finish()
+                    letsStartClick()
                 },300)
             },
             onAdShowedCallBackAdmob = {
@@ -143,9 +135,10 @@ class WTThreeFragment(private val fragmentActivity: FragmentActivity, val item: 
             }
         )
     }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    private fun letsStartClick() {
+        PrefHelper(requireContext()).putBoolean("StartScreens", value = true)
+        SOTAdsManager.notifyFlowFinished()
+        fragmentActivity.finish()
     }
 
     override fun onResume() {
