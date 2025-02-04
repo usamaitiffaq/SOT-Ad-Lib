@@ -136,7 +136,10 @@ class WTThreeFragment(private val fragmentActivity: FragmentActivity, val item: 
         )
     }
     private fun letsStartClick() {
-        PrefHelper(requireContext()).putBoolean("StartScreens", value = true)
+        val myNullContext = requireActivity()
+        if (myNullContext != null) {
+            PrefHelper(requireActivity()).putBoolean("StartScreens", value = true)
+        }
         SOTAdsManager.notifyFlowFinished()
         fragmentActivity.finish()
     }

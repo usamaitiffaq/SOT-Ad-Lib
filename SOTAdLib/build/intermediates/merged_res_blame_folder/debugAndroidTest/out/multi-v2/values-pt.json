@@ -4,6 +4,23 @@
             "outputFile": "com.manual.mediation.library.sotadlib.test.SOTAdLib-mergeDebugAndroidTestResources-65:/values-pt/values-pt.xml",
             "map": [
                 {
+                    "source": "C:\\Users\\Sr. Developer - SOT\\.gradle\\caches\\transforms-3\\4577dfd241dc3f0bec7a12aef2fa448e\\transformed\\browser-1.8.0\\res\\values-pt\\values-pt.xml",
+                    "from": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,170,269,381",
+                        "endColumns": "114,98,111,105",
+                        "endOffsets": "165,264,376,482"
+                    },
+                    "to": {
+                        "startLines": "36,37,38,39",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "3578,3693,3792,3904",
+                        "endColumns": "114,98,111,105",
+                        "endOffsets": "3688,3787,3899,4005"
+                    }
+                },
+                {
                     "source": "C:\\Users\\Sr. Developer - SOT\\.gradle\\caches\\transforms-3\\90cc6814659f4a6e3c9c1ff4b0243de0\\transformed\\core-1.13.1\\res\\values-pt\\values-pt.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
@@ -35,23 +52,6 @@
                         "startOffsets": "4010,4122",
                         "endColumns": "111,119",
                         "endOffsets": "4117,4237"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Sr. Developer - SOT\\.gradle\\caches\\transforms-3\\e5d24df7e8f0f85e03b0bf3fa8d47ce1\\transformed\\browser-1.4.0\\res\\values-pt\\values-pt.xml",
-                    "from": {
-                        "startLines": "2,3,4,5",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "55,170,269,381",
-                        "endColumns": "114,98,111,105",
-                        "endOffsets": "165,264,376,482"
-                    },
-                    "to": {
-                        "startLines": "36,37,38,39",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "3578,3693,3792,3904",
-                        "endColumns": "114,98,111,105",
-                        "endOffsets": "3688,3787,3899,4005"
                     }
                 },
                 {

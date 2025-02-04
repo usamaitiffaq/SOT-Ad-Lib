@@ -4,6 +4,23 @@
             "outputFile": "com.manual.mediation.library.sotadlib.test.SOTAdLib-mergeDebugAndroidTestResources-65:/values-bs/values-bs.xml",
             "map": [
                 {
+                    "source": "C:\\Users\\Sr. Developer - SOT\\.gradle\\caches\\transforms-3\\4577dfd241dc3f0bec7a12aef2fa448e\\transformed\\browser-1.8.0\\res\\values-bs\\values-bs.xml",
+                    "from": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,159,259,373",
+                        "endColumns": "103,99,113,99",
+                        "endOffsets": "154,254,368,468"
+                    },
+                    "to": {
+                        "startLines": "67,71,72,73",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "6765,7089,7189,7303",
+                        "endColumns": "103,99,113,99",
+                        "endOffsets": "6864,7184,7298,7398"
+                    }
+                },
+                {
                     "source": "C:\\Users\\Sr. Developer - SOT\\.gradle\\caches\\transforms-3\\90cc6814659f4a6e3c9c1ff4b0243de0\\transformed\\core-1.13.1\\res\\values-bs\\values-bs.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
@@ -55,24 +72,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Sr. Developer - SOT\\.gradle\\caches\\transforms-3\\3c8b113114003f18f73a77e9b60e8325\\transformed\\navigation-ui-2.8.1\\res\\values-bs\\values-bs.xml",
-                    "from": {
-                        "startLines": "2,3",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,158",
-                        "endColumns": "102,124",
-                        "endOffsets": "153,278"
-                    },
-                    "to": {
-                        "startLines": "137,138",
-                        "startColumns": "4,4",
-                        "startOffsets": "12353,12456",
-                        "endColumns": "102,124",
-                        "endOffsets": "12451,12576"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Sr. Developer - SOT\\.gradle\\caches\\transforms-3\\a8c1eb8127dd445204099c22b7e8b15e\\transformed\\play-services-ads-23.3.0\\res\\values-bs\\values.xml",
+                    "source": "C:\\Users\\Sr. Developer - SOT\\.gradle\\caches\\transforms-3\\2257c520d7e22858eaa4d3f697aa1622\\transformed\\play-services-ads-23.6.0\\res\\values-bs\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -89,20 +89,20 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Sr. Developer - SOT\\.gradle\\caches\\transforms-3\\e5d24df7e8f0f85e03b0bf3fa8d47ce1\\transformed\\browser-1.4.0\\res\\values-bs\\values-bs.xml",
+                    "source": "C:\\Users\\Sr. Developer - SOT\\.gradle\\caches\\transforms-3\\3c8b113114003f18f73a77e9b60e8325\\transformed\\navigation-ui-2.8.1\\res\\values-bs\\values-bs.xml",
                     "from": {
-                        "startLines": "2,3,4,5",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "55,159,259,373",
-                        "endColumns": "103,99,113,99",
-                        "endOffsets": "154,254,368,468"
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,158",
+                        "endColumns": "102,124",
+                        "endOffsets": "153,278"
                     },
                     "to": {
-                        "startLines": "67,71,72,73",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "6765,7089,7189,7303",
-                        "endColumns": "103,99,113,99",
-                        "endOffsets": "6864,7184,7298,7398"
+                        "startLines": "137,138",
+                        "startColumns": "4,4",
+                        "startOffsets": "12353,12456",
+                        "endColumns": "102,124",
+                        "endOffsets": "12451,12576"
                     }
                 },
                 {

@@ -22,11 +22,11 @@ firebaseCore = "21.1.1"
 firebaseCrashlytics = "19.0.3"
 firebaseMessaging = "24.0.1"
 firebasePerf = "21.0.1"
-playServicesAds = "23.3.0"
+playServicesAds = "23.6.0"
 sdpAndroid = "1.1.1"
 sspAndroid = "1.1.1"
 unityAds = "4.12.5"
-userMessagingPlatform = "3.0.0"
+userMessagingPlatform = "3.1.0"
 lottie = "6.5.1"
 
 [libraries]
@@ -63,4 +63,3 @@ androidx-navigation-safeargs = { id = "androidx.navigation.safeargs.kotlin", ver
 com-google-firebase-perf = { id = "com.google.firebase.firebase-perf", version.ref = "perf" }
 kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
 android-library = { id = "com.android.library", version.ref = "agp" }
-

@@ -138,7 +138,7 @@
     <string msgid="7456070600745802113" name="nav_app_bar_open_drawer_description">"Ouvrir le panneau de navigation"</string>
     <string name="notifications_permission_confirm">Autoriser</string>
     <string name="notifications_permission_decline">Ne pas autoriser</string>
-    <string name="notifications_permission_title">Autoriser l\'application à vous envoyer des notifications?</string>
+    <string name="notifications_permission_title">Autoriser l\'appli à vous envoyer des notifications?</string>
     <string name="offline_dialog_image_description">Icône</string>
     <string name="offline_dialog_text">Merci de votre intérêt.\nNous vous communiquerons davantage de renseignements quand vous serez de retour en ligne.</string>
     <string name="offline_notification_title">Vous êtes de retour en ligne! Reprenons là où nous en étions</string>

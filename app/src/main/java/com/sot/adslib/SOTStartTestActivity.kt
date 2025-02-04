@@ -490,7 +490,7 @@ class SOTStartTestActivity : AppCompatBaseActivity() {
         editor.putString(RemoteConfigConstTest.BANNER_SPLASH_MED, "ADMOB")
         editor.putString(RemoteConfigConstTest.NATIVE_LANGUAGE_1_MED, "ADMOB")
         editor.putString(RemoteConfigConstTest.NATIVE_LANGUAGE_2_MED, "MINTEGRAL")
-        editor.putString(RemoteConfigConstTest.NATIVE_SURVEY_1_MED, "ADMOB")
+        editor.putString(RemoteConfigConstTest.NATIVE_SURVEY_1_MED, "MINTEGRAL")
         editor.putString(RemoteConfigConstTest.NATIVE_SURVEY_2_MED, "ADMOB")
         editor.putString(RemoteConfigConstTest.NATIVE_WALKTHROUGH_1_MED, "ADMOB")
         editor.putString(RemoteConfigConstTest.NATIVE_WALKTHROUGH_2_MED, "ADMOB")

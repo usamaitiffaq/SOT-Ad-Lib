@@ -127,6 +127,7 @@ class WelcomeScreenOne : AppCompatBaseActivity(), WelcomeInterface {
     }
     private fun showMintegralSurveyOneBanner() {
         if (sotAdsConfigurations?.firstOpenFlowAdIds?.getValue("MINTEGRAL_BANNER_SURVEY_1")?.split("-")?.size == 2) {
+            myView?.findViewById<CardView>(R.id.nativeAdContainerAdmob)?.visibility = View.GONE
             myView?.findViewById<CardView>(R.id.nativeAdContainerMintegral)?.visibility = View.VISIBLE
             MintegralBannerAdManager.requestBannerAd(
                 activity = this,
