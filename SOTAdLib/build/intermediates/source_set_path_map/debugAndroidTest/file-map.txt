@@ -62,8 +62,8 @@ com.manual.mediation.library.sotadlib.test.SOTAdLib-slidingpanelayout-1.2.0-60 C
 com.manual.mediation.library.sotadlib.test.SOTAdLib-lifecycle-livedata-core-ktx-2.8.6-61 C:\Users\Sr. Developer - SOT\.gradle\caches\transforms-3\f4532a951615a0f0f19df1a5d9ef3af2\transformed\lifecycle-livedata-core-ktx-2.8.6\res
 com.manual.mediation.library.sotadlib.test.SOTAdLib-activity-1.9.2-62 C:\Users\Sr. Developer - SOT\.gradle\caches\transforms-3\fa6ce4927e21614226f76fa3c11a9e25\transformed\activity-1.9.2\res
 com.manual.mediation.library.sotadlib.test.SOTAdLib-emoji2-views-helper-1.3.0-63 C:\Users\Sr. Developer - SOT\.gradle\caches\transforms-3\fdb0bed6fb004aeb03ebffbd4309fd3d\transformed\emoji2-views-helper-1.3.0\res
-com.manual.mediation.library.sotadlib.test.SOTAdLib-androidTest-64 E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\build\generated\res\resValues\androidTest\debug
-com.manual.mediation.library.sotadlib.test.SOTAdLib-mergeDebugAndroidTestResources-65 E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\merged.dir
-com.manual.mediation.library.sotadlib.test.SOTAdLib-mergeDebugAndroidTestResources-66 E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\stripped.dir
-com.manual.mediation.library.sotadlib.test.SOTAdLib-merged_res-67 E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\build\intermediates\merged_res\debugAndroidTest
-com.manual.mediation.library.sotadlib.test.SOTAdLib-packaged_res-68 E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\build\intermediates\packaged_res\debug
+com.manual.mediation.library.sotadlib.test.SOTAdLib-androidTest-64 E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\generated\res\resValues\androidTest\debug
+com.manual.mediation.library.sotadlib.test.SOTAdLib-mergeDebugAndroidTestResources-65 E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\merged.dir
+com.manual.mediation.library.sotadlib.test.SOTAdLib-mergeDebugAndroidTestResources-66 E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\stripped.dir
+com.manual.mediation.library.sotadlib.test.SOTAdLib-merged_res-67 E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\merged_res\debugAndroidTest
+com.manual.mediation.library.sotadlib.test.SOTAdLib-packaged_res-68 E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\packaged_res\debug

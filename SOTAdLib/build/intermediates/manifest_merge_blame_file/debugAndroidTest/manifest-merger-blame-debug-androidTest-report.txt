@@ -3,31 +3,31 @@
 3    package="com.manual.mediation.library.sotadlib.test" >
 4
 5    <uses-sdk
-5-->E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest9476984606600686261.xml:5:5-74
+5-->E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest1066373653550147336.xml:5:5-74
 6        android:minSdkVersion="23"
-6-->E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest9476984606600686261.xml:5:15-41
+6-->E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest1066373653550147336.xml:5:15-41
 7        android:targetSdkVersion="23" />
-7-->E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest9476984606600686261.xml:5:42-71
+7-->E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest1066373653550147336.xml:5:42-71
 8
 9    <instrumentation
-9-->E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest9476984606600686261.xml:11:5-15:92
+9-->E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest1066373653550147336.xml:11:5-15:92
 10        android:name="androidx.test.runner.AndroidJUnitRunner"
-10-->E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest9476984606600686261.xml:11:22-76
+10-->E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest1066373653550147336.xml:11:22-76
 11        android:functionalTest="false"
-11-->E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest9476984606600686261.xml:14:22-52
+11-->E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest1066373653550147336.xml:14:22-52
 12        android:handleProfiling="false"
-12-->E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest9476984606600686261.xml:13:22-53
+12-->E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest1066373653550147336.xml:13:22-53
 13        android:label="Tests for com.manual.mediation.library.sotadlib.test"
-13-->E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest9476984606600686261.xml:15:22-90
+13-->E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest1066373653550147336.xml:15:22-90
 14        android:targetPackage="com.manual.mediation.library.sotadlib.test" />
-14-->E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest9476984606600686261.xml:12:22-88
+14-->E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest1066373653550147336.xml:12:22-88
 15
 16    <uses-permission android:name="android.permission.INTERNET" />
-16-->[:SOTAdLib] E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:8:5-67
-16-->[:SOTAdLib] E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:8:22-64
+16-->[:SOTAdLib] E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:8:5-67
+16-->[:SOTAdLib] E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:8:22-64
 17    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-17-->[:SOTAdLib] E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-79
-17-->[:SOTAdLib] E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:22-76
+17-->[:SOTAdLib] E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-79
+17-->[:SOTAdLib] E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:22-76
 18
 19    <queries>
 19-->[androidx.test:runner:1.6.1] C:\Users\Sr. Developer - SOT\.gradle\caches\transforms-3\00f30f518316c3c46c9b97805926cebb\transformed\runner-1.6.1\AndroidManifest.xml:24:5-28:15
@@ -141,68 +141,68 @@
 73-->[androidx.core:core:1.13.1] C:\Users\Sr. Developer - SOT\.gradle\caches\transforms-3\90cc6814659f4a6e3c9c1ff4b0243de0\transformed\core-1.13.1\AndroidManifest.xml:26:22-94
 74
 75    <application
-75-->E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest9476984606600686261.xml:7:5-9:19
+75-->E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest1066373653550147336.xml:7:5-9:19
 76        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 76-->[androidx.core:core:1.13.1] C:\Users\Sr. Developer - SOT\.gradle\caches\transforms-3\90cc6814659f4a6e3c9c1ff4b0243de0\transformed\core-1.13.1\AndroidManifest.xml:28:18-86
 77        android:debuggable="true"
 78        android:extractNativeLibs="false" >
 79        <uses-library android:name="android.test.runner" />
-79-->E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest9476984606600686261.xml:8:9-60
-79-->E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest9476984606600686261.xml:8:23-57
+79-->E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest1066373653550147336.xml:8:9-60
+79-->E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest1066373653550147336.xml:8:23-57
 80
 81        <activity
-81-->[:SOTAdLib] E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:15:9-18:52
+81-->[:SOTAdLib] E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:15:9-18:52
 82            android:name="com.manual.mediation.library.sotadlib.activities.LanguageScreenOne"
-82-->[:SOTAdLib] E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:16:13-94
+82-->[:SOTAdLib] E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:16:13-94
 83            android:exported="false"
-83-->[:SOTAdLib] E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:17:13-37
+83-->[:SOTAdLib] E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:17:13-37
 84            android:screenOrientation="portrait" />
-84-->[:SOTAdLib] E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:18:13-49
+84-->[:SOTAdLib] E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:18:13-49
 85        <activity
-85-->[:SOTAdLib] E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:19:9-22:52
+85-->[:SOTAdLib] E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:19:9-22:52
 86            android:name="com.manual.mediation.library.sotadlib.activities.LanguageScreenDup"
-86-->[:SOTAdLib] E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:20:13-94
+86-->[:SOTAdLib] E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:20:13-94
 87            android:exported="false"
-87-->[:SOTAdLib] E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:21:13-37
+87-->[:SOTAdLib] E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:21:13-37
 88            android:screenOrientation="portrait" />
-88-->[:SOTAdLib] E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:22:13-49
+88-->[:SOTAdLib] E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:22:13-49
 89        <activity
-89-->[:SOTAdLib] E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:23:9-26:52
+89-->[:SOTAdLib] E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:23:9-26:52
 90            android:name="com.manual.mediation.library.sotadlib.activities.WelcomeScreenOne"
-90-->[:SOTAdLib] E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:24:13-93
+90-->[:SOTAdLib] E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:24:13-93
 91            android:exported="true"
-91-->[:SOTAdLib] E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:25:13-36
+91-->[:SOTAdLib] E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:25:13-36
 92            android:screenOrientation="portrait" />
-92-->[:SOTAdLib] E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:26:13-49
+92-->[:SOTAdLib] E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:26:13-49
 93        <activity
-93-->[:SOTAdLib] E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:27:9-30:52
+93-->[:SOTAdLib] E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:27:9-30:52
 94            android:name="com.manual.mediation.library.sotadlib.activities.WelcomeScreenDup"
-94-->[:SOTAdLib] E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:28:13-93
+94-->[:SOTAdLib] E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:28:13-93
 95            android:exported="true"
-95-->[:SOTAdLib] E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:29:13-36
+95-->[:SOTAdLib] E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:29:13-36
 96            android:screenOrientation="portrait" />
-96-->[:SOTAdLib] E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:30:13-49
+96-->[:SOTAdLib] E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:30:13-49
 97        <activity
-97-->[:SOTAdLib] E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:31:9-34:52
+97-->[:SOTAdLib] E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:31:9-34:52
 98            android:name="com.manual.mediation.library.sotadlib.activities.WalkThroughConfigActivity"
-98-->[:SOTAdLib] E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:32:13-102
+98-->[:SOTAdLib] E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:32:13-102
 99            android:exported="true"
-99-->[:SOTAdLib] E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:33:13-36
+99-->[:SOTAdLib] E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:33:13-36
 100            android:screenOrientation="portrait" />
-100-->[:SOTAdLib] E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:34:13-49
+100-->[:SOTAdLib] E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:34:13-49
 101
 102        <meta-data
-102-->[:SOTAdLib] E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:36:9-38:57
+102-->[:SOTAdLib] E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:36:9-38:57
 103            android:name="preloaded_fonts"
-103-->[:SOTAdLib] E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:37:13-43
+103-->[:SOTAdLib] E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:37:13-43
 104            android:resource="@array/preloaded_fonts" />
-104-->[:SOTAdLib] E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:38:13-54
+104-->[:SOTAdLib] E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:38:13-54
 105        <meta-data
-105-->[:SOTAdLib] E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:39:9-41:37
+105-->[:SOTAdLib] E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:39:9-41:37
 106            android:name="com.google.android.gms.ads.flag.NATIVE_AD_DEBUGGER_ENABLED"
-106-->[:SOTAdLib] E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:40:13-86
+106-->[:SOTAdLib] E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:40:13-86
 107            android:value="false" />
-107-->[:SOTAdLib] E:\Mubasher@AndDev\Working\SOT-AdsLibrary\SOTAdLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:41:13-34
+107-->[:SOTAdLib] E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:41:13-34
 108
 109        <activity
 109-->[androidx.test:core:1.6.1] C:\Users\Sr. Developer - SOT\.gradle\caches\transforms-3\b789268139035f2b73d502cb86f4e3d3\transformed\core-1.6.1\AndroidManifest.xml:27:9-34:20

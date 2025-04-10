@@ -526,7 +526,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
             public Provider<String> getPerf() { return getVersion("perf"); }
 
             /**
-             * Returns the version associated to this alias: playServicesAds (23.3.0)
+             * Returns the version associated to this alias: playServicesAds (23.6.0)
              * If the version is a rich version and that its not expressible as a
              * single version string, then an empty string is returned.
              * This version was declared in catalog libs.versions.toml
@@ -558,7 +558,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
             public Provider<String> getUnityAds() { return getVersion("unityAds"); }
 
             /**
-             * Returns the version associated to this alias: userMessagingPlatform (3.0.0)
+             * Returns the version associated to this alias: userMessagingPlatform (3.1.0)
              * If the version is a rich version and that its not expressible as a
              * single version string, then an empty string is returned.
              * This version was declared in catalog libs.versions.toml
