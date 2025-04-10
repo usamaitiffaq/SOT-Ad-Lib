@@ -75,7 +75,7 @@ afterEvaluate {
 
                 groupId = 'com.github.mubashir-max'
                 artifactId = 'SOT-Ad-Lib'
-                version = '1.3.2'
+                version = '1.3.3'
             }
         }
     }
