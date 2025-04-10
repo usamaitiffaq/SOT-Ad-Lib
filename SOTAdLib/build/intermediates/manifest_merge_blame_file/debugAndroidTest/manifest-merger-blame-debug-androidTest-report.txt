@@ -3,24 +3,24 @@
 3    package="com.manual.mediation.library.sotadlib.test" >
 4
 5    <uses-sdk
-5-->E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest1066373653550147336.xml:5:5-74
+5-->E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest17188969421760460326.xml:5:5-74
 6        android:minSdkVersion="23"
-6-->E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest1066373653550147336.xml:5:15-41
+6-->E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest17188969421760460326.xml:5:15-41
 7        android:targetSdkVersion="23" />
-7-->E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest1066373653550147336.xml:5:42-71
+7-->E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest17188969421760460326.xml:5:42-71
 8
 9    <instrumentation
-9-->E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest1066373653550147336.xml:11:5-15:92
+9-->E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest17188969421760460326.xml:11:5-15:92
 10        android:name="androidx.test.runner.AndroidJUnitRunner"
-10-->E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest1066373653550147336.xml:11:22-76
+10-->E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest17188969421760460326.xml:11:22-76
 11        android:functionalTest="false"
-11-->E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest1066373653550147336.xml:14:22-52
+11-->E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest17188969421760460326.xml:14:22-52
 12        android:handleProfiling="false"
-12-->E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest1066373653550147336.xml:13:22-53
+12-->E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest17188969421760460326.xml:13:22-53
 13        android:label="Tests for com.manual.mediation.library.sotadlib.test"
-13-->E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest1066373653550147336.xml:15:22-90
+13-->E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest17188969421760460326.xml:15:22-90
 14        android:targetPackage="com.manual.mediation.library.sotadlib.test" />
-14-->E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest1066373653550147336.xml:12:22-88
+14-->E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest17188969421760460326.xml:12:22-88
 15
 16    <uses-permission android:name="android.permission.INTERNET" />
 16-->[:SOTAdLib] E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:8:5-67
@@ -141,14 +141,14 @@
 73-->[androidx.core:core:1.13.1] C:\Users\Sr. Developer - SOT\.gradle\caches\transforms-3\90cc6814659f4a6e3c9c1ff4b0243de0\transformed\core-1.13.1\AndroidManifest.xml:26:22-94
 74
 75    <application
-75-->E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest1066373653550147336.xml:7:5-9:19
+75-->E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest17188969421760460326.xml:7:5-9:19
 76        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 76-->[androidx.core:core:1.13.1] C:\Users\Sr. Developer - SOT\.gradle\caches\transforms-3\90cc6814659f4a6e3c9c1ff4b0243de0\transformed\core-1.13.1\AndroidManifest.xml:28:18-86
 77        android:debuggable="true"
 78        android:extractNativeLibs="false" >
 79        <uses-library android:name="android.test.runner" />
-79-->E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest1066373653550147336.xml:8:9-60
-79-->E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest1066373653550147336.xml:8:23-57
+79-->E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest17188969421760460326.xml:8:9-60
+79-->E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest17188969421760460326.xml:8:23-57
 80
 81        <activity
 81-->[:SOTAdLib] E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:15:9-18:52
