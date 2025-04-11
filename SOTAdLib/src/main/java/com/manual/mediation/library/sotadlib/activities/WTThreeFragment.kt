@@ -135,14 +135,22 @@ class WTThreeFragment(private val fragmentActivity: FragmentActivity, val item: 
             }
         )
     }
+//    private fun letsStartClick() {
+//        val myNullContext = requireActivity()
+//        if (myNullContext != null) {
+//            PrefHelper(myNullContext).putBoolean("StartScreens", value = true)
+//        }
+//        SOTAdsManager.notifyFlowFinished()
+//        fragmentActivity.finish()
+//    }
+
     private fun letsStartClick() {
-        val myNullContext = requireActivity()
-        if (myNullContext != null) {
-            PrefHelper(myNullContext).putBoolean("StartScreens", value = true)
-        }
+        val safeActivity = activity ?: return
+        PrefHelper(safeActivity).putBoolean("StartScreens", value = true)
         SOTAdsManager.notifyFlowFinished()
-        fragmentActivity.finish()
+        safeActivity.finish()
     }
+
 
     override fun onResume() {
         super.onResume()

@@ -11,6 +11,10 @@ class WalkThroughScreensConfiguration private constructor() {
     private lateinit var activityContext: Activity
     lateinit var walkThroughList: ArrayList<WalkThroughItem>
 
+    object SotAdsConfigurationHolder {
+        var walkThroughConfig: WalkThroughScreensConfiguration? = null
+    }
+
     fun walkThroughInitializationSetup() {
         Log.i("WalkThroughScreensConfiguration","WalkThrough: walkThroughInitializationSetup()")
         activityContext.startActivity(Intent(activityContext, WalkThroughConfigActivity::class.java))

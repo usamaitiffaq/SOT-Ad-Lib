@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.com.google.gms.google.services)
+    id("kotlin-parcelize")
     id("maven-publish")
 }
 
@@ -75,7 +76,7 @@ afterEvaluate {
 
                 groupId = 'com.github.mubashir-max'
                 artifactId = 'SOT-Ad-Lib'
-                version = '1.3.3'
+                version = '1.3.4'
             }
         }
     }

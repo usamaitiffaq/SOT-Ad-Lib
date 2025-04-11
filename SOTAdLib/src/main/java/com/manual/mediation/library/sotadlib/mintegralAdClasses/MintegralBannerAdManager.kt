@@ -3,6 +3,7 @@ package com.manual.mediation.library.sotadlib.mintegralAdClasses
 import android.app.Activity
 import android.util.Log
 import android.view.View
+import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.Toast
 import com.manual.mediation.library.sotadlib.BuildConfig
@@ -59,11 +60,30 @@ object MintegralBannerAdManager {
         val bannerView = MBBannerView(activity).apply {
             init(BannerSize(BannerSize.LARGE_TYPE, 320, 50), placementId, unitId)
             setBannerAdListener(object : BannerAdListener {
+//                override fun onLoadSuccessed(ids: MBridgeIds?) {
+//                    Log.i("SOT_ADS_TAG", "Mintegral: BannerAd : $adName : onLoadSuccess()")
+//                    bannerCache[adName] = this@apply
+//
+//                    if (populateView) {
+//                        bannerContainer?.removeAllViews()
+//                        bannerContainer?.addView(this@apply)
+//                    } else {
+//                        activity.let {
+//                            if (BuildConfig.DEBUG) {
+//                                Toast.makeText(activity,"Mintegral: BannerAd : Loaded()\n$adName", Toast.LENGTH_SHORT).show()
+//                            }
+//                        }
+//                    }
+//                    onAdLoaded?.invoke()
+//                }
+
                 override fun onLoadSuccessed(ids: MBridgeIds?) {
                     Log.i("SOT_ADS_TAG", "Mintegral: BannerAd : $adName : onLoadSuccess()")
                     bannerCache[adName] = this@apply
 
                     if (populateView) {
+                        // Remove the view from its current parent if it has one
+                        (this@apply.parent as? ViewGroup)?.removeView(this@apply)
                         bannerContainer?.removeAllViews()
                         bannerContainer?.addView(this@apply)
                     } else {
@@ -119,11 +139,23 @@ object MintegralBannerAdManager {
         bannerView.load()
     }
 
+//    private fun showCachedAd(adName: String, bannerContainer: FrameLayout?, onAdLoaded: (() -> Unit)? = null) {
+//        bannerCache[adName]?.let { cachedBanner ->
+//            onAdLoaded?.invoke()
+//            bannerContainer?.removeAllViews()
+//            bannerContainer?.addView(cachedBanner)
+//            Log.i("SOT_ADS_TAG", "Mintegral: BannerAd : $adName : Showing cached banner")
+//        } ?: Log.i("SOT_ADS_TAG", "Mintegral: BannerAd : $adName : No cached banner to show")
+//    }
+
     private fun showCachedAd(adName: String, bannerContainer: FrameLayout?, onAdLoaded: (() -> Unit)? = null) {
         bannerCache[adName]?.let { cachedBanner ->
-            onAdLoaded?.invoke()
+            // Remove the view from its current parent if it has one
+            (cachedBanner.parent as? ViewGroup)?.removeView(cachedBanner)
+
             bannerContainer?.removeAllViews()
             bannerContainer?.addView(cachedBanner)
+            onAdLoaded?.invoke()
             Log.i("SOT_ADS_TAG", "Mintegral: BannerAd : $adName : Showing cached banner")
         } ?: Log.i("SOT_ADS_TAG", "Mintegral: BannerAd : $adName : No cached banner to show")
     }
