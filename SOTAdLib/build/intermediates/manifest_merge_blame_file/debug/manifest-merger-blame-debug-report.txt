@@ -6,73 +6,73 @@
 6    <uses-sdk android:minSdkVersion="23" />
 7
 8    <uses-permission android:name="android.permission.INTERNET" />
-8-->E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:5:5-67
-8-->E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:5:22-64
+8-->E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:5:5-67
+8-->E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:5:22-64
 9    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-9-->E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:6:5-79
-9-->E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:6:22-76
+9-->E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:6:5-79
+9-->E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:6:22-76
 10    <uses-permission
-10-->E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:7:5-9:31
+10-->E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:7:5-9:31
 11        android:name="com.google.android.gms.permission.AD_ID"
-11-->E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:8:9-63
+11-->E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:8:9-63
 12        tools:node="remove" />
-12-->E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:9:9-28
+12-->E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:9:9-28
 13
 14    <application>
-14-->E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:11:5-39:19
+14-->E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:11:5-39:19
 15        <activity
-15-->E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:12:9-15:51
+15-->E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:12:9-15:51
 16            android:name="com.manual.mediation.library.sotadlib.activities.LanguageScreenOne"
-16-->E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:13:13-57
+16-->E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:13:13-57
 17            android:exported="false"
-17-->E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:14:13-37
+17-->E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:14:13-37
 18            android:screenOrientation="portrait" />
-18-->E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:15:13-49
+18-->E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:15:13-49
 19        <activity
-19-->E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:16:9-19:51
+19-->E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:16:9-19:51
 20            android:name="com.manual.mediation.library.sotadlib.activities.LanguageScreenDup"
-20-->E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:17:13-57
+20-->E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:17:13-57
 21            android:exported="false"
-21-->E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:18:13-37
+21-->E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:18:13-37
 22            android:screenOrientation="portrait" />
-22-->E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:19:13-49
+22-->E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:19:13-49
 23        <activity
-23-->E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:20:9-23:51
+23-->E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:20:9-23:51
 24            android:name="com.manual.mediation.library.sotadlib.activities.WelcomeScreenOne"
-24-->E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:21:13-56
+24-->E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:21:13-56
 25            android:exported="true"
-25-->E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:22:13-36
+25-->E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:22:13-36
 26            android:screenOrientation="portrait" />
-26-->E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:23:13-49
+26-->E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:23:13-49
 27        <activity
-27-->E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:24:9-27:51
+27-->E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:24:9-27:51
 28            android:name="com.manual.mediation.library.sotadlib.activities.WelcomeScreenDup"
-28-->E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:25:13-56
+28-->E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:25:13-56
 29            android:exported="true"
-29-->E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:26:13-36
+29-->E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:26:13-36
 30            android:screenOrientation="portrait" />
-30-->E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:27:13-49
+30-->E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:27:13-49
 31        <activity
-31-->E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:28:9-31:51
+31-->E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:28:9-31:51
 32            android:name="com.manual.mediation.library.sotadlib.activities.WalkThroughConfigActivity"
-32-->E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:29:13-65
+32-->E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:29:13-65
 33            android:exported="true"
-33-->E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:30:13-36
+33-->E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:30:13-36
 34            android:screenOrientation="portrait" />
-34-->E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:31:13-49
+34-->E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:31:13-49
 35
 36        <meta-data
-36-->E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:33:9-35:57
+36-->E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:33:9-35:57
 37            android:name="preloaded_fonts"
-37-->E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:34:13-43
+37-->E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:34:13-43
 38            android:resource="@array/preloaded_fonts" />
-38-->E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:35:13-54
+38-->E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:35:13-54
 39        <meta-data
-39-->E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:36:9-38:37
+39-->E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:36:9-38:37
 40            android:name="com.google.android.gms.ads.flag.NATIVE_AD_DEBUGGER_ENABLED"
-40-->E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:37:13-86
+40-->E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:37:13-86
 41            android:value="false" />
-41-->E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:38:13-34
+41-->E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:38:13-34
 42    </application>
 43
 44</manifest>

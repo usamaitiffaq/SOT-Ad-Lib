@@ -26,14 +26,14 @@ class WalkThroughAdapter(
                 0 -> WTOneFragment(walkThroughItems[0])
                 1 -> WTTwoFragment(walkThroughItems[1])
                 2 -> WTFullScreenAdFragment()
-                3 -> WTThreeFragment(fragmentActivity, walkThroughItems[2])
+                3 -> WTThreeFragment(walkThroughItems[2])
                 else -> WTOneFragment(walkThroughItems[0])
             }
         } else {
             myReturnFragment = when (position) {
                 0 -> WTOneFragment(walkThroughItems[0])
                 1 -> WTTwoFragment(walkThroughItems[1])
-                2 -> WTThreeFragment(fragmentActivity, walkThroughItems[2])
+                2 -> WTThreeFragment(walkThroughItems[2])
                 else -> WTOneFragment(walkThroughItems[0])
             }
         }
