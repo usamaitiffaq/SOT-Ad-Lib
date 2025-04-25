@@ -28,7 +28,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class WTThreeFragment(private val fragmentActivity: FragmentActivity, val item: WalkThroughItem) : Fragment() {
+class WTThreeFragment( val item: WalkThroughItem) : Fragment() {
 
     lateinit var binding: FragmentWTThreeBinding
     private var sotAdsConfigurations: SOTAdsConfigurations? = null
