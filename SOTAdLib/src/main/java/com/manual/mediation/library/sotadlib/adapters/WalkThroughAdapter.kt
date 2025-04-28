@@ -50,7 +50,7 @@ class WalkThroughAdapter(
 
     init {
         fragmentActivity.supportFragmentManager.fragmentFactory =
-            WalkThroughFragmentFactory(walkThroughItems, fragmentActivity)
+            WalkThroughFragmentFactory(walkThroughItems)
     }
 
     override fun getItemCount(): Int = noOfFragments

@@ -10,8 +10,7 @@ import com.manual.mediation.library.sotadlib.activities.WTTwoFragment
 import com.manual.mediation.library.sotadlib.data.WalkThroughItem
 
 class WalkThroughFragmentFactory(
-    private val walkThroughItems: ArrayList<WalkThroughItem>,
-    private val fragmentActivity: FragmentActivity
+    private val walkThroughItems: ArrayList<WalkThroughItem>
 ) : FragmentFactory() {
 
     override fun instantiate(classLoader: ClassLoader, className: String): Fragment {
