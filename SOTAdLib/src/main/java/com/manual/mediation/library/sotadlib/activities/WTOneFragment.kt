@@ -30,6 +30,7 @@ import kotlinx.coroutines.withContext
 
 class WTOneFragment(val item: WalkThroughItem) : Fragment() {
 
+
     lateinit var binding: FragmentWTOneBinding
     private var sotAdsConfigurations: SOTAdsConfigurations? = null
 

@@ -25,6 +25,7 @@ import com.manual.mediation.library.sotadlib.mintegralAdClasses.MintegralInterst
 import com.manual.mediation.library.sotadlib.utils.NetworkCheck
 import com.manual.mediation.library.sotadlib.utils.PrefHelper
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
@@ -44,22 +45,25 @@ class WTThreeFragment( val item: WalkThroughItem) : Fragment() {
 
         lifecycleScope.launch {
             withContext(Dispatchers.Main) {
-                Glide.with(requireActivity())
-                    .asDrawable()
-                    .load(item.drawable)
-                    .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
-                    .skipMemoryCache(true)
-                    .into(binding.main)
+                context?.let {
+                    Glide.with(it)
+                        .asDrawable()
+                        .load(item.drawable)
+                        .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
+                        .skipMemoryCache(true)
+                        .into(binding.main)
+                }
+
             }
-        }
-        lifecycleScope.launch {
-            withContext(Dispatchers.Main) {
-                Glide.with(requireActivity())
-                    .asDrawable()
-                    .load(item.drawableBubble)
-                    .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
-                    .skipMemoryCache(true)
-                    .into(binding.bubble)
+            lifecycleScope.launch {
+                context?.let {
+                    Glide.with(it)
+                        .asDrawable()
+                        .load(item.drawableBubble)
+                        .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
+                        .skipMemoryCache(true)
+                        .into(binding.bubble)
+                }
             }
         }
         /*lifecycleScope.launch {
@@ -72,9 +76,14 @@ class WTThreeFragment( val item: WalkThroughItem) : Fragment() {
                     .into(binding.bubbleDup)
             }
         }*/
-        binding.txtHeading.setTextColor(ContextCompat.getColor(requireActivity(), item.headingColor))
-        binding.txtDescription.setTextColor(ContextCompat.getColor(requireActivity(), item.descriptionColor))
-        binding.btnNext.setTextColor(ContextCompat.getColor(requireActivity(), item.nextColor))
+
+        context?.let {
+            binding.txtHeading.setTextColor(ContextCompat.getColor(it, item.headingColor))
+            binding.txtDescription.setTextColor(ContextCompat.getColor(it, item.descriptionColor))
+            binding.btnNext.setTextColor(ContextCompat.getColor(it, item.nextColor))
+
+        }
+
 
         binding.txtHeading.text = item.heading
         binding.txtDescription.text = item.description
@@ -98,42 +107,56 @@ class WTThreeFragment( val item: WalkThroughItem) : Fragment() {
     }
 
     private fun showMintegralWTThreeInterstitial() {
-        if (sotAdsConfigurations?.firstOpenFlowAdIds?.getValue("MINTEGRAL_INTERSTITIAL_LETS_START")?.split("-")?.size == 2) {
+        val safeActivity = activity ?: return
+
+        val interstitialId = sotAdsConfigurations
+            ?.firstOpenFlowAdIds
+            ?.getValue("MINTEGRAL_INTERSTITIAL_LETS_START")
+        val idParts = interstitialId?.split("-")
+
+        if (idParts?.size == 2) {
             MintegralInterstitialInside.showIfAvailableOrLoadMintegralInterstitial(
-                context = requireActivity(),
+                context = safeActivity,
                 nameFragment = "WALKTHROUGH_3",
-                placementId = sotAdsConfigurations!!.firstOpenFlowAdIds.getValue("MINTEGRAL_INTERSTITIAL_LETS_START").split("-")[0],
-                unitId = sotAdsConfigurations!!.firstOpenFlowAdIds.getValue("MINTEGRAL_INTERSTITIAL_LETS_START").split("-")[1],
+                placementId = idParts[0],
+                unitId = idParts[1],
                 onAdClosedCallback = {
-                    Log.i("SOT_ADS_TAG","Interstitial : WALKTHROUGH_3 : onAdClosedCallBackAdmob()")
+                    Log.i("SOT_ADS_TAG", "Interstitial : WALKTHROUGH_3 : onAdClosedCallBackAdmob()")
                     Handler(Looper.getMainLooper()).postDelayed({
                         letsStartClick()
-                    },300)
+                    }, 300)
                 },
                 onAdShowedCallback = {
                     Log.i("SOT_ADS_TAG", "Interstitial : WALKTHROUGH_3 : onAdShowedCallBackAdmob()")
                 }
             )
         } else {
-            Log.e("SOT_ADS_TAG","Mintegral: Interstitial ad ID not found for WALKTHROUGH_3")
+            Log.e("SOT_ADS_TAG", "Mintegral: Interstitial ad ID not found or invalid format for WALKTHROUGH_3")
         }
     }
 
+
     private fun showAdmobWTThreeInterstitial() {
-        AdMobInterstitialInside.showIfAvailableOrLoadAdMobInterstitial(
-            context = requireActivity(),
-            nameFragment = "WALKTHROUGH_3",
-            adId = sotAdsConfigurations?.firstOpenFlowAdIds?.getValue("ADMOB_INTERSTITIAL_LETS_START")!!,
-            onAdClosedCallBackAdmob = {
-                Log.i("SOT_ADS_TAG","Interstitial : WALKTHROUGH_3 : onAdClosedCallBackAdmob()")
-                Handler(Looper.getMainLooper()).postDelayed({
-                    letsStartClick()
-                },300)
-            },
-            onAdShowedCallBackAdmob = {
-                Log.i("SOT_ADS_TAG", "Interstitial : WALKTHROUGH_3 : onAdShowedCallBackAdmob()")
-            }
-        )
+        activity?.let { safeActivity ->
+            AdMobInterstitialInside.showIfAvailableOrLoadAdMobInterstitial(
+                context = safeActivity,
+                nameFragment = "WALKTHROUGH_3",
+                adId = sotAdsConfigurations?.firstOpenFlowAdIds?.getValue("ADMOB_INTERSTITIAL_LETS_START")!!,
+                onAdClosedCallBackAdmob = {
+                    Log.i("SOT_ADS_TAG", "Interstitial : WALKTHROUGH_3 : onAdClosedCallBackAdmob()")
+                    viewLifecycleOwner.lifecycleScope.launch {
+                        delay(300)
+                        if (isAdded && activity != null) {
+                            letsStartClick()
+                        }
+                    }
+
+                },
+                onAdShowedCallBackAdmob = {
+                    Log.i("SOT_ADS_TAG", "Interstitial : WALKTHROUGH_3 : onAdShowedCallBackAdmob()")
+                }
+            )
+        }
     }
 //    private fun letsStartClick() {
 //        val myNullContext = requireActivity()
@@ -192,14 +215,20 @@ class WTThreeFragment( val item: WalkThroughItem) : Fragment() {
     }
 
     private fun showMetaWTThreeNatives() {
+        val safeActivity = activity ?: return
+
         sotAdsConfigurations?.firstOpenFlowAdIds?.getValue("NATIVE_WALKTHROUGH_3")?.let { adId ->
             MetaNativeAdManager.requestAd(
-                mContext = requireActivity(),
+                mContext = safeActivity,
                 adId = adId,
                 adName = "WALKTHROUGH_3",
                 isMedia = true,
                 isMediumAd = true,
-                remoteConfig = sotAdsConfigurations?.getRemoteConfigData()?.getValue("NATIVE_WALKTHROUGH_3").toString().toBoolean(),
+                remoteConfig = sotAdsConfigurations
+                    ?.getRemoteConfigData()
+                    ?.getValue("NATIVE_WALKTHROUGH_3")
+                    .toString()
+                    .toBoolean(),
                 populateView = true,
                 nativeAdLayout = binding.nativeAdContainerAd,
                 onAdFailed = {
@@ -213,15 +242,22 @@ class WTThreeFragment( val item: WalkThroughItem) : Fragment() {
             )
         }
     }
+
     private fun showAdmobWTThreeNatives() {
+        val safeActivity = activity ?: return
+
         sotAdsConfigurations?.firstOpenFlowAdIds?.getValue("ADMOB_NATIVE_WALKTHROUGH_3")?.let { adId ->
             AdmobNativeAdManager.requestAd(
-                mContext = requireActivity(),
+                mContext = safeActivity,
                 adId = adId,
                 adName = "WALKTHROUGH_3",
                 isMedia = true,
                 isMediumAd = true,
-                remoteConfig = sotAdsConfigurations?.getRemoteConfigData()?.getValue("NATIVE_WALKTHROUGH_3").toString().toBoolean(),
+                remoteConfig = sotAdsConfigurations
+                    ?.getRemoteConfigData()
+                    ?.getValue("NATIVE_WALKTHROUGH_3")
+                    .toString()
+                    .toBoolean(),
                 populateView = true,
                 adContainer = binding.nativeAdContainerAd,
                 onAdFailed = {
@@ -236,18 +272,26 @@ class WTThreeFragment( val item: WalkThroughItem) : Fragment() {
         }
     }
     private fun showMintegralWTThreeBanner() {
-        if (sotAdsConfigurations?.firstOpenFlowAdIds?.getValue("MINTEGRAL_BANNER_WALKTHROUGH_3")?.split("-")?.size == 2) {
+        val safeActivity = activity ?: return
+
+        val bannerId = sotAdsConfigurations?.firstOpenFlowAdIds?.getValue("MINTEGRAL_BANNER_WALKTHROUGH_3")
+        val bannerParts = bannerId?.split("-")
+
+        if (bannerParts?.size == 2) {
             MintegralBannerAdManager.requestBannerAd(
-                activity = requireActivity(),
-                placementId = sotAdsConfigurations!!.firstOpenFlowAdIds.getValue("MINTEGRAL_BANNER_WALKTHROUGH_3").split("-")[0],
-                unitId = sotAdsConfigurations!!.firstOpenFlowAdIds.getValue("MINTEGRAL_BANNER_WALKTHROUGH_3").split("-")[1],
+                activity = safeActivity,
+                placementId = bannerParts[0],
+                unitId = bannerParts[1],
                 adName = "WALKTHROUGH_3",
-                remoteConfig = sotAdsConfigurations?.getRemoteConfigData()?.getValue("NATIVE_WALKTHROUGH_3").toString().toBoolean(),
+                remoteConfig = sotAdsConfigurations
+                    ?.getRemoteConfigData()
+                    ?.getValue("NATIVE_WALKTHROUGH_3")
+                    .toString()
+                    .toBoolean(),
                 populateView = true,
                 bannerContainer = binding.bannerAdMint,
                 shimmerContainer = binding.shimmerLayout,
                 onAdFailed = {
-//                    findViewById<CardView>(R.id.nativeAdContainerAd).visibility = View.GONE
                     Log.i("SOT_ADS_TAG", "WALKTHROUGH_3: MINTEGRAL: onAdFailed()")
                 },
                 onAdLoaded = {

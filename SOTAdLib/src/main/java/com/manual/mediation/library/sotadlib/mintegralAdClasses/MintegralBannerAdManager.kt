@@ -148,15 +148,45 @@ object MintegralBannerAdManager {
 //        } ?: Log.i("SOT_ADS_TAG", "Mintegral: BannerAd : $adName : No cached banner to show")
 //    }
 
-    private fun showCachedAd(adName: String, bannerContainer: FrameLayout?, onAdLoaded: (() -> Unit)? = null) {
-        bannerCache[adName]?.let { cachedBanner ->
-            // Remove the view from its current parent if it has one
-            (cachedBanner.parent as? ViewGroup)?.removeView(cachedBanner)
+//    private fun showCachedAd(adName: String, bannerContainer: FrameLayout?, onAdLoaded: (() -> Unit)? = null) {
+//        bannerCache[adName]?.let { cachedBanner ->
+//            // Remove the view from its current parent if it has one
+//            (cachedBanner.parent as? ViewGroup)?.removeView(cachedBanner)
+//
+//            bannerContainer?.removeAllViews()
+//            bannerContainer?.addView(cachedBanner)
+//            onAdLoaded?.invoke()
+//            Log.i("SOT_ADS_TAG", "Mintegral: BannerAd : $adName : Showing cached banner")
+//        } ?: Log.i("SOT_ADS_TAG", "Mintegral: BannerAd : $adName : No cached banner to show")
+//    }
+private fun showCachedAd(adName: String, bannerContainer: FrameLayout?, onAdLoaded: (() -> Unit)? = null) {
+    val cachedBanner = bannerCache[adName]
 
-            bannerContainer?.removeAllViews()
-            bannerContainer?.addView(cachedBanner)
-            onAdLoaded?.invoke()
-            Log.i("SOT_ADS_TAG", "Mintegral: BannerAd : $adName : Showing cached banner")
-        } ?: Log.i("SOT_ADS_TAG", "Mintegral: BannerAd : $adName : No cached banner to show")
+    if (cachedBanner == null) {
+        Log.i("SOT_ADS_TAG", "Mintegral: BannerAd : $adName : No cached banner to show")
+        return
     }
+
+    try {
+        // Remove the cached banner from its previous parent if it has one
+        (cachedBanner.parent as? ViewGroup)?.let { parent ->
+            if (parent != bannerContainer) {
+                parent.removeView(cachedBanner)
+            } else {
+                // Already attached to the correct container — no need to re-add
+                Log.i("SOT_ADS_TAG", "Mintegral: BannerAd : $adName : Already attached to container")
+                onAdLoaded?.invoke()
+                return
+            }
+        }
+
+        bannerContainer?.removeAllViews()
+        bannerContainer?.addView(cachedBanner)
+        onAdLoaded?.invoke()
+        Log.i("SOT_ADS_TAG", "Mintegral: BannerAd : $adName : Showing cached banner")
+    } catch (e: Exception) {
+        Log.e("SOT_ADS_TAG", "Mintegral: BannerAd : $adName : Error showing cached banner", e)
+    }
+}
+
 }
