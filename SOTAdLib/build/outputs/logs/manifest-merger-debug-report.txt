@@ -1,86 +1,86 @@
 -- Merging decision tree log ---
 manifest
-ADDED from E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:2:1-41:12
-INJECTED from E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:2:1-41:12
+ADDED from E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:2:1-41:12
+INJECTED from E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:2:1-41:12
 	package
-		INJECTED from E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml
+		INJECTED from E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml
 	xmlns:tools
-		ADDED from E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:3:5-51
+		ADDED from E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:3:5-51
 	xmlns:android
-		ADDED from E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:2:11-69
+		ADDED from E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:2:11-69
 uses-permission#android.permission.INTERNET
-ADDED from E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:5:5-67
+ADDED from E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:5:5-67
 	android:name
-		ADDED from E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:5:22-64
+		ADDED from E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:5:22-64
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:6:5-79
+ADDED from E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:6:5-79
 	android:name
-		ADDED from E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:6:22-76
+		ADDED from E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:6:22-76
 uses-permission#com.google.android.gms.permission.AD_ID
-ADDED from E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:7:5-9:31
+ADDED from E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:7:5-9:31
 	tools:node
-		ADDED from E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:9:9-28
+		ADDED from E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:9:9-28
 	android:name
-		ADDED from E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:8:9-63
+		ADDED from E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:8:9-63
 application
-ADDED from E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:11:5-39:19
+ADDED from E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:11:5-39:19
 activity#com.manual.mediation.library.sotadlib.activities.LanguageScreenOne
-ADDED from E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:12:9-15:51
+ADDED from E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:12:9-15:51
 	android:screenOrientation
-		ADDED from E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:15:13-49
+		ADDED from E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:15:13-49
 	android:exported
-		ADDED from E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:14:13-37
+		ADDED from E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:14:13-37
 	android:name
-		ADDED from E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:13:13-57
+		ADDED from E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:13:13-57
 activity#com.manual.mediation.library.sotadlib.activities.LanguageScreenDup
-ADDED from E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:16:9-19:51
+ADDED from E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:16:9-19:51
 	android:screenOrientation
-		ADDED from E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:19:13-49
+		ADDED from E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:19:13-49
 	android:exported
-		ADDED from E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:18:13-37
+		ADDED from E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:18:13-37
 	android:name
-		ADDED from E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:17:13-57
+		ADDED from E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:17:13-57
 activity#com.manual.mediation.library.sotadlib.activities.WelcomeScreenOne
-ADDED from E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:20:9-23:51
+ADDED from E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:20:9-23:51
 	android:screenOrientation
-		ADDED from E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:23:13-49
+		ADDED from E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:23:13-49
 	android:exported
-		ADDED from E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:22:13-36
+		ADDED from E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:22:13-36
 	android:name
-		ADDED from E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:21:13-56
+		ADDED from E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:21:13-56
 activity#com.manual.mediation.library.sotadlib.activities.WelcomeScreenDup
-ADDED from E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:24:9-27:51
+ADDED from E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:24:9-27:51
 	android:screenOrientation
-		ADDED from E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:27:13-49
+		ADDED from E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:27:13-49
 	android:exported
-		ADDED from E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:26:13-36
+		ADDED from E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:26:13-36
 	android:name
-		ADDED from E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:25:13-56
+		ADDED from E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:25:13-56
 activity#com.manual.mediation.library.sotadlib.activities.WalkThroughConfigActivity
-ADDED from E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:28:9-31:51
+ADDED from E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:28:9-31:51
 	android:screenOrientation
-		ADDED from E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:31:13-49
+		ADDED from E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:31:13-49
 	android:exported
-		ADDED from E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:30:13-36
+		ADDED from E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:30:13-36
 	android:name
-		ADDED from E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:29:13-65
+		ADDED from E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:29:13-65
 meta-data#preloaded_fonts
-ADDED from E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:33:9-35:57
+ADDED from E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:33:9-35:57
 	android:resource
-		ADDED from E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:35:13-54
+		ADDED from E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:35:13-54
 	android:name
-		ADDED from E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:34:13-43
+		ADDED from E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:34:13-43
 meta-data#com.google.android.gms.ads.flag.NATIVE_AD_DEBUGGER_ENABLED
-ADDED from E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:36:9-38:37
+ADDED from E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:36:9-38:37
 	android:value
-		ADDED from E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:38:13-34
+		ADDED from E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:38:13-34
 	android:name
-		ADDED from E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml:37:13-86
+		ADDED from E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml:37:13-86
 uses-sdk
-INJECTED from E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml
-INJECTED from E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml
+INJECTED from E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml
+INJECTED from E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml
+		INJECTED from E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from E:\IrfanKhanDev\Working\lib\SOTAdLib\src\main\AndroidManifest.xml
+		INJECTED from E:\Mubasher@AndDev\Working\SOT-Ad-Lib\SOTAdLib\src\main\AndroidManifest.xml
