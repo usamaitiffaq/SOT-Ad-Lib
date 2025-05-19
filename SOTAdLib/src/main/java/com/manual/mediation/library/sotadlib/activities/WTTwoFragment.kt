@@ -24,11 +24,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-//class WTTwoFragment(val item: WalkThroughItem) : Fragment() {
-//
-//    lateinit var binding: FragmentWTTwoBinding
-//    private var sotAdsConfigurations: SOTAdsConfigurations? = null
-
 class WTTwoFragment : Fragment() {
     private lateinit var binding: FragmentWTTwoBinding
     private var sotAdsConfigurations: SOTAdsConfigurations? = null
@@ -75,7 +70,7 @@ class WTTwoFragment : Fragment() {
             withContext(Dispatchers.Main) {
                 Glide.with(requireActivity())
                     .asDrawable()
-                    .load(item.drawableResId)
+                    .load(item.drawableBubbleResId)
                     .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
                     .skipMemoryCache(true)
                     .into(binding.bubble)

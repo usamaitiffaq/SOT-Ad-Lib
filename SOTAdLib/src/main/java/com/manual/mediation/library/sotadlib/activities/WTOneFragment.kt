@@ -106,7 +106,7 @@ class WTOneFragment : Fragment() {
             withContext(Dispatchers.Main) {
                 Glide.with(requireActivity())
                     .asDrawable()
-                    .load(item.drawableResId)
+                    .load(item.drawableBubbleResId)
                     .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
                     .skipMemoryCache(true)
                     .into(binding.bubble)

@@ -95,7 +95,10 @@ class SOTStartTestActivity : AppCompatBaseActivity() {
 
         SOTAdsManager.setOnFlowStateListener(
             reConfigureBuilders = {
-                SOTAdsManager.refreshStrings(setUpWelcomeScreen(this), getWalkThroughList(this))
+                SOTAdsManager.refreshStrings(
+                    setUpWelcomeScreen(this),
+                    getWalkThroughList(this)
+                )
             },
             onFinish = {
                 Log.i("SOTStartTestActivity", "sot_adlib_end_scr")
@@ -106,7 +109,10 @@ class SOTStartTestActivity : AppCompatBaseActivity() {
         val consentConfig = ConsentConfigurations.Builder()
             /*.setVungleInitializationId("66dff077655237cdd139d49a")*/
             .setApplicationContext(application)
-            .setMintegralInitializationId(appId = "144002", appKey = "7c22942b749fe6a6e361b675e96b3ee9")
+            .setMintegralInitializationId(
+                appId = "144002",
+                appKey = "7c22942b749fe6a6e361b675e96b3ee9"
+            )
             .setUnityInitializationId(gameId = "1234567", testMode = true)
             .setActivityContext(this)
             .setTestDeviceHashedIdList(
@@ -134,12 +140,15 @@ class SOTStartTestActivity : AppCompatBaseActivity() {
                                     it.getValue(RemoteConfigConstTest.BANNER_SPLASH_MED) == "ADMOB" -> {
                                         loadAdmobBannerAd()
                                     }
+
                                     it.getValue(RemoteConfigConstTest.BANNER_SPLASH_MED) == "META" -> {
                                         loadMetaBannerAd()
                                     }
+
                                     it.getValue(RemoteConfigConstTest.BANNER_SPLASH_MED) == "MINTEGRAL" -> {
                                         loadMintegralBannerAd()
                                     }
+
                                     it.getValue(RemoteConfigConstTest.BANNER_SPLASH_MED) == "UNITY" -> {
                                         loadUnityBannerAd()
                                     }
@@ -159,19 +168,34 @@ class SOTStartTestActivity : AppCompatBaseActivity() {
         val languageScreensConfiguration = LanguageScreensConfiguration.Builder()
             .setActivityContext(this)
             .setDrawableColors(
-                selectedDrawable = AppCompatResources.getDrawable(this,
-                    com.manual.mediation.library.sotadlib.R.drawable.ad_att_bg)!!,
+                selectedDrawable = AppCompatResources.getDrawable(
+                    this,
+                    com.manual.mediation.library.sotadlib.R.drawable.ad_att_bg
+                )!!,
                 unSelectedDrawable = AppCompatResources.getDrawable(
                     this,
-                    com.manual.mediation.library.sotadlib.R.drawable.ad_att_bg)!!,
+                    com.manual.mediation.library.sotadlib.R.drawable.ad_att_bg
+                )!!,
                 selectedRadio = AppCompatResources.getDrawable(
                     this,
-                    com.manual.mediation.library.sotadlib.R.drawable.ic_radio_button_checked)!!,
+                    com.manual.mediation.library.sotadlib.R.drawable.ic_radio_button_checked
+                )!!,
                 unSelectedRadio = AppCompatResources.getDrawable(
                     this,
-                    com.manual.mediation.library.sotadlib.R.drawable.ic_radio_button_unchecked)!!
+                    com.manual.mediation.library.sotadlib.R.drawable.ic_radio_button_unchecked
+                )!!
             )
-            .setLanguages(arrayListOf(Language.Urdu, Language.English, Language.Hindi, Language.French, Language.Dutch, Language.Arabic, Language.German))
+            .setLanguages(
+                arrayListOf(
+                    Language.Urdu,
+                    Language.English,
+                    Language.Hindi,
+                    Language.French,
+                    Language.Dutch,
+                    Language.Arabic,
+                    Language.German
+                )
+            )
             .build()
 
         val walkThroughScreensConfiguration = WalkThroughScreensConfiguration.Builder()
@@ -194,7 +218,8 @@ class SOTStartTestActivity : AppCompatBaseActivity() {
         UnityBannerAdSplash.showBannerAds(
             activity = this,
             bannerContainer = binding.bannerAd,
-            placementId = "banner")
+            placementId = "banner"
+        )
     }
 
     private fun loadMintegralBannerAd() {
@@ -260,18 +285,24 @@ class SOTStartTestActivity : AppCompatBaseActivity() {
     }
 
     private fun setUpWelcomeScreen(context: Context): View {
-        val localizedConfig = resources.configuration.apply { MyLocaleHelper.onAttach(context, "en") }
+        val localizedConfig =
+            resources.configuration.apply { MyLocaleHelper.onAttach(context, "en") }
         val localizedContext = ContextWrapper(context).createConfigurationContext(localizedConfig)
 
-        val welcomeScreenView = LayoutInflater.from(localizedContext).inflate(R.layout.layout_welcome_scr_test, null, false)
+        val welcomeScreenView = LayoutInflater.from(localizedContext)
+            .inflate(R.layout.layout_welcome_scr_test, null, false)
 
         val txtWallpapers = welcomeScreenView.findViewById<AppCompatTextView>(R.id.txtWallpapers)
         val txtEditor = welcomeScreenView.findViewById<AppCompatTextView>(R.id.txtEditor)
         val txtLiveThemes = welcomeScreenView.findViewById<AppCompatTextView>(R.id.txtLiveThemes)
-        val txtPhotoOnKeyboard = welcomeScreenView.findViewById<AppCompatTextView>(R.id.txtPhotoOnKeyboard)
-        val txtPhotoTranslator = welcomeScreenView.findViewById<AppCompatTextView>(R.id.txtPhotoTranslator)
-        val txtInstantSticker = welcomeScreenView.findViewById<AppCompatTextView>(R.id.txtInstantSticker)
-        val txtLiveTranslator = welcomeScreenView.findViewById<AppCompatTextView>(R.id.txtLiveTranslator)
+        val txtPhotoOnKeyboard =
+            welcomeScreenView.findViewById<AppCompatTextView>(R.id.txtPhotoOnKeyboard)
+        val txtPhotoTranslator =
+            welcomeScreenView.findViewById<AppCompatTextView>(R.id.txtPhotoTranslator)
+        val txtInstantSticker =
+            welcomeScreenView.findViewById<AppCompatTextView>(R.id.txtInstantSticker)
+        val txtLiveTranslator =
+            welcomeScreenView.findViewById<AppCompatTextView>(R.id.txtLiveTranslator)
         val txtUrduSticker = welcomeScreenView.findViewById<AppCompatTextView>(R.id.txtUrduSticker)
 
         var txtWallpapersBool = false
@@ -495,6 +526,8 @@ class SOTStartTestActivity : AppCompatBaseActivity() {
         )
     }
 
+
+
     private fun fetchAdIDS(remoteConfigOperationsCompleted: (HashMap<String, Any>) -> Unit) {
         if (NetworkCheck.isNetworkAvailable(this@SOTStartTestActivity)) {
             saveAllValues()
@@ -544,33 +577,54 @@ class SOTStartTestActivity : AppCompatBaseActivity() {
         val prefs: SharedPreferences = getSharedPreferences("RemoteConfig", Context.MODE_PRIVATE)
 
         remoteConfigHashMap.apply {
-            this["RESUME_INTER_SPLASH"] = "${prefs.getString(RemoteConfigConstTest.RESUME_INTER_SPLASH, "Empty")}"
+            this["RESUME_INTER_SPLASH"] =
+                "${prefs.getString(RemoteConfigConstTest.RESUME_INTER_SPLASH, "Empty")}"
             this["BANNER_SPLASH"] = prefs.getBoolean(RemoteConfigConstTest.BANNER_SPLASH, false)
             this["RESUME_OVERALL"] = prefs.getBoolean(RemoteConfigConstTest.RESUME_OVERALL, false)
-            this["NATIVE_LANGUAGE_1"] = prefs.getBoolean(RemoteConfigConstTest.NATIVE_LANGUAGE_1, false)
-            this["NATIVE_LANGUAGE_2"] = prefs.getBoolean(RemoteConfigConstTest.NATIVE_LANGUAGE_2, false)
+            this["NATIVE_LANGUAGE_1"] =
+                prefs.getBoolean(RemoteConfigConstTest.NATIVE_LANGUAGE_1, false)
+            this["NATIVE_LANGUAGE_2"] =
+                prefs.getBoolean(RemoteConfigConstTest.NATIVE_LANGUAGE_2, false)
             this["NATIVE_SURVEY_1"] = prefs.getBoolean(RemoteConfigConstTest.NATIVE_SURVEY_1, false)
             this["NATIVE_SURVEY_2"] = prefs.getBoolean(RemoteConfigConstTest.NATIVE_SURVEY_2, false)
-            this["NATIVE_WALKTHROUGH_1"] = prefs.getBoolean(RemoteConfigConstTest.NATIVE_WALKTHROUGH_1, false)
-            this["NATIVE_WALKTHROUGH_2"] = prefs.getBoolean(RemoteConfigConstTest.NATIVE_WALKTHROUGH_2, false)
-            this["NATIVE_WALKTHROUGH_FULLSCR"] = prefs.getBoolean(RemoteConfigConstTest.NATIVE_WALKTHROUGH_FULLSCR, false)
-            this["NATIVE_WALKTHROUGH_3"] = prefs.getBoolean(RemoteConfigConstTest.NATIVE_WALKTHROUGH_3, false)
-            this["INTERSTITIAL_LETS_START"] = prefs.getBoolean(RemoteConfigConstTest.INTERSTITIAL_LETS_START, false)
+            this["NATIVE_WALKTHROUGH_1"] =
+                prefs.getBoolean(RemoteConfigConstTest.NATIVE_WALKTHROUGH_1, false)
+            this["NATIVE_WALKTHROUGH_2"] =
+                prefs.getBoolean(RemoteConfigConstTest.NATIVE_WALKTHROUGH_2, false)
+            this["NATIVE_WALKTHROUGH_FULLSCR"] =
+                prefs.getBoolean(RemoteConfigConstTest.NATIVE_WALKTHROUGH_FULLSCR, false)
+            this["NATIVE_WALKTHROUGH_3"] =
+                prefs.getBoolean(RemoteConfigConstTest.NATIVE_WALKTHROUGH_3, false)
+            this["INTERSTITIAL_LETS_START"] =
+                prefs.getBoolean(RemoteConfigConstTest.INTERSTITIAL_LETS_START, false)
 
-            this["RESUME_INTER_SPLASH_MED"] = "${prefs.getString(RemoteConfigConstTest.RESUME_INTER_SPLASH_MED, "Empty")}"
-            this["RESUME_OVERALL_MED"] = "${prefs.getString(RemoteConfigConstTest.RESUME_OVERALL_MED, "Empty")}"
-            this["BANNER_SPLASH_MED"] = "${prefs.getString(RemoteConfigConstTest.BANNER_SPLASH_MED, "Empty")}"
-            this["NATIVE_LANGUAGE_1_MED"] = "${prefs.getString(RemoteConfigConstTest.NATIVE_LANGUAGE_1_MED, "Empty")}"
-            this["NATIVE_LANGUAGE_2_MED"] = "${prefs.getString(RemoteConfigConstTest.NATIVE_LANGUAGE_2_MED, "Empty")}"
-            this["NATIVE_SURVEY_1_MED"] = "${prefs.getString(RemoteConfigConstTest.NATIVE_SURVEY_1_MED, "Empty")}"
-            this["NATIVE_SURVEY_2_MED"] = "${prefs.getString(RemoteConfigConstTest.NATIVE_SURVEY_2_MED, "Empty")}"
-            this["NATIVE_WALKTHROUGH_1_MED"] = "${prefs.getString(RemoteConfigConstTest.NATIVE_WALKTHROUGH_1_MED, "Empty")}"
-            this["NATIVE_WALKTHROUGH_2_MED"] = "${prefs.getString(RemoteConfigConstTest.NATIVE_WALKTHROUGH_2_MED, "Empty")}"
-            this["NATIVE_WALKTHROUGH_FULLSCR_MED"] = "${prefs.getString(RemoteConfigConstTest.NATIVE_WALKTHROUGH_FULLSCR_MED, "Empty")}"
-            this["NATIVE_WALKTHROUGH_3_MED"] = "${prefs.getString(RemoteConfigConstTest.NATIVE_WALKTHROUGH_3_MED, "Empty")}"
-            this["INTERSTITIAL_LETS_START_MED"] = "${prefs.getString(RemoteConfigConstTest.INTERSTITIAL_LETS_START_MED, "Empty")}"
+            this["RESUME_INTER_SPLASH_MED"] =
+                "${prefs.getString(RemoteConfigConstTest.RESUME_INTER_SPLASH_MED, "Empty")}"
+            this["RESUME_OVERALL_MED"] =
+                "${prefs.getString(RemoteConfigConstTest.RESUME_OVERALL_MED, "Empty")}"
+            this["BANNER_SPLASH_MED"] =
+                "${prefs.getString(RemoteConfigConstTest.BANNER_SPLASH_MED, "Empty")}"
+            this["NATIVE_LANGUAGE_1_MED"] =
+                "${prefs.getString(RemoteConfigConstTest.NATIVE_LANGUAGE_1_MED, "Empty")}"
+            this["NATIVE_LANGUAGE_2_MED"] =
+                "${prefs.getString(RemoteConfigConstTest.NATIVE_LANGUAGE_2_MED, "Empty")}"
+            this["NATIVE_SURVEY_1_MED"] =
+                "${prefs.getString(RemoteConfigConstTest.NATIVE_SURVEY_1_MED, "Empty")}"
+            this["NATIVE_SURVEY_2_MED"] =
+                "${prefs.getString(RemoteConfigConstTest.NATIVE_SURVEY_2_MED, "Empty")}"
+            this["NATIVE_WALKTHROUGH_1_MED"] =
+                "${prefs.getString(RemoteConfigConstTest.NATIVE_WALKTHROUGH_1_MED, "Empty")}"
+            this["NATIVE_WALKTHROUGH_2_MED"] =
+                "${prefs.getString(RemoteConfigConstTest.NATIVE_WALKTHROUGH_2_MED, "Empty")}"
+            this["NATIVE_WALKTHROUGH_FULLSCR_MED"] =
+                "${prefs.getString(RemoteConfigConstTest.NATIVE_WALKTHROUGH_FULLSCR_MED, "Empty")}"
+            this["NATIVE_WALKTHROUGH_3_MED"] =
+                "${prefs.getString(RemoteConfigConstTest.NATIVE_WALKTHROUGH_3_MED, "Empty")}"
+            this["INTERSTITIAL_LETS_START_MED"] =
+                "${prefs.getString(RemoteConfigConstTest.INTERSTITIAL_LETS_START_MED, "Empty")}"
 
-            this["TIMER_NATIVE_F_SRC"] = "${prefs.getString(RemoteConfigConstTest.TIMER_NATIVE_F_SRC, "Empty")}"
+            this["TIMER_NATIVE_F_SRC"] =
+                "${prefs.getString(RemoteConfigConstTest.TIMER_NATIVE_F_SRC, "Empty")}"
         }
         return remoteConfigHashMap
     }

@@ -29,11 +29,6 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-//class WTThreeFragment( val item: WalkThroughItem) : Fragment() {
-//
-//    lateinit var binding: FragmentWTThreeBinding
-//    private var sotAdsConfigurations: SOTAdsConfigurations? = null
-
 class WTThreeFragment : Fragment() {
     private lateinit var binding: FragmentWTThreeBinding
     private var sotAdsConfigurations: SOTAdsConfigurations? = null
@@ -56,6 +51,7 @@ class WTThreeFragment : Fragment() {
         item = arguments?.getParcelable(ARG_ITEM)
             ?: throw IllegalStateException("WalkThroughItem must be provided")
     }
+
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentWTThreeBinding.inflate(inflater, container, false)
@@ -82,7 +78,7 @@ class WTThreeFragment : Fragment() {
                 context?.let {
                     Glide.with(it)
                         .asDrawable()
-                        .load(item.drawableResId)
+                        .load(item.drawableBubbleResId)
                         .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
                         .skipMemoryCache(true)
                         .into(binding.bubble)

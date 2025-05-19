@@ -13,6 +13,8 @@ import kotlinx.android.parcel.Parcelize
 //    val drawable: Drawable?,
 //    val drawableBubble: Drawable?
 //)
+
+
 @Parcelize
 data class WalkThroughItem(
     val heading: String,
