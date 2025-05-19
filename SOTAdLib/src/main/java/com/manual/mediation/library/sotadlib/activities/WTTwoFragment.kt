@@ -24,10 +24,33 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class WTTwoFragment(val item: WalkThroughItem) : Fragment() {
+//class WTTwoFragment(val item: WalkThroughItem) : Fragment() {
+//
+//    lateinit var binding: FragmentWTTwoBinding
+//    private var sotAdsConfigurations: SOTAdsConfigurations? = null
 
-    lateinit var binding: FragmentWTTwoBinding
+class WTTwoFragment : Fragment() {
+    private lateinit var binding: FragmentWTTwoBinding
     private var sotAdsConfigurations: SOTAdsConfigurations? = null
+    private lateinit var item: WalkThroughItem
+
+    companion object {
+        private const val ARG_ITEM = "walkThroughItem"
+
+        fun newInstance(item: WalkThroughItem): WTTwoFragment {
+            return WTTwoFragment().apply {
+                arguments = Bundle().apply {
+                    putParcelable(ARG_ITEM, item)
+                }
+            }
+        }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        item = arguments?.getParcelable(ARG_ITEM) ?: throw IllegalStateException("WalkThroughItem must be provided")
+    }
+
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentWTTwoBinding.inflate(inflater, container, false)
@@ -42,7 +65,7 @@ class WTTwoFragment(val item: WalkThroughItem) : Fragment() {
             withContext(Dispatchers.Main) {
                 Glide.with(requireActivity())
                     .asDrawable()
-                    .load(item.drawable)
+                    .load(item.drawableResId)
                     .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
                     .skipMemoryCache(true)
                     .into(binding.main)
@@ -52,7 +75,7 @@ class WTTwoFragment(val item: WalkThroughItem) : Fragment() {
             withContext(Dispatchers.Main) {
                 Glide.with(requireActivity())
                     .asDrawable()
-                    .load(item.drawableBubble)
+                    .load(item.drawableResId)
                     .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
                     .skipMemoryCache(true)
                     .into(binding.bubble)

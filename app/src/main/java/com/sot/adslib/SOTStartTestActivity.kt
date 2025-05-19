@@ -261,7 +261,7 @@ class SOTStartTestActivity : AppCompatBaseActivity() {
 
     private fun setUpWelcomeScreen(context: Context): View {
         val localizedConfig = resources.configuration.apply { MyLocaleHelper.onAttach(context, "en") }
-        val localizedContext = ContextWrapper(this).createConfigurationContext(localizedConfig)
+        val localizedContext = ContextWrapper(context).createConfigurationContext(localizedConfig)
 
         val welcomeScreenView = LayoutInflater.from(localizedContext).inflate(R.layout.layout_welcome_scr_test, null, false)
 
@@ -398,7 +398,7 @@ class SOTStartTestActivity : AppCompatBaseActivity() {
                     SOTAdsManager.showWelcomeDupScreen()
                 }
                 isDuplicateScreenStarted = false
-                val toast = Toast.makeText(this, "Please check the checkbox", Toast.LENGTH_SHORT)
+                val toast = Toast.makeText(context, "Please check the checkbox", Toast.LENGTH_SHORT)
                 toast.setGravity(Gravity.CENTER, 0, 0)
                 toast.show()
             }
@@ -406,8 +406,62 @@ class SOTStartTestActivity : AppCompatBaseActivity() {
         return welcomeScreenView
     }
 
+//    private fun getWalkThroughList(context: Context): ArrayList<WalkThroughItem> {
+//        val localizedContext = ContextWrapper(context).createConfigurationContext(
+//            resources.configuration.apply { MyLocaleHelper.onAttach(context, "en") }
+//        )
+//        return arrayListOf(
+//            WalkThroughItem(
+//                heading = "Screen 1",
+//                description = "This is screen one",
+//                headingColor = com.manual.mediation.library.sotadlib.R.color.redLib,
+//                descriptionColor = com.manual.mediation.library.sotadlib.R.color.yellowLib,
+//                nextColor = com.manual.mediation.library.sotadlib.R.color.orangeLib,
+//                drawable = AppCompatResources.getDrawable(
+//                    context,
+//                    com.manual.mediation.library.sotadlib.R.drawable.pakistan
+//                ),
+//                drawableBubble = AppCompatResources.getDrawable(
+//                    context,
+//                    R.drawable.ic_launcher_foreground
+//                )
+//            ),
+//            WalkThroughItem(
+//                heading = "Screen 2",
+//                description = "This is screen two",
+//                headingColor = com.manual.mediation.library.sotadlib.R.color.redLib,
+//                descriptionColor = com.manual.mediation.library.sotadlib.R.color.yellowLib,
+//                nextColor = com.manual.mediation.library.sotadlib.R.color.orangeLib,
+//                drawable = AppCompatResources.getDrawable(
+//                    context,
+//                    com.manual.mediation.library.sotadlib.R.drawable.pakistan
+//                ),
+//                drawableBubble = AppCompatResources.getDrawable(
+//                    context,
+//                    R.drawable.ic_launcher_foreground
+//                )
+//            ),
+//            WalkThroughItem(
+//                heading = "Screen 3",
+//                description = "This is screen three",
+//                headingColor = com.manual.mediation.library.sotadlib.R.color.redLib,
+//                descriptionColor = com.manual.mediation.library.sotadlib.R.color.yellowLib,
+//                nextColor = com.manual.mediation.library.sotadlib.R.color.orangeLib,
+//                drawable = AppCompatResources.getDrawable(
+//                    context,
+//                    com.manual.mediation.library.sotadlib.R.drawable.pakistan
+//                ),
+//                drawableBubble = AppCompatResources.getDrawable(
+//                    context,
+//                    R.drawable.ic_launcher_foreground
+//                )
+//            )
+//        )
+//    }
+
+
     private fun getWalkThroughList(context: Context): ArrayList<WalkThroughItem> {
-        val localizedContext = ContextWrapper(this).createConfigurationContext(
+        val localizedContext = ContextWrapper(context).createConfigurationContext(
             resources.configuration.apply { MyLocaleHelper.onAttach(context, "en") }
         )
         return arrayListOf(
@@ -417,14 +471,8 @@ class SOTStartTestActivity : AppCompatBaseActivity() {
                 headingColor = com.manual.mediation.library.sotadlib.R.color.redLib,
                 descriptionColor = com.manual.mediation.library.sotadlib.R.color.yellowLib,
                 nextColor = com.manual.mediation.library.sotadlib.R.color.orangeLib,
-                drawable = AppCompatResources.getDrawable(
-                    context,
-                    com.manual.mediation.library.sotadlib.R.drawable.pakistan
-                ),
-                drawableBubble = AppCompatResources.getDrawable(
-                    context,
-                    R.drawable.ic_launcher_foreground
-                )
+                drawableResId = com.manual.mediation.library.sotadlib.R.drawable.pakistan,
+                drawableBubbleResId = R.drawable.ic_launcher_foreground
             ),
             WalkThroughItem(
                 heading = "Screen 2",
@@ -432,14 +480,8 @@ class SOTStartTestActivity : AppCompatBaseActivity() {
                 headingColor = com.manual.mediation.library.sotadlib.R.color.redLib,
                 descriptionColor = com.manual.mediation.library.sotadlib.R.color.yellowLib,
                 nextColor = com.manual.mediation.library.sotadlib.R.color.orangeLib,
-                drawable = AppCompatResources.getDrawable(
-                    context,
-                    com.manual.mediation.library.sotadlib.R.drawable.pakistan
-                ),
-                drawableBubble = AppCompatResources.getDrawable(
-                    context,
-                    R.drawable.ic_launcher_foreground
-                )
+                drawableResId = com.manual.mediation.library.sotadlib.R.drawable.pakistan,
+                drawableBubbleResId = R.drawable.ic_launcher_foreground
             ),
             WalkThroughItem(
                 heading = "Screen 3",
@@ -447,14 +489,8 @@ class SOTStartTestActivity : AppCompatBaseActivity() {
                 headingColor = com.manual.mediation.library.sotadlib.R.color.redLib,
                 descriptionColor = com.manual.mediation.library.sotadlib.R.color.yellowLib,
                 nextColor = com.manual.mediation.library.sotadlib.R.color.orangeLib,
-                drawable = AppCompatResources.getDrawable(
-                    context,
-                    com.manual.mediation.library.sotadlib.R.drawable.pakistan
-                ),
-                drawableBubble = AppCompatResources.getDrawable(
-                    context,
-                    R.drawable.ic_launcher_foreground
-                )
+                drawableResId = com.manual.mediation.library.sotadlib.R.drawable.pakistan,
+                drawableBubbleResId = R.drawable.ic_launcher_foreground
             )
         )
     }

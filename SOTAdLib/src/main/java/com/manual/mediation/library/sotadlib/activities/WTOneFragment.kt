@@ -28,11 +28,31 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class WTOneFragment(val item: WalkThroughItem) : Fragment() {
-
-
+class WTOneFragment : Fragment() {
     lateinit var binding: FragmentWTOneBinding
     private var sotAdsConfigurations: SOTAdsConfigurations? = null
+
+    // Add a companion object with newInstance method
+    companion object {
+        private const val ARG_ITEM = "walkThroughItem"
+
+        fun newInstance(item: WalkThroughItem): WTOneFragment {
+            val fragment = WTOneFragment()
+            val args = Bundle().apply {
+                putParcelable(ARG_ITEM, item)
+            }
+            fragment.arguments = args
+            return fragment
+        }
+    }
+
+    private lateinit var item: WalkThroughItem
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        // Retrieve the item from arguments
+        item = arguments?.getParcelable(ARG_ITEM) ?: throw IllegalStateException("WalkThroughItem must be provided")
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentWTOneBinding.inflate(inflater, container,false)
@@ -76,7 +96,7 @@ class WTOneFragment(val item: WalkThroughItem) : Fragment() {
             withContext(Dispatchers.Main) {
                 Glide.with(requireActivity())
                     .asDrawable()
-                    .load(item.drawable)
+                    .load(item.drawableResId)
                     .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
                     .skipMemoryCache(true)
                     .into(binding.main)
@@ -86,7 +106,7 @@ class WTOneFragment(val item: WalkThroughItem) : Fragment() {
             withContext(Dispatchers.Main) {
                 Glide.with(requireActivity())
                     .asDrawable()
-                    .load(item.drawableBubble)
+                    .load(item.drawableResId)
                     .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
                     .skipMemoryCache(true)
                     .into(binding.bubble)
