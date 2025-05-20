@@ -36,6 +36,7 @@ class WTFullScreenAdFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         sotAdsConfigurations = SOTAdsManager.getConfigurations()
+        Log.i("SOTStartTestActivity", "walkthrough_fullscr")
         showCloseButtonRunnable = Runnable {
             binding.ivClose.visibility = View.VISIBLE
         }

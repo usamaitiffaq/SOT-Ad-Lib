@@ -33,6 +33,8 @@ class LanguageScreenOne : AppCompatBaseActivity(), LanguageInterface {
         supportActionBar?.hide()
         hideSystemUIUpdated()
         setContentView(R.layout.language_screen_one)
+        Log.i("SOTStartTestActivity", "language1_scr")
+
         recyclerView = findViewById(R.id.recyclerViewLanguage)
         recyclerView.layoutManager = LinearLayoutManager(this)
 
@@ -100,11 +102,28 @@ class LanguageScreenOne : AppCompatBaseActivity(), LanguageInterface {
         }
     }
 
+//    override fun showLanguageTwoScreen() {
+//        Log.i("LanguageScreenOne", "Language: showLanguageTwoScreen()")
+//        startActivity(Intent(this, LanguageScreenDup::class.java), ActivityOptions.makeCustomAnimation(this, 0, 0).toBundle())
+//        finish()
+//        overridePendingTransition(0, 0)
+//    }
+
     override fun showLanguageTwoScreen() {
-        Log.i("LanguageScreenOne", "Language: showLanguageTwoScreen()")
-        startActivity(Intent(this, LanguageScreenDup::class.java), ActivityOptions.makeCustomAnimation(this, 0, 0).toBundle())
-        finish()
-        overridePendingTransition(0, 0)
+        if (!isFinishing && !isDestroyed) {
+            try {
+                val intent = Intent(this, LanguageScreenDup::class.java)
+                if (intent.resolveActivity(packageManager) != null) {
+                    startActivity(intent, ActivityOptions.makeCustomAnimation(this, 0, 0).toBundle())
+                    finish()
+                    overridePendingTransition(0, 0)
+                } else {
+                    Log.e("LanguageScreenOne", "No activity found to handle intent")
+                }
+            } catch (e: Exception) {
+                Log.e("LanguageScreenOne", "Error starting activity", e)
+            }
+        }
     }
 
     override fun onResume() {

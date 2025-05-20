@@ -37,6 +37,7 @@ class LanguageScreensConfiguration private constructor() {
     }
 
     fun showLanguageTwoScreen() {
+        Log.i("SOTStartTestActivity", "language1_scr_tap_language")
         languageInterface?.showLanguageTwoScreen()
     }
 

@@ -1,5 +1,6 @@
 package com.sot.adslib
 
+import android.app.Activity
 import android.content.Context
 import android.content.ContextWrapper
 import android.content.Intent
@@ -50,7 +51,7 @@ class SOTStartTestActivity : AppCompatBaseActivity() {
     }
 
     private fun startFirstOpenFlow() {
-        Log.i("SOTStartTestActivity", "sot_adlib_start_scr")
+        Log.i("SOTStartTestActivity", "splash_scr")
         firstOpenFlowAdIds.apply {
             this["ADMOB_SPLASH_INTERSTITIAL"] = "ca-app-pub-3940256099942544/1033173712"
             this["ADMOB_SPLASH_RESUME"] = "ca-app-pub-3940256099942544/9257395921"
@@ -101,7 +102,7 @@ class SOTStartTestActivity : AppCompatBaseActivity() {
                 )
             },
             onFinish = {
-                Log.i("SOTStartTestActivity", "sot_adlib_end_scr")
+//                Log.i("SOTStartTestActivity", "sot_adlib_end_scr")
                 gotoMainActivity()
             }
         )
@@ -318,9 +319,12 @@ class SOTStartTestActivity : AppCompatBaseActivity() {
 
         txtWallpapers.setOnClickListener {
             Log.i("SOTStartTestActivity", "survey_scr_check_wallpaper")
+
+
             if (isDuplicateScreenStarted) {
                 SOTAdsManager.showWelcomeDupScreen()
             }
+
             isDuplicateScreenStarted = false
             if (txtWallpapersBool) {
                 txtWallpapersBool = false
@@ -436,6 +440,10 @@ class SOTStartTestActivity : AppCompatBaseActivity() {
         }
         return welcomeScreenView
     }
+
+
+
+
 
 //    private fun getWalkThroughList(context: Context): ArrayList<WalkThroughItem> {
 //        val localizedContext = ContextWrapper(context).createConfigurationContext(

@@ -34,6 +34,7 @@ class LanguageScreenDup: AppCompatBaseActivity() {
         sotAdsConfigurations = SOTAdsManager.getConfigurations()
         hideSystemUIUpdated()
         setContentView(R.layout.language_screen_dup)
+        Log.i("SOTStartTestActivity", "language2_scr")
         imvDone = findViewById(R.id.imvDone)
         recyclerView = findViewById(R.id.recyclerViewLanguage)
         recyclerView.layoutManager = LinearLayoutManager(this)
@@ -61,6 +62,7 @@ class LanguageScreenDup: AppCompatBaseActivity() {
         }
 
         imvDone.setOnClickListener {
+            Log.i("SOTStartTestActivity", "language2_scr_tap_language")
             intent?.let {
                 if (it.getStringExtra("From").equals("AppSettings")) {
                     finish()

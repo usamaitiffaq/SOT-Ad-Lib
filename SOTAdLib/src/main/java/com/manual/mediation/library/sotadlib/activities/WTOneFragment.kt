@@ -62,7 +62,7 @@ class WTOneFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         sotAdsConfigurations = SOTAdsManager.getConfigurations()
-
+        Log.i("SOTStartTestActivity", "walkthrough1_scr")
         val nativeWalkThroughTwoEnabled = sotAdsConfigurations?.getRemoteConfigData()?.get("NATIVE_WALKTHROUGH_2") as? Boolean ?: false
         if (nativeWalkThroughTwoEnabled) {
             when (sotAdsConfigurations?.getRemoteConfigData()?.get("NATIVE_WALKTHROUGH_2_MED")) {
@@ -121,6 +121,7 @@ class WTOneFragment : Fragment() {
         binding.txtDescription.text = item.description
 
         binding.btnNext.setOnClickListener {
+            Log.i("SOTStartTestActivity", "walkthrough1_scr_tap_next")
             val viewPager = activity?.findViewById<ViewPager2>(R.id.viewPager)
             viewPager?.currentItem = 1
         }
@@ -237,17 +238,7 @@ class WTOneFragment : Fragment() {
             binding.glOne.setGuidelinePercent(0.8f)
             binding.nativeAdContainerAd.visibility = View.GONE
         }
-        /*if (NetworkCheck.isNetworkAvailable(context)) {
-            binding.glOne.setGuidelinePercent(0.35f)
-            binding.glTwo.setGuidelinePercent(0.5f)
-            binding.cl2.visibility = View.VISIBLE
-            binding.cl2Dup.visibility = View.GONE
-        } else {
-            binding.glOne.setGuidelinePercent(0.45f)
-            binding.glTwo.setGuidelinePercent(0.8f)
-            binding.cl2Dup.visibility = View.VISIBLE
-            binding.cl2.visibility = View.GONE
-        }*/
+
 
         val nativeWalkThrough1Enabled = sotAdsConfigurations?.getRemoteConfigData()?.get("NATIVE_WALKTHROUGH_1") as? Boolean ?: false
         if (nativeWalkThrough1Enabled) {

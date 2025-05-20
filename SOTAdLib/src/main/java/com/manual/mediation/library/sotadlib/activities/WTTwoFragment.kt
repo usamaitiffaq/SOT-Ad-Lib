@@ -55,7 +55,7 @@ class WTTwoFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         sotAdsConfigurations = SOTAdsManager.getConfigurations()
-
+        Log.i("SOTStartTestActivity", "walkthrough2_scr")
         lifecycleScope.launch {
             withContext(Dispatchers.Main) {
                 Glide.with(requireActivity())
@@ -88,6 +88,8 @@ class WTTwoFragment : Fragment() {
             binding.glOne.setGuidelinePercent(0.8f)
         }
         binding.btnNext.setOnClickListener {
+            Log.i("SOTStartTestActivity", "walkthrough2_scr_tap_next")
+
             val viewPager = activity?.findViewById<ViewPager2>(R.id.viewPager)
             viewPager?.currentItem = 2
         }

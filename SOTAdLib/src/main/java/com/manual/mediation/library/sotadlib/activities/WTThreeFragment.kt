@@ -62,6 +62,8 @@ class WTThreeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         sotAdsConfigurations = SOTAdsManager.getConfigurations()
 
+        Log.i("SOTStartTestActivity", "walkthrough3_scr")
+
         lifecycleScope.launch {
             withContext(Dispatchers.Main) {
                 context?.let {
@@ -85,16 +87,7 @@ class WTThreeFragment : Fragment() {
                 }
             }
         }
-        /*lifecycleScope.launch {
-            withContext(Dispatchers.Main) {
-                Glide.with(requireActivity())
-                    .asDrawable()
-                    .load(item.drawableBubble)
-                    .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
-                    .skipMemoryCache(true)
-                    .into(binding.bubbleDup)
-            }
-        }*/
+
 
         context?.let {
             binding.txtHeading.setTextColor(ContextCompat.getColor(it, item.headingColor))
@@ -110,6 +103,7 @@ class WTThreeFragment : Fragment() {
         val interstitialLetsStartEnabled = sotAdsConfigurations?.getRemoteConfigData()?.get("INTERSTITIAL_LETS_START") as? Boolean ?: false
 
         binding.btnNext.setOnClickListener {
+
             if (interstitialLetsStartEnabled) {
                 when (sotAdsConfigurations?.getRemoteConfigData()?.get("INTERSTITIAL_LETS_START_MED")) {
                     "ADMOB" -> {
@@ -120,6 +114,7 @@ class WTThreeFragment : Fragment() {
                     }
                 }
             } else {
+
                 letsStartClick()
             }
         }
@@ -187,6 +182,7 @@ class WTThreeFragment : Fragment() {
 //    }
 
     private fun letsStartClick() {
+        Log.i("SOTStartTestActivity", "walkthrough3_scr_tap_start")
         val safeActivity = activity ?: return
         PrefHelper(safeActivity).putBoolean("StartScreens", value = true)
         SOTAdsManager.notifyFlowFinished()
